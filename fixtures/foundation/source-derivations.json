@@ -1,0 +1,23 @@
+{
+  "schema_revision": "foundation-source-derivations-v1",
+  "enterprise_id": "SIM-GARMENT-01",
+  "dataset_id": "SIM-GARMENT-01-V1",
+  "source_sha256": "b823a016e1200eba2df176f3259f3dfafda03ff6c7d59d83fba03c2b5d53ad7c",
+  "source_sections": [
+    "3.1",
+    "3.2",
+    "7",
+    "9",
+    "12"
+  ],
+  "review_status": "SOURCE_CHECKED",
+  "operation_setups": {
+    "SEW-TB-M": "TEE-BLACK",
+    "SEW-TB-L": "TEE-BLACK",
+    "SEW-TW-M": "TEE-WHITE",
+    "SEW-TW-L": "TEE-WHITE",
+    "SEW-JN-M": "JACKET-NAVY",
+    "SEW-JN-L": "JACKET-NAVY"
+  },
+  "reason": "Original sections 3.1/3.2 explicitly bind black/white tee and navy jacket to these item/operation identities; no code-pattern inference. Section 9 temporary soft target overrides base minimum only in its period. Section 12 source PRIORITY; no execution authority."
+}

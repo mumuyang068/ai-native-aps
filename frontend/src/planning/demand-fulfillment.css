@@ -1,0 +1,26 @@
+.fulfillment-focus{border-block:1px solid var(--control-border);padding:12px 0;margin:8px 0 14px;min-width:0}.fulfillment-controls,.fulfillment-current{display:flex;flex-wrap:wrap;align-items:center;gap:12px}.fulfillment-controls label{display:flex;gap:8px;align-items:center;max-width:100%}.fulfillment-controls .workspace-select{min-width:240px;max-width:100%}.fulfillment-controls>span,.fulfillment-caption{color:var(--text-secondary);font-size:13px}.fulfillment-current{padding:8px 0;line-height:1.6}.fulfillment-current strong{border-left:3px solid var(--primary);padding-left:9px}.fulfillment-focus .planning-chart-canvas{height:290px;min-width:0}.fulfillment-caption{line-height:1.6;margin:6px 0}.fulfillment-line-filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.fulfillment-line-filter input{min-width:0;max-width:100%}.fulfillment-due-line{display:grid;gap:4px}.fulfillment-due-line p{margin:0}.fulfillment-due-line strong{overflow-wrap:anywhere}@media(max-width:1050px){.fulfillment-controls{align-items:flex-start}.report-workspace{grid-template-columns:minmax(0,1fr) 270px}}@media(max-width:700px){.fulfillment-controls label{flex-wrap:wrap;min-width:0}.fulfillment-controls .workspace-select{min-width:0;width:100%}.fulfillment-controls>label:first-child{width:100%}.fulfillment-focus .planning-chart-canvas{height:310px}.fulfillment-current{display:grid;gap:4px}.report-workspace{grid-template-columns:minmax(0,1fr)}}
+
+/* One focused report surface; other professional views retain their layout. */
+.demand-report{background:var(--surface);padding:16px 22px 22px}
+.demand-report .report-heading{margin-bottom:8px}.demand-report .report-heading h2{font-size:19px}
+.report-main-tools{display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:9px 0;border-bottom:1px solid var(--line-soft)}
+.report-tool-primary,.report-tool-secondary{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.report-tool-primary>select{min-height:34px;border-color:var(--line);background:var(--surface);padding:4px 24px 4px 8px}
+.report-main-tools ix-button[aria-expanded=true]{background:var(--selection)}
+.report-tool-panel{margin:0 0 10px;padding:14px 16px;background:var(--panel);border:1px solid var(--line);max-width:100%;overflow-wrap:anywhere}
+.report-tool-panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}.report-tool-panel-heading h3{font-size:14px}
+.report-tool-panel .saved-workviews{border:0;padding-top:0}.report-tool-panel .raw-json{max-height:260px;overflow:auto}
+.report-tool-panel .definition{max-width:900px}.report-tool-panel p{line-height:1.6;margin:6px 0}.report-tool-panel small{color:var(--muted)}
+.demand-report .fulfillment-focus{border-block:0;margin:0;padding:12px 0 10px}
+.demand-report .fulfillment-controls{gap:10px;padding-bottom:0;min-height:36px}
+.demand-report .fulfillment-controls label{font-size:13px}.demand-report .fulfillment-controls>ix-button{margin-left:auto}
+.demand-report .planning-chart-actions{justify-content:flex-end;padding:0;min-height:30px}
+.demand-report .fulfillment-focus .planning-chart-canvas{height:330px}
+.fulfillment-selected{display:flex;gap:8px 18px;align-items:center;flex-wrap:wrap;padding:8px 10px;background:var(--selection);margin-bottom:6px}
+.fulfillment-selected strong{font-size:13px}.fulfillment-details-link{margin-top:4px}
+.report-table-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line)}
+.report-table-heading h3{font-size:14px}.report-table-heading small{font-size:12px;color:var(--muted);font-weight:400;margin-left:8px}
+@media(min-width:1100px){.demand-report .report-workspace{grid-template-columns:minmax(0,1fr) 300px}.demand-report .report-tool-view .workview-controls{gap:10px 16px}}
+@media(max-width:700px){.demand-report{padding:12px}.report-main-tools{gap:4px}.report-tool-primary{flex:1 1 100%}.report-tool-secondary{margin-left:auto}.report-tool-panel{padding:10px}.report-tool-panel .definition>div{min-width:0}.report-tool-panel .definition dd{overflow-wrap:anywhere;min-width:0}.demand-report .fulfillment-controls{gap:4px}.demand-report .fulfillment-controls>ix-button{margin-left:0}.demand-report .fulfillment-focus .planning-chart-canvas{height:310px}.report-table-heading{gap:4px}.report-table-heading h3{font-size:13px}.report-tool-panel .report-toolbar input{width:100%}}
+
+.demand-report .report-workspace.report-no-selection{grid-template-columns:minmax(0,1fr)}

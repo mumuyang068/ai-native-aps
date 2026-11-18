@@ -1,0 +1,550 @@
+{
+  "schema_version": "0.2.0",
+  "solve_run_id": "P2-URGENT",
+  "scenario_id": "SC-DEMO-URGENT",
+  "scenario_revision": 1,
+  "snapshot_id": "SNAP-DEMO-001",
+  "input_hash": "80a523bc69bc6b6b2f78d577836bc9018cfb4ab14fdf162ce60d21b1bb8d27a0",
+  "engine": {
+    "name": "frepple",
+    "runtime_version": "9.19.0",
+    "source_commit": "ab8430ca26f41bac1f54a8a30070642e91d9b3e9",
+    "adapter_version": "p0.1",
+    "engine_task_ref": "27"
+  },
+  "computed_at": "2026-10-14T13:07:22.389715+08:00",
+  "assessment": {
+    "status": "ACCEPTABLE",
+    "constraint_check": "PASS",
+    "coverage": [
+      "material_balance",
+      "resource_capacity",
+      "calendar_duration",
+      "routing_order",
+      "procurement_lead_time"
+    ],
+    "issues": []
+  },
+  "purchase_suggestions": [
+    {
+      "id": "P2-URGENT:PO:9",
+      "engine_ref": "9",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "supplier_id": "SUP-A",
+      "quantity": "1800",
+      "uom": "m",
+      "order_at": "2026-10-17T17:20:00+08:00",
+      "receipt_at": "2026-10-20T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:purchaseorder:9"
+      ]
+    }
+  ],
+  "manufacture_suggestions": [
+    {
+      "id": "P2-URGENT:MO:1",
+      "engine_ref": "1",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "recipe_id": "MAKE-TEE-R1",
+      "quantity": "300",
+      "uom": "piece",
+      "start_at": "2026-10-20T09:36:00+08:00",
+      "end_at": "2026-10-20T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:manufacturingorder:1"
+      ]
+    },
+    {
+      "id": "P2-URGENT:MO:2",
+      "engine_ref": "2",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "recipe_id": "MAKE-TEE-R1",
+      "quantity": "1000",
+      "uom": "piece",
+      "start_at": "2026-10-20T17:20:00+08:00",
+      "end_at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:manufacturingorder:2"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "id": "P2-URGENT:OP:3",
+      "manufacture_id": "P2-URGENT:MO:1",
+      "operation_id": "CUT",
+      "resource_id": "CUT-LINE",
+      "resource_units": "1",
+      "quantity": "300",
+      "start_at": "2026-10-20T09:36:00+08:00",
+      "end_at": "2026-10-20T11:36:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:3"
+      ]
+    },
+    {
+      "id": "P2-URGENT:OP:4",
+      "manufacture_id": "P2-URGENT:MO:2",
+      "operation_id": "CUT",
+      "resource_id": "CUT-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-20T17:20:00+08:00",
+      "end_at": "2026-10-21T16:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:4"
+      ]
+    },
+    {
+      "id": "P2-URGENT:OP:5",
+      "manufacture_id": "P2-URGENT:MO:1",
+      "operation_id": "PACK",
+      "resource_id": "PACK-LINE",
+      "resource_units": "1",
+      "quantity": "300",
+      "start_at": "2026-10-20T15:36:00+08:00",
+      "end_at": "2026-10-20T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:5"
+      ]
+    },
+    {
+      "id": "P2-URGENT:OP:6",
+      "manufacture_id": "P2-URGENT:MO:2",
+      "operation_id": "PACK",
+      "resource_id": "PACK-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-23T09:00:00+08:00",
+      "end_at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:6"
+      ]
+    },
+    {
+      "id": "P2-URGENT:OP:7",
+      "manufacture_id": "P2-URGENT:MO:1",
+      "operation_id": "SEW",
+      "resource_id": "SEW-LINE",
+      "resource_units": "1",
+      "quantity": "300",
+      "start_at": "2026-10-20T11:36:00+08:00",
+      "end_at": "2026-10-20T15:36:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:7"
+      ]
+    },
+    {
+      "id": "P2-URGENT:OP:8",
+      "manufacture_id": "P2-URGENT:MO:2",
+      "operation_id": "SEW",
+      "resource_id": "SEW-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-21T16:00:00+08:00",
+      "end_at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:8"
+      ]
+    }
+  ],
+  "deliveries": [
+    {
+      "demand_id": "SO-101-L1",
+      "requested_quantity": "1000",
+      "planned_quantity": "1000",
+      "unfulfilled_quantity": "0",
+      "uom": "piece",
+      "due_at": "2026-10-23T18:00:00+08:00",
+      "planned_delivery_at": "2026-10-23T18:00:00+08:00",
+      "delay_seconds": 0,
+      "status": "ON_TIME",
+      "evidence_ids": [
+        "ENGINE:demand:SO-101-L1"
+      ]
+    },
+    {
+      "demand_id": "SO-102-L1",
+      "requested_quantity": "300",
+      "planned_quantity": "300",
+      "unfulfilled_quantity": "0",
+      "uom": "piece",
+      "due_at": "2026-10-20T18:00:00+08:00",
+      "planned_delivery_at": "2026-10-20T18:00:00+08:00",
+      "delay_seconds": 0,
+      "status": "ON_TIME",
+      "evidence_ids": [
+        "ENGINE:demand:SO-102-L1"
+      ]
+    }
+  ],
+  "material_flows": [
+    {
+      "id": "P2-URGENT:FLOW:67",
+      "order_id": "FAB-BLK @ SITE-01",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "800",
+      "uom": "m",
+      "at": "1971-01-01T00:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:67"
+      ]
+    },
+    {
+      "id": "P2-URGENT:FLOW:68",
+      "order_id": "3",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "CONSUME",
+      "quantity": "600",
+      "uom": "m",
+      "at": "2026-10-20T09:36:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:68"
+      ]
+    },
+    {
+      "id": "P2-URGENT:FLOW:69",
+      "order_id": "9",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "1800",
+      "uom": "m",
+      "at": "2026-10-20T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:69"
+      ]
+    },
+    {
+      "id": "P2-URGENT:FLOW:70",
+      "order_id": "4",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "CONSUME",
+      "quantity": "2000",
+      "uom": "m",
+      "at": "2026-10-20T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:70"
+      ]
+    },
+    {
+      "id": "P2-URGENT:FLOW:71",
+      "order_id": "5",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "300",
+      "uom": "piece",
+      "at": "2026-10-20T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:71"
+      ]
+    },
+    {
+      "id": "P2-URGENT:FLOW:72",
+      "order_id": "12",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "direction": "CONSUME",
+      "quantity": "300",
+      "uom": "piece",
+      "at": "2026-10-20T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:72"
+      ]
+    },
+    {
+      "id": "P2-URGENT:FLOW:73",
+      "order_id": "6",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "1000",
+      "uom": "piece",
+      "at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:73"
+      ]
+    },
+    {
+      "id": "P2-URGENT:FLOW:74",
+      "order_id": "13",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "direction": "CONSUME",
+      "quantity": "1000",
+      "uom": "piece",
+      "at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:74"
+      ]
+    }
+  ],
+  "resource_loads": [
+    {
+      "operation_id": "P2-URGENT:OP:3",
+      "resource_id": "CUT-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-20T09:36:00+08:00",
+      "end_at": "2026-10-20T11:36:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:43"
+      ]
+    },
+    {
+      "operation_id": "P2-URGENT:OP:4",
+      "resource_id": "CUT-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-20T17:20:00+08:00",
+      "end_at": "2026-10-21T16:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:44"
+      ]
+    },
+    {
+      "operation_id": "P2-URGENT:OP:5",
+      "resource_id": "PACK-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-20T15:36:00+08:00",
+      "end_at": "2026-10-20T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:45"
+      ]
+    },
+    {
+      "operation_id": "P2-URGENT:OP:6",
+      "resource_id": "PACK-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-23T09:00:00+08:00",
+      "end_at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:46"
+      ]
+    },
+    {
+      "operation_id": "P2-URGENT:OP:7",
+      "resource_id": "SEW-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-20T11:36:00+08:00",
+      "end_at": "2026-10-20T15:36:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:47"
+      ]
+    },
+    {
+      "operation_id": "P2-URGENT:OP:8",
+      "resource_id": "SEW-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-21T16:00:00+08:00",
+      "end_at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:48"
+      ]
+    }
+  ],
+  "pegging": [],
+  "pegging_available": false,
+  "evidence": [
+    {
+      "id": "ENGINE:purchaseorder:9",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\purchaseorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:manufacturingorder:1",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\manufacturingorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:manufacturingorder:2",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\manufacturingorder.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:workorder:3",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\workorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:workorder:4",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\workorder.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:workorder:5",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\workorder.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:workorder:6",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\workorder.json",
+      "locator": "row:3"
+    },
+    {
+      "id": "ENGINE:workorder:7",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\workorder.json",
+      "locator": "row:4"
+    },
+    {
+      "id": "ENGINE:workorder:8",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\workorder.json",
+      "locator": "row:5"
+    },
+    {
+      "id": "ENGINE:demand:SO-101-L1",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\demand.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:demand:SO-102-L1",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\demand.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:67",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:68",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:69",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:70",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+      "locator": "row:3"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:71",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+      "locator": "row:4"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:72",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+      "locator": "row:5"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:73",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+      "locator": "row:6"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:74",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+      "locator": "row:7"
+    },
+    {
+      "id": "ENGINE:operationplanresource:43",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanresource.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:operationplanresource:44",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanresource.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:operationplanresource:45",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanresource.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:operationplanresource:46",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanresource.json",
+      "locator": "row:3"
+    },
+    {
+      "id": "ENGINE:operationplanresource:47",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanresource.json",
+      "locator": "row:4"
+    },
+    {
+      "id": "ENGINE:operationplanresource:48",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\operationplanresource.json",
+      "locator": "row:5"
+    },
+    {
+      "id": "ENGINE:deliveryorder:12",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\deliveryorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:deliveryorder:13",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P2-URGENT\\raw\\deliveryorder.json",
+      "locator": "row:1"
+    }
+  ],
+  "raw_artifact_refs": [
+    "evidence\\runs\\P2-URGENT\\raw\\constraint.json",
+    "evidence\\runs\\P2-URGENT\\raw\\deliveryorder.json",
+    "evidence\\runs\\P2-URGENT\\raw\\demand.json",
+    "evidence\\runs\\P2-URGENT\\raw\\import-polls.json",
+    "evidence\\runs\\P2-URGENT\\raw\\import-submit.json",
+    "evidence\\runs\\P2-URGENT\\raw\\import.log",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-buffer.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-calendar.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-calendarbucket.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-customer.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-demand.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-item.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-itemsupplier.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-location.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-operation.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-operationmaterial.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-operationresource.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-parameter.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-resource.json",
+    "evidence\\runs\\P2-URGENT\\raw\\imported-supplier.json",
+    "evidence\\runs\\P2-URGENT\\raw\\manufacturingorder.json",
+    "evidence\\runs\\P2-URGENT\\raw\\operationplanmaterial.json",
+    "evidence\\runs\\P2-URGENT\\raw\\operationplanresource.json",
+    "evidence\\runs\\P2-URGENT\\raw\\problem.json",
+    "evidence\\runs\\P2-URGENT\\raw\\purchaseorder.json",
+    "evidence\\runs\\P2-URGENT\\raw\\solve-polls.json",
+    "evidence\\runs\\P2-URGENT\\raw\\solve-submit.json",
+    "evidence\\runs\\P2-URGENT\\raw\\solve.log",
+    "evidence\\runs\\P2-URGENT\\raw\\workorder.json"
+  ],
+  "result_hash": "b5cbeea5d598325bf3ff726d27cae12092bd4a3eb8344bc3af580038b21114be"
+}

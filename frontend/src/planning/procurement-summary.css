@@ -1,0 +1,5 @@
+/* Allow the existing grid's inspector to shrink around a scrolling table. */
+.workspace-page .inspector,.workspace-page .inspector-body{min-width:0}
+.procurement-summary{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.procurement-summary .condition-supply-table{width:100%;max-width:100%;overflow:auto}
+.procurement-summary table{min-width:660px}

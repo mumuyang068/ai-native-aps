@@ -1,0 +1,6 @@
+import {expect,it} from 'vitest';
+import {firmInputValid,verifyFirmResponse} from './firmDemandModel';
+const scope={planId:'P',versionId:'V',runId:'R',target:'baseline'};
+const h={id:'NEW-L1',order_ref:'NEW',line_ref:'L1',customer_id:'C',item_id:'FG',location_id:'L',uom:'ea',quantity:'2',due_at:'2026-11-01T10:00:00+08:00',priority:10,minimum_shipment:'1',maximum_lateness_seconds:0,research_identity:'frozen/R',evidence_status:'SYNTHETIC_RESEARCH_ASSUMPTION'};
+it('requires customer, exact positive quantity, stable identity and timezone',()=>{expect(firmInputValid(h,'research',true)).toBe(true);for(const patch of [{customer_id:''},{id:''},{quantity:'0'},{quantity:'1e2'},{due_at:'2026-11-01T10:00:00'},{priority:NaN}])expect(firmInputValid({...h,...patch},'research',true)).toBe(false);expect(firmInputValid(h,'research',false)).toBe(false)});
+it('rejects stale scope and solved preview',()=>{const v={identity:{plan_id:'P',data_version_id:'V',run_id:'R',baseline_run_id:'R',target:'baseline'},input_hypothesis:h,hypothesis:h,simulation_only:true,engine_executed:false,calculation_submitted:false};expect(verifyFirmResponse(v,scope,h,false)).toBe(v);expect(()=>verifyFirmResponse({...v,engine_executed:true},scope,h,false)).toThrow();expect(()=>verifyFirmResponse({...v,identity:{...v.identity,run_id:'OLD'}},scope,h,false)).toThrow()});

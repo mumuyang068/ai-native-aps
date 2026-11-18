@@ -1,0 +1,4778 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:industrial-ai-planning:contracts:0.2.0",
+  "title": "Industrial AI Planning contracts 0.2.0",
+  "$defs": {
+    "OperatorRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pool_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "skill_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "const": "1"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "pool_id",
+        "skill_id",
+        "quantity",
+        "provenance"
+      ]
+    },
+    "Skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "provenance"
+      ]
+    },
+    "ResourceSkill": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resource_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "skill_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "resource_id",
+        "skill_id",
+        "priority",
+        "effective_from",
+        "effective_to",
+        "provenance"
+      ]
+    },
+    "Provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "import_batch_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_locator": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "source_system",
+        "source_record_id",
+        "source_version",
+        "observed_at",
+        "import_batch_id",
+        "source_locator"
+      ]
+    },
+    "Interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        }
+      },
+      "required": [
+        "start_at",
+        "end_at"
+      ]
+    },
+    "Site": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "timezone",
+        "provenance"
+      ]
+    },
+    "Item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "RAW",
+            "SEMI",
+            "FINISHED"
+          ]
+        },
+        "base_uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "base_uom",
+        "provenance"
+      ]
+    },
+    "Calendar": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "available_intervals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Interval"
+          },
+          "minItems": 0
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "timezone",
+        "available_intervals",
+        "provenance"
+      ]
+    },
+    "Resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "enum": [
+            "MACHINE",
+            "OPERATOR",
+            "OPERATOR_POOL",
+            "MACHINE_POOL"
+          ]
+        },
+        "pool_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availability_calendar_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parallel_units": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "capacity_model": {
+          "enum": [
+            "CONTINUOUS",
+            "WINDOW_QUANTITY"
+          ]
+        },
+        "window_capacity_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "capacity_uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "maxearly_seconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "location_id",
+        "availability_calendar_id",
+        "provenance"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "capacity_model"
+            ],
+            "properties": {
+              "capacity_model": {
+                "const": "WINDOW_QUANTITY"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "window_capacity_quantity",
+              "capacity_uom",
+              "maxearly_seconds"
+            ]
+          },
+          "else": {
+            "required": [
+              "parallel_units"
+            ]
+          }
+        }
+      ]
+    },
+    "BOMLine": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity_per_output": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scrap_fraction": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "consume_operation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consume_at": {
+          "type": "string",
+          "enum": [
+            "START",
+            "END"
+          ]
+        }
+      },
+      "required": [
+        "item_id",
+        "quantity_per_output",
+        "uom",
+        "scrap_fraction",
+        "consume_operation_id",
+        "consume_at"
+      ]
+    },
+    "BOMRevision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "output_uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BOMLine"
+          },
+          "minItems": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "output_item_id",
+        "output_quantity",
+        "output_uom",
+        "effective_from",
+        "effective_to",
+        "lines",
+        "provenance"
+      ]
+    },
+    "OperationSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operator_requirement": {
+          "$ref": "#/$defs/OperatorRequirement"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "predecessors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "duration_model": {
+          "type": "string",
+          "enum": [
+            "FIXED_PLUS_PER_UNIT",
+            "FIXED_BATCH"
+          ]
+        },
+        "fixed_seconds": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "seconds_per_unit": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "resource_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resource_units": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "machine_skill_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "sequence",
+        "predecessors",
+        "duration_model",
+        "fixed_seconds",
+        "seconds_per_unit",
+        "resource_id",
+        "resource_units"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "duration_model": {
+                "const": "FIXED_BATCH"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "seconds_per_unit": {
+                "const": "0"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "seconds_per_unit": {
+                "not": {
+                  "pattern": "^0(\\.0+)?$"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "RoutingRevision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OperationSpec"
+          },
+          "minItems": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "output_item_id",
+        "effective_from",
+        "effective_to",
+        "operations",
+        "provenance"
+      ]
+    },
+    "ProductionRecipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bom_revision_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "routing_revision_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "manufacturing_minimum_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "manufacturing_multiple": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "transfer_policy": {
+          "type": "string",
+          "enum": [
+            "WHOLE_MANUFACTURING_BATCH"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "manufacturing_maximum_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "output_item_id",
+        "location_id",
+        "bom_revision_id",
+        "routing_revision_id",
+        "effective_from",
+        "effective_to",
+        "manufacturing_minimum_quantity",
+        "manufacturing_multiple",
+        "transfer_policy",
+        "provenance"
+      ]
+    },
+    "InventoryPosition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "physical_lot_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "on_hand": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "quality_blocked": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "other_nonnettable": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "quality_availability": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "inspection_pending_quantity": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+            },
+            "released_quantity": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+            },
+            "release_reference": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1
+            },
+            "evidence_kind": {
+              "enum": [
+                "SYNTHETIC_CONFIRMED_RELEASE",
+                "NO_RELEASE"
+              ]
+            },
+            "effective_at": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            "provenance": {
+              "$ref": "#/$defs/Provenance"
+            }
+          },
+          "required": [
+            "inspection_pending_quantity",
+            "released_quantity",
+            "release_reference",
+            "evidence_kind",
+            "effective_at",
+            "provenance"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "item_id",
+        "location_id",
+        "physical_lot_ref",
+        "on_hand",
+        "quality_blocked",
+        "other_nonnettable",
+        "uom",
+        "as_of",
+        "provenance"
+      ]
+    },
+    "Reservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "beneficiary_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "IN_SCOPE",
+            "OUTSIDE_SCOPE"
+          ]
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "item_id",
+        "location_id",
+        "beneficiary_ref",
+        "scope",
+        "quantity",
+        "uom",
+        "provenance"
+      ]
+    },
+    "Supplier": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "provenance"
+      ]
+    },
+    "SupplySource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supplier_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead_time_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lead_time_basis": {
+          "type": "string",
+          "enum": [
+            "CALENDAR_TIME"
+          ]
+        },
+        "minimum_order_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "order_multiple": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "batch_window_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "receiving_qc": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "wait_seconds": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "provenance": {
+              "$ref": "#/$defs/Provenance"
+            }
+          },
+          "required": [
+            "wait_seconds",
+            "provenance"
+          ]
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "unit_price": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "currency": {
+          "const": "CNY"
+        },
+        "price_basis": {
+          "const": "MODEL_UNIT_PRICE_EXCLUDES_TAX_FREIGHT_HOLDING"
+        },
+        "capacity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "quantity": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+              "not": {
+                "pattern": "^0(\\.0+)?$"
+              }
+            },
+            "uom": {
+              "type": "string",
+              "minLength": 1
+            },
+            "start_at": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            "end_at": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            "scope": {
+              "const": "WHOLE_HORIZON_RECEIPTS"
+            },
+            "provenance": {
+              "$ref": "#/$defs/Provenance"
+            }
+          },
+          "required": [
+            "quantity",
+            "uom",
+            "start_at",
+            "end_at",
+            "scope",
+            "provenance"
+          ]
+        },
+        "maximum_order_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        }
+      },
+      "required": [
+        "id",
+        "supplier_id",
+        "item_id",
+        "location_id",
+        "lead_time_seconds",
+        "lead_time_basis",
+        "minimum_order_quantity",
+        "order_multiple",
+        "batch_window_seconds",
+        "effective_from",
+        "effective_to",
+        "provenance"
+      ]
+    },
+    "DemandLine": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "order_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "line_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "due_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minimum_shipment": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "maximum_lateness_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "OPEN"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "customer_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Explicit customer identity in the bounded finished-garment profile; legacy customer-sidecar mapping remains unchanged."
+        },
+        "kind": {
+          "enum": [
+            "FIRM_ORDER",
+            "NET_FORECAST"
+          ]
+        },
+        "forecast_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "order_ref",
+        "line_ref",
+        "item_id",
+        "location_id",
+        "quantity",
+        "uom",
+        "due_at",
+        "priority",
+        "minimum_shipment",
+        "maximum_lateness_seconds",
+        "status",
+        "provenance"
+      ]
+    },
+    "ActualPO": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "PO"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supplier_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ordered_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "received_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "cancelled_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "remaining_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ordered_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Actual enterprise order placement time if evidenced; null means unknown, not the native planned start."
+        },
+        "expected_receipt_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$",
+          "description": "Physical expected arrival; separate available_at includes explicit receiving QC for supported confirmed supply."
+        },
+        "source_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "freeze_policy": {
+          "type": "string",
+          "enum": [
+            "LOCKED"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "supply_source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "available_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "inventory_includes_receipt": {
+          "type": "boolean"
+        },
+        "planned_start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$",
+          "description": "Planned native PO start, distinct from the actual enterprise order placement date."
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "external_ref",
+        "item_id",
+        "location_id",
+        "supplier_id",
+        "ordered_quantity",
+        "received_quantity",
+        "cancelled_quantity",
+        "remaining_quantity",
+        "uom",
+        "ordered_at",
+        "expected_receipt_at",
+        "source_status",
+        "freeze_policy",
+        "provenance"
+      ]
+    },
+    "OperationCommitment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resource_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resource_units": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "operator_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "operation_id",
+        "resource_id",
+        "resource_units",
+        "start_at",
+        "end_at"
+      ]
+    },
+    "ActualMO": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "MO"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipe_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "completed_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "freeze_policy": {
+          "type": "string",
+          "enum": [
+            "LOCKED"
+          ]
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OperationCommitment"
+          },
+          "minItems": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "external_ref",
+        "item_id",
+        "location_id",
+        "recipe_id",
+        "quantity",
+        "completed_quantity",
+        "uom",
+        "source_status",
+        "freeze_policy",
+        "operations",
+        "provenance"
+      ]
+    },
+    "ActualSupplyOrder": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ActualPO"
+        },
+        {
+          "$ref": "#/$defs/ActualMO"
+        }
+      ]
+    },
+    "Assumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "field_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "acknowledged_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "acknowledged_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        }
+      },
+      "required": [
+        "id",
+        "field_ref",
+        "value",
+        "reason",
+        "acknowledged_by",
+        "acknowledged_at"
+      ]
+    },
+    "EngineSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profile": {
+          "type": "string",
+          "enum": [
+            "frepple-community-9.19-supply-v1"
+          ]
+        },
+        "engine": {
+          "type": "string",
+          "enum": [
+            "frepple"
+          ]
+        },
+        "target_version": {
+          "type": "string",
+          "enum": [
+            "9.19.0"
+          ]
+        },
+        "problem_kind": {
+          "type": "string",
+          "enum": [
+            "SUPPLY_PLANNING"
+          ]
+        }
+      },
+      "required": [
+        "profile",
+        "engine",
+        "target_version",
+        "problem_kind"
+      ]
+    },
+    "PlanInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "skills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Skill"
+          }
+        },
+        "resource_skills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ResourceSkill"
+          }
+        },
+        "schema_version": {
+          "type": "string",
+          "enum": [
+            "0.2.0"
+          ]
+        },
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "planning_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "horizon": {
+          "$ref": "#/$defs/Interval"
+        },
+        "site": {
+          "$ref": "#/$defs/Site"
+        },
+        "engine": {
+          "$ref": "#/$defs/EngineSelection"
+        },
+        "rules": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "profile_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "finite_material": {
+              "const": true
+            },
+            "finite_capacity": {
+              "const": true
+            },
+            "allow_overtime": {
+              "const": false
+            },
+            "freeze_existing": {
+              "const": true
+            },
+            "manufacturing_profile": {
+              "enum": [
+                "fixed-batch-window-v1",
+                "fixed-batch-confirmed-supply-v1",
+                "fixed-batch-priority-supply-v1",
+                "two-level-wip-v1",
+                "two-level-confirmed-supply-v1",
+                "mixed-fixed-batch-wip-v1",
+                "mixed-fixed-batch-confirmed-supply-v1",
+                "mixed-fixed-batch-confirmed-qualified-v1",
+                "mixed-fixed-batch-confirmed-cut-qualified-v1",
+                "machine-qualified-operator-v1",
+                "single-lane-distribution-v1",
+                "finished-garment-confirmed-v1",
+                "forecast-net-demand-v1",
+                "enterprise-forecast-fg-v1",
+                "enterprise-accessory-supply-v1",
+                "multi-receipt-protected-manufacturing-v1",
+                "routing-alternate-capacity-v1",
+                "network-distribution-confirmed-supply-v1"
+              ]
+            },
+            "move_approved_early": {
+              "const": 0
+            },
+            "erase_previous_proposed": {
+              "const": true
+            },
+            "fix_broken_supply_path": {
+              "const": false
+            },
+            "procurement_strategy": {
+              "enum": [
+                "PRIORITY",
+                "MINCOST"
+              ]
+            }
+          },
+          "required": [
+            "profile_version",
+            "finite_material",
+            "finite_capacity",
+            "allow_overtime",
+            "freeze_existing"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Item"
+          },
+          "minItems": 1
+        },
+        "calendars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Calendar"
+          },
+          "minItems": 0
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Resource"
+          },
+          "minItems": 0
+        },
+        "bom_revisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BOMRevision"
+          },
+          "minItems": 0
+        },
+        "routing_revisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RoutingRevision"
+          },
+          "minItems": 0
+        },
+        "production_recipes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProductionRecipe"
+          },
+          "minItems": 0
+        },
+        "inventory_positions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/InventoryPosition"
+          },
+          "minItems": 1
+        },
+        "reservations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Reservation"
+          },
+          "minItems": 0
+        },
+        "suppliers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Supplier"
+          },
+          "minItems": 0
+        },
+        "supply_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SupplySource"
+          },
+          "minItems": 0
+        },
+        "demand_lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DemandLine"
+          },
+          "minItems": 1
+        },
+        "existing_orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ActualSupplyOrder"
+          },
+          "minItems": 0
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "minItems": 0
+        },
+        "previous_manufacturing_suggestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PreviousManufactureSuggestion"
+          }
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Site"
+          }
+        },
+        "distribution_lanes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DistributionLane"
+          }
+        },
+        "distribution_orders": {
+          "type": "array",
+          "maxItems": 0,
+          "description": "Existing and in-transit distribution orders are not supported by this profile."
+        },
+        "forecasts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/Forecast"
+          }
+        },
+        "inventory_policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/InventoryPolicy"
+          }
+        },
+        "accessory_supply_option": {
+          "$ref": "#/$defs/AccessorySupplyOption"
+        },
+        "inventory_decision_catalog": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "$ref": "#/$defs/InventoryDecisionOption"
+          }
+        },
+        "inventory_buffer_policy": {
+          "$ref": "#/$defs/InventoryBufferPolicy"
+        },
+        "inventory_supply_selection": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "option_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "option_id"
+          ]
+        },
+        "purchase_receipts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PurchaseReceipt"
+          },
+          "minItems": 0
+        },
+        "distribution_lead_time_option": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lane_id",
+            "maximum_lead_time_seconds",
+            "provenance"
+          ],
+          "properties": {
+            "lane_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maximum_lead_time_seconds": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "provenance": {
+              "$ref": "#/$defs/Provenance"
+            }
+          }
+        },
+        "plan_editor_contract": {
+          "$ref": "#/$defs/PlanEditorContract"
+        },
+        "plan_editor_hypothesis": {
+          "type": "array",
+          "maxItems": 24,
+          "items": {
+            "$ref": "#/$defs/PlanEditorHypothesis"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "snapshot_id",
+        "scenario_id",
+        "scenario_revision",
+        "planning_at",
+        "horizon",
+        "site",
+        "engine",
+        "rules",
+        "items",
+        "calendars",
+        "resources",
+        "bom_revisions",
+        "routing_revisions",
+        "production_recipes",
+        "inventory_positions",
+        "reservations",
+        "suppliers",
+        "supply_sources",
+        "demand_lines",
+        "existing_orders",
+        "assumptions"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "rules": {
+                "required": [
+                  "manufacturing_profile"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "rules": {
+                "required": [
+                  "move_approved_early",
+                  "erase_previous_proposed",
+                  "fix_broken_supply_path"
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "suppliers": {
+                "minItems": 1
+              },
+              "supply_sources": {
+                "minItems": 1
+              },
+              "previous_manufacturing_suggestions": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rules": {
+                "properties": {
+                  "manufacturing_profile": {
+                    "const": "machine-qualified-operator-v1"
+                  }
+                },
+                "required": [
+                  "manufacturing_profile"
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "calendars": {
+                "items": {
+                  "properties": {
+                    "available_intervals": {
+                      "minItems": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rules": {
+                "properties": {
+                  "manufacturing_profile": {
+                    "enum": [
+                      "single-lane-distribution-v1",
+                      "network-distribution-confirmed-supply-v1"
+                    ]
+                  }
+                },
+                "required": [
+                  "manufacturing_profile"
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "calendars": {
+                "minItems": 1
+              },
+              "resources": {
+                "minItems": 1
+              },
+              "bom_revisions": {
+                "minItems": 1
+              },
+              "routing_revisions": {
+                "minItems": 1
+              },
+              "production_recipes": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "DueDateChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "change_due_date"
+          ]
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "due_at": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            }
+          },
+          "required": [
+            "due_at"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "target_id",
+        "payload"
+      ]
+    },
+    "AddDemandChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "add_demand"
+          ]
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payload": {
+          "$ref": "#/$defs/DemandLine"
+        }
+      },
+      "required": [
+        "type",
+        "target_id",
+        "payload"
+      ]
+    },
+    "ResourceUnavailableChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "set_resource_unavailable"
+          ]
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payload": {
+          "$ref": "#/$defs/Interval"
+        }
+      },
+      "required": [
+        "type",
+        "target_id",
+        "payload"
+      ]
+    },
+    "FreezeChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "freeze_execution"
+          ]
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "policy": {
+              "type": "string",
+              "enum": [
+                "LOCKED"
+              ]
+            }
+          },
+          "required": [
+            "policy"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "target_id",
+        "payload"
+      ]
+    },
+    "ScenarioChange": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/DueDateChange"
+        },
+        {
+          "$ref": "#/$defs/AddDemandChange"
+        },
+        {
+          "$ref": "#/$defs/ResourceUnavailableChange"
+        },
+        {
+          "$ref": "#/$defs/FreezeChange"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "change_due_date": "#/$defs/DueDateChange",
+          "add_demand": "#/$defs/AddDemandChange",
+          "set_resource_unavailable": "#/$defs/ResourceUnavailableChange",
+          "freeze_execution": "#/$defs/FreezeChange"
+        }
+      }
+    },
+    "ChangeRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expected_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ScenarioChange"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "expected_revision",
+        "changes"
+      ]
+    },
+    "Issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "ERROR",
+            "WARNING"
+          ]
+        },
+        "entity_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "field_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "entity_id",
+        "field_ref",
+        "message",
+        "evidence_ids"
+      ]
+    },
+    "EvidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "SOURCE_FACT",
+            "SCENARIO_CHANGE",
+            "ENGINE_OUTPUT",
+            "DERIVED_CHECK"
+          ]
+        },
+        "artifact_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "artifact_ref",
+        "locator"
+      ]
+    },
+    "PurchaseSuggestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "engine_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supplier_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "order_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "receipt_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "engine_ref",
+        "item_id",
+        "location_id",
+        "supplier_id",
+        "quantity",
+        "uom",
+        "order_at",
+        "receipt_at",
+        "evidence_ids"
+      ]
+    },
+    "ManufactureSuggestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "engine_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipe_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "source_status": {
+          "enum": [
+            "confirmed",
+            "approved",
+            "proposed"
+          ]
+        },
+        "origin": {
+          "enum": [
+            "EXISTING",
+            "PROPOSED"
+          ]
+        },
+        "external_ref": {
+          "type": "string"
+        },
+        "source_reference": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "engine_ref",
+        "item_id",
+        "location_id",
+        "recipe_id",
+        "quantity",
+        "uom",
+        "start_at",
+        "end_at",
+        "evidence_ids"
+      ]
+    },
+    "ScheduledOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manufacture_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resource_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "resource_units": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "operation_kind": {
+          "enum": [
+            "AVAILABILITY_TRANSFER"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "manufacture_id",
+        "operation_id",
+        "resource_id",
+        "resource_units",
+        "quantity",
+        "start_at",
+        "end_at",
+        "evidence_ids"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "operation_kind"
+            ],
+            "properties": {
+              "operation_kind": {
+                "const": "AVAILABILITY_TRANSFER"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "resource_id": {
+                "type": "null"
+              },
+              "resource_units": {
+                "const": "0"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "resource_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "resource_units": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+                "not": {
+                  "pattern": "^0(\\.0+)?$"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "DeliveryAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "demand_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requested_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "planned_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "unfulfilled_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "due_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "planned_delivery_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "delay_seconds": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ON_TIME",
+            "LATE",
+            "SHORT",
+            "UNPLANNED"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "demand_id",
+        "requested_quantity",
+        "planned_quantity",
+        "unfulfilled_quantity",
+        "uom",
+        "due_at",
+        "planned_delivery_at",
+        "delay_seconds",
+        "status",
+        "evidence_ids"
+      ]
+    },
+    "MaterialFlow": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "order_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "CONSUME",
+            "PRODUCE"
+          ]
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "order_id",
+        "item_id",
+        "location_id",
+        "direction",
+        "quantity",
+        "uom",
+        "at",
+        "evidence_ids"
+      ]
+    },
+    "ResourceLoad": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resource_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resource_units": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "operation_id",
+        "resource_id",
+        "resource_units",
+        "start_at",
+        "end_at",
+        "evidence_ids"
+      ]
+    },
+    "Pegging": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "demand_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supply_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "demand_id",
+        "supply_id",
+        "quantity",
+        "uom",
+        "evidence_ids"
+      ]
+    },
+    "Assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACCEPTABLE",
+            "NEEDS_REVIEW",
+            "BLOCKED"
+          ]
+        },
+        "constraint_check": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN",
+            "NOT_CHECKED"
+          ]
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Issue"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "status",
+        "constraint_check",
+        "coverage",
+        "issues"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "constraint_check": {
+                "type": "string",
+                "enum": [
+                  "FAIL",
+                  "UNKNOWN"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "BLOCKED"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "ACCEPTABLE"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "constraint_check": {
+                "type": "string",
+                "enum": [
+                  "PASS"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "PlanResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "enum": [
+            "0.2.0"
+          ]
+        },
+        "solve_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "result_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "engine": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "frepple"
+              ]
+            },
+            "runtime_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_commit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "adapter_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "engine_task_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "name",
+            "runtime_version",
+            "source_commit",
+            "adapter_version",
+            "engine_task_ref"
+          ]
+        },
+        "computed_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "assessment": {
+          "$ref": "#/$defs/Assessment"
+        },
+        "purchase_suggestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PurchaseSuggestion"
+          },
+          "minItems": 0
+        },
+        "manufacture_suggestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ManufactureSuggestion"
+          },
+          "minItems": 0
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ScheduledOperation"
+          },
+          "minItems": 0
+        },
+        "deliveries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DeliveryAssessment"
+          },
+          "minItems": 1
+        },
+        "material_flows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MaterialFlow"
+          },
+          "minItems": 0
+        },
+        "resource_loads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ResourceLoad"
+          },
+          "minItems": 0
+        },
+        "pegging": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Pegging"
+          },
+          "minItems": 0
+        },
+        "pegging_available": {
+          "type": "boolean"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 1
+        },
+        "raw_artifact_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "existing_manufacturing_orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ManufactureSuggestion"
+          }
+        },
+        "distribution_suggestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DistributionSuggestion"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "solve_run_id",
+        "scenario_id",
+        "scenario_revision",
+        "snapshot_id",
+        "input_hash",
+        "result_hash",
+        "engine",
+        "computed_at",
+        "assessment",
+        "purchase_suggestions",
+        "manufacture_suggestions",
+        "operations",
+        "deliveries",
+        "material_flows",
+        "resource_loads",
+        "pegging",
+        "pegging_available",
+        "evidence",
+        "raw_artifact_refs"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "distribution_suggestions"
+            ]
+          },
+          "else": {
+            "properties": {
+              "assessment": {
+                "properties": {
+                  "coverage": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Error": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Issue"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "request_id",
+        "issues"
+      ]
+    },
+    "ValidationReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Issue"
+          },
+          "minItems": 0
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        }
+      },
+      "required": [
+        "report_id",
+        "target_id",
+        "revision",
+        "input_hash",
+        "valid",
+        "issues",
+        "checked_at"
+      ]
+    },
+    "ImportRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "import_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "PENDING",
+            "VALIDATED",
+            "COMMITTED"
+          ]
+        },
+        "asset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mapping_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "import_id",
+        "revision",
+        "state",
+        "asset_id",
+        "mapping_version"
+      ]
+    },
+    "SnapshotRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "planning_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "data_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "source_versions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Provenance"
+          },
+          "minItems": 1
+        },
+        "data_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "planning_at",
+        "data_hash",
+        "source_versions",
+        "data_ref"
+      ]
+    },
+    "ScenarioRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scenario_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "base_snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baseline_run_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lifecycle": {
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "IN_REVIEW",
+            "APPROVED",
+            "ARCHIVED"
+          ]
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ScenarioChange"
+          },
+          "minItems": 0
+        },
+        "solve_run_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "scenario_id",
+        "base_snapshot_id",
+        "baseline_run_id",
+        "revision",
+        "lifecycle",
+        "changes",
+        "solve_run_ids"
+      ]
+    },
+    "SolveRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "solve_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "engine_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "QUEUED",
+            "RUNNING",
+            "SUCCEEDED",
+            "FAILED",
+            "TIMED_OUT",
+            "CANCEL_REQUESTED",
+            "CANCELLED"
+          ]
+        },
+        "engine_task_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "result_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "failure_code": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "started_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "solve_run_id",
+        "scenario_id",
+        "scenario_revision",
+        "snapshot_id",
+        "input_hash",
+        "engine_profile",
+        "state",
+        "engine_task_ref",
+        "result_ref",
+        "failure_code",
+        "created_at",
+        "started_at",
+        "finished_at"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "SUCCEEDED"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "result_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "engine_task_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "finished_at": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "FAILED",
+                  "TIMED_OUT"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "failure_code": {
+                "type": "string",
+                "minLength": 1
+              },
+              "finished_at": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "CANCELLED"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "finished_at": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ReviewRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scenario_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "solve_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "result_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "expected_revision",
+        "solve_run_id",
+        "input_hash",
+        "result_hash"
+      ]
+    },
+    "ReviewRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "review_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "scenario_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "solve_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "result_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "PENDING",
+            "APPROVED",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "decision_reason": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "review_id",
+        "revision",
+        "scenario_id",
+        "scenario_revision",
+        "solve_run_id",
+        "input_hash",
+        "result_hash",
+        "state",
+        "decision_reason"
+      ]
+    },
+    "ReviewDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expected_review_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "APPROVE",
+            "REJECT"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "expected_review_revision",
+        "decision",
+        "reason"
+      ]
+    },
+    "PublicationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "publication_item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposal_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "PENDING",
+            "ACKNOWLEDGED",
+            "FAILED",
+            "UNKNOWN"
+          ]
+        },
+        "external_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "receipt_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error_code": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "publication_item_id",
+        "proposal_ref",
+        "target_system",
+        "state",
+        "external_ref",
+        "receipt_ref",
+        "error_code"
+      ]
+    },
+    "PublicationRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "publication_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "INTERNAL_PLAN",
+            "EXECUTION_DISPATCH"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "QUEUED",
+            "DISPATCHING",
+            "ACKNOWLEDGED",
+            "PARTIAL",
+            "FAILED"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PublicationItem"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "publication_id",
+        "review_id",
+        "mode",
+        "state",
+        "items"
+      ]
+    },
+    "DiffGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "PURCHASE",
+            "MANUFACTURE",
+            "DELIVERY",
+            "OPERATION"
+          ]
+        },
+        "match": {
+          "type": "string",
+          "enum": [
+            "MATCH",
+            "GROUPED"
+          ]
+        },
+        "group_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "base_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "candidate_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "base_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "candidate_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "base_start_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidate_start_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "base_end_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidate_end_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "kind",
+        "match",
+        "group_key",
+        "base_refs",
+        "candidate_refs",
+        "base_quantity",
+        "candidate_quantity",
+        "uom",
+        "base_start_at",
+        "candidate_start_at",
+        "base_end_at",
+        "candidate_end_at",
+        "evidence_ids"
+      ]
+    },
+    "PlanDiff": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "base_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "comparison_basis": {
+          "type": "string",
+          "enum": [
+            "SAME_SNAPSHOT_SAME_PROFILE"
+          ]
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DiffGroup"
+          },
+          "minItems": 0
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Issue"
+          },
+          "minItems": 0
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "base_run_id",
+        "candidate_run_id",
+        "comparison_basis",
+        "groups",
+        "issues",
+        "evidence"
+      ]
+    },
+    "ReceiptEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "receipt"
+          ]
+        },
+        "source_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "entity_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "item_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "location_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "quantity": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+              "not": {
+                "pattern": "^0(\\.0+)?$"
+              }
+            },
+            "uom": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "item_id",
+            "location_id",
+            "quantity",
+            "uom"
+          ]
+        }
+      },
+      "required": [
+        "event_type",
+        "source_system",
+        "external_event_id",
+        "source_version",
+        "occurred_at",
+        "entity_ref",
+        "payload"
+      ]
+    },
+    "CompletionEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "operation_completed"
+          ]
+        },
+        "source_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "entity_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "operation_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "quantity_delta": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+              "not": {
+                "pattern": "^0(\\.0+)?$"
+              }
+            },
+            "uom": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "operation_id",
+            "quantity_delta",
+            "uom"
+          ]
+        }
+      },
+      "required": [
+        "event_type",
+        "source_system",
+        "external_event_id",
+        "source_version",
+        "occurred_at",
+        "entity_ref",
+        "payload"
+      ]
+    },
+    "ExceptionEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "execution_exception"
+          ]
+        },
+        "source_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "entity_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string",
+              "minLength": 1
+            },
+            "detail": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "code",
+            "detail"
+          ]
+        }
+      },
+      "required": [
+        "event_type",
+        "source_system",
+        "external_event_id",
+        "source_version",
+        "occurred_at",
+        "entity_ref",
+        "payload"
+      ]
+    },
+    "ExecutionEvent": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ReceiptEvent"
+        },
+        {
+          "$ref": "#/$defs/CompletionEvent"
+        },
+        {
+          "$ref": "#/$defs/ExceptionEvent"
+        }
+      ]
+    },
+    "EventReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "duplicate": {
+          "type": "boolean"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "ACCEPTED"
+          ]
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        }
+      },
+      "required": [
+        "event_id",
+        "duplicate",
+        "state",
+        "received_at"
+      ]
+    },
+    "PreviousManufactureSuggestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipe_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "status": {
+          "const": "proposed"
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "reference",
+        "recipe_id",
+        "quantity",
+        "status",
+        "start_at",
+        "end_at",
+        "provenance"
+      ]
+    },
+    "DistributionLane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "item_id",
+        "origin_location_id",
+        "destination_location_id",
+        "lead_time_seconds",
+        "minimum_transfer_quantity",
+        "transfer_multiple",
+        "uom",
+        "effective_from",
+        "effective_to",
+        "status",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin_location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "destination_location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead_time_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimum_transfer_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "transfer_multiple": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "status": {
+          "const": "CONFIRMED_PATH"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      }
+    },
+    "DistributionSuggestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "engine_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lane_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin_location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "destination_location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ship_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "receipt_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_status": {
+          "const": "proposed"
+        },
+        "origin": {
+          "const": "PROPOSED"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "engine_ref",
+        "lane_id",
+        "item_id",
+        "origin_location_id",
+        "destination_location_id",
+        "quantity",
+        "uom",
+        "ship_at",
+        "receipt_at",
+        "source_status",
+        "origin",
+        "evidence_ids"
+      ]
+    },
+    "Forecast": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "customer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bucket_start": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "bucket_end": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "gross_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "policy_id": {
+          "const": "SAME_DIMENSION_HALF_OPEN_V1"
+        },
+        "coverage": {
+          "const": "GROSS_INCLUDES_FIRM_ORDERS"
+        },
+        "evidence_status": {
+          "const": "SOURCE_CONFIRMED_SYNTHETIC"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "net_demand": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "due_at": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            "priority": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minimum_shipment": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+              "not": {
+                "pattern": "^0(\\.0+)?$"
+              }
+            },
+            "maximum_lateness_seconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "due_at",
+            "priority",
+            "minimum_shipment",
+            "maximum_lateness_seconds"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "item_id",
+        "location_id",
+        "customer_id",
+        "uom",
+        "version_id",
+        "bucket_start",
+        "bucket_end",
+        "gross_quantity",
+        "policy_id",
+        "coverage",
+        "evidence_status",
+        "provenance",
+        "net_demand"
+      ]
+    },
+    "InventoryPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "target_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "target_kind": {
+          "const": "MINIMUM_NET_AVAILABLE"
+        },
+        "fact_kind": {
+          "const": "SYNTHETIC_POLICY_ASSUMPTION"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "id",
+        "policy_version",
+        "item_id",
+        "location_id",
+        "uom",
+        "start_at",
+        "end_at",
+        "target_quantity",
+        "target_kind",
+        "fact_kind",
+        "provenance"
+      ]
+    },
+    "AccessorySupplyOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "earliest_order_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "latest_order_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "total_capacity_quantity": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]{0,11}(\\.[0-9]{1,8})?$"
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_kind": {
+          "const": "SYNTHETIC_RESEARCH_ASSUMPTION"
+        },
+        "permission": {
+          "const": "SIMULATION_ONLY"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "source_id",
+        "enabled",
+        "earliest_order_at",
+        "latest_order_at",
+        "total_capacity_quantity",
+        "uom",
+        "fact_kind",
+        "permission",
+        "provenance"
+      ]
+    },
+    "InventoryDecisionOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minimum_order_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "order_multiple": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "maximum_order_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "total_capacity_quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "lead_time_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "qc_wait_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "earliest_order_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "latest_order_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "fact_kind": {
+          "const": "SYNTHETIC_RESEARCH_ASSUMPTION"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "source_id",
+        "item_id",
+        "location_id",
+        "uom",
+        "minimum_order_quantity",
+        "order_multiple",
+        "maximum_order_quantity",
+        "total_capacity_quantity",
+        "lead_time_seconds",
+        "qc_wait_seconds",
+        "earliest_order_at",
+        "latest_order_at",
+        "effective_from",
+        "effective_to",
+        "provenance",
+        "fact_kind"
+      ]
+    },
+    "InventoryBufferPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minimum": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "maximum": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$"
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "item_id",
+        "location_id",
+        "uom",
+        "minimum",
+        "maximum",
+        "start_at",
+        "end_at",
+        "provenance"
+      ]
+    },
+    "PurchaseReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "po_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "receipt_reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,8})?$",
+          "not": {
+            "pattern": "^0(\\.0+)?$"
+          }
+        },
+        "physical_receipt_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "quality_status": {
+          "enum": [
+            "RELEASED",
+            "PENDING_QC",
+            "FROZEN"
+          ]
+        },
+        "release_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "po_id",
+        "receipt_reference",
+        "uom",
+        "quantity",
+        "physical_receipt_at",
+        "quality_status",
+        "release_at",
+        "provenance"
+      ]
+    },
+    "PlanEditorContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "revision",
+        "purpose",
+        "source",
+        "tasks"
+      ],
+      "properties": {
+        "revision": {
+          "const": "research-editor-v1"
+        },
+        "purpose": {
+          "const": "ISOLATED_RESEARCH"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "tasks": {
+          "type": "array",
+          "maxItems": 24,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "native_operation": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "quantity": {
+                "type": "string",
+                "pattern": "^[0-9]+(\\.[0-9]+)?$"
+              },
+              "demand_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "id",
+              "native_operation",
+              "quantity",
+              "demand_id"
+            ]
+          }
+        },
+        "setup": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "resource_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "initial": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_-]{1,100}$"
+            },
+            "operation_states": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,100}$"
+              }
+            },
+            "transitions": {
+              "type": "array",
+              "maxItems": 600,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "from_state": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{1,100}$"
+                  },
+                  "to_state": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{1,100}$"
+                  },
+                  "seconds": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 86400
+                  }
+                },
+                "required": [
+                  "from_state",
+                  "to_state",
+                  "seconds"
+                ]
+              }
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "tools_required": {
+              "const": false
+            }
+          },
+          "required": [
+            "resource_id",
+            "initial",
+            "operation_states",
+            "transitions",
+            "source",
+            "tools_required"
+          ]
+        },
+        "sequence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "demand_ids": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 24,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              }
+            },
+            "goal": {
+              "enum": [
+                "setup_then_delay",
+                "delivery_then_setup",
+                "least_disturbance"
+              ]
+            },
+            "max_candidates": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6
+            },
+            "delay_cap_seconds": {
+              "const": 0
+            }
+          },
+          "required": [
+            "demand_ids",
+            "goal",
+            "max_candidates",
+            "delay_cap_seconds"
+          ]
+        }
+      }
+    },
+    "PlanEditorHypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "native_operation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "demand_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "resource_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "reference",
+        "native_operation",
+        "quantity",
+        "demand_id",
+        "resource_id"
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/PlanInput"
+    },
+    {
+      "$ref": "#/$defs/PlanResult"
+    },
+    {
+      "$ref": "#/$defs/ChangeRequest"
+    }
+  ]
+}

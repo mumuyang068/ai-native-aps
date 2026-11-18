@@ -1,0 +1,175 @@
+[
+  {
+    "reference": "2",
+    "status": "proposed",
+    "operation": "MAKE-TEE-R1:CUT",
+    "quantity": "1000.00000000",
+    "quantity_completed": null,
+    "startdate": "2026-10-19T17:20:00",
+    "enddate": "2026-10-20T16:00:00",
+    "batch": null,
+    "criticality": "0.00000000",
+    "delay": "1 00:00:00",
+    "plan": {
+      "pegging": {
+        "SO-101-L1": 1000.0
+      },
+      "unavailable": 57600,
+      "interruptions": [
+        [
+          "2026-10-19 18:00:00",
+          "2026-10-20 09:00:00"
+        ],
+        [
+          "2026-10-20 12:00:00",
+          "2026-10-20 13:00:00"
+        ]
+      ],
+      "upstream_opplans": [
+        [
+          "1",
+          1000.0,
+          0
+        ]
+      ],
+      "downstream_opplans": [
+        [
+          "4",
+          1000.0,
+          0.0
+        ]
+      ]
+    },
+    "owner": "1",
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:55",
+    "resources": [
+      {
+        "resource": "CUT-LINE",
+        "quantity": "1.00000000",
+        "setup": null
+      }
+    ],
+    "materials": [
+      {
+        "item": "FAB-BLK",
+        "quantity": "-2000.00000000",
+        "flowdate": "2026-10-19T17:20:00"
+      }
+    ],
+    "demand": null,
+    "forecast": null
+  },
+  {
+    "reference": "3",
+    "status": "proposed",
+    "operation": "MAKE-TEE-R1:PACK",
+    "quantity": "1000.00000000",
+    "quantity_completed": null,
+    "startdate": "2026-10-22T09:00:00",
+    "enddate": "2026-10-22T18:00:00",
+    "batch": null,
+    "criticality": "0.00000000",
+    "delay": "1 00:00:00",
+    "plan": {
+      "pegging": {
+        "SO-101-L1": 1000.0
+      },
+      "unavailable": 3600,
+      "interruptions": [
+        [
+          "2026-10-22 12:00:00",
+          "2026-10-22 13:00:00"
+        ]
+      ],
+      "upstream_opplans": [
+        [
+          "4",
+          1000.0,
+          0.0
+        ]
+      ],
+      "downstream_opplans": [
+        [
+          "7",
+          1000.0,
+          0.0
+        ]
+      ]
+    },
+    "owner": "1",
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:55",
+    "resources": [
+      {
+        "resource": "PACK-LINE",
+        "quantity": "1.00000000",
+        "setup": null
+      }
+    ],
+    "materials": [
+      {
+        "item": "TEE-BLK",
+        "quantity": "1000.00000000",
+        "flowdate": "2026-10-22T18:00:00"
+      }
+    ],
+    "demand": null,
+    "forecast": null
+  },
+  {
+    "reference": "4",
+    "status": "proposed",
+    "operation": "MAKE-TEE-R1:SEW",
+    "quantity": "1000.00000000",
+    "quantity_completed": null,
+    "startdate": "2026-10-20T16:00:00",
+    "enddate": "2026-10-21T18:00:00",
+    "batch": null,
+    "criticality": "0.00000000",
+    "delay": "1 00:00:00",
+    "plan": {
+      "pegging": {
+        "SO-101-L1": 1000.0
+      },
+      "unavailable": 57600,
+      "interruptions": [
+        [
+          "2026-10-20 18:00:00",
+          "2026-10-21 09:00:00"
+        ],
+        [
+          "2026-10-21 12:00:00",
+          "2026-10-21 13:00:00"
+        ]
+      ],
+      "upstream_opplans": [
+        [
+          "2",
+          1000.0,
+          0.0
+        ]
+      ],
+      "downstream_opplans": [
+        [
+          "3",
+          1000.0,
+          0.0
+        ]
+      ]
+    },
+    "owner": "1",
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:55",
+    "resources": [
+      {
+        "resource": "SEW-LINE",
+        "quantity": "1.00000000",
+        "setup": null
+      }
+    ],
+    "materials": [],
+    "demand": null,
+    "forecast": null
+  }
+]

@@ -1,0 +1,342 @@
+{
+  "schema_version": "0.2.0",
+  "solve_run_id": "P0-BASELINE",
+  "scenario_id": "SC-DEMO-BASE",
+  "scenario_revision": 0,
+  "snapshot_id": "SNAP-DEMO-001",
+  "input_hash": "d2e4443e40d2352da5003a990ffa054fd6a87999b2214534a11ff51fea90cc85",
+  "engine": {
+    "name": "frepple",
+    "runtime_version": "9.19.0",
+    "source_commit": "ab8430ca26f41bac1f54a8a30070642e91d9b3e9",
+    "adapter_version": "p0.1",
+    "engine_task_ref": "23"
+  },
+  "computed_at": "2026-10-14T13:06:37.371168+08:00",
+  "assessment": {
+    "status": "ACCEPTABLE",
+    "constraint_check": "PASS",
+    "coverage": [
+      "material_balance",
+      "resource_capacity",
+      "calendar_duration",
+      "routing_order",
+      "procurement_lead_time"
+    ],
+    "issues": []
+  },
+  "purchase_suggestions": [
+    {
+      "id": "P0-BASELINE:PO:5",
+      "engine_ref": "5",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "supplier_id": "SUP-A",
+      "quantity": "1200",
+      "uom": "m",
+      "order_at": "2026-10-17T17:20:00+08:00",
+      "receipt_at": "2026-10-20T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:purchaseorder:5"
+      ]
+    }
+  ],
+  "manufacture_suggestions": [
+    {
+      "id": "P0-BASELINE:MO:1",
+      "engine_ref": "1",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "recipe_id": "MAKE-TEE-R1",
+      "quantity": "1000",
+      "uom": "piece",
+      "start_at": "2026-10-20T17:20:00+08:00",
+      "end_at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:manufacturingorder:1"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "id": "P0-BASELINE:OP:2",
+      "manufacture_id": "P0-BASELINE:MO:1",
+      "operation_id": "CUT",
+      "resource_id": "CUT-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-20T17:20:00+08:00",
+      "end_at": "2026-10-21T16:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:2"
+      ]
+    },
+    {
+      "id": "P0-BASELINE:OP:3",
+      "manufacture_id": "P0-BASELINE:MO:1",
+      "operation_id": "PACK",
+      "resource_id": "PACK-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-23T09:00:00+08:00",
+      "end_at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:3"
+      ]
+    },
+    {
+      "id": "P0-BASELINE:OP:4",
+      "manufacture_id": "P0-BASELINE:MO:1",
+      "operation_id": "SEW",
+      "resource_id": "SEW-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-21T16:00:00+08:00",
+      "end_at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:4"
+      ]
+    }
+  ],
+  "deliveries": [
+    {
+      "demand_id": "SO-101-L1",
+      "requested_quantity": "1000",
+      "planned_quantity": "1000",
+      "unfulfilled_quantity": "0",
+      "uom": "piece",
+      "due_at": "2026-10-23T18:00:00+08:00",
+      "planned_delivery_at": "2026-10-23T18:00:00+08:00",
+      "delay_seconds": 0,
+      "status": "ON_TIME",
+      "evidence_ids": [
+        "ENGINE:demand:SO-101-L1"
+      ]
+    }
+  ],
+  "material_flows": [
+    {
+      "id": "P0-BASELINE:FLOW:57",
+      "order_id": "FAB-BLK @ SITE-01",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "800",
+      "uom": "m",
+      "at": "1971-01-01T00:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:57"
+      ]
+    },
+    {
+      "id": "P0-BASELINE:FLOW:58",
+      "order_id": "5",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "1200",
+      "uom": "m",
+      "at": "2026-10-20T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:58"
+      ]
+    },
+    {
+      "id": "P0-BASELINE:FLOW:59",
+      "order_id": "2",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "CONSUME",
+      "quantity": "2000",
+      "uom": "m",
+      "at": "2026-10-20T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:59"
+      ]
+    },
+    {
+      "id": "P0-BASELINE:FLOW:60",
+      "order_id": "3",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "1000",
+      "uom": "piece",
+      "at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:60"
+      ]
+    },
+    {
+      "id": "P0-BASELINE:FLOW:61",
+      "order_id": "7",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "direction": "CONSUME",
+      "quantity": "1000",
+      "uom": "piece",
+      "at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:61"
+      ]
+    }
+  ],
+  "resource_loads": [
+    {
+      "operation_id": "P0-BASELINE:OP:2",
+      "resource_id": "CUT-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-20T17:20:00+08:00",
+      "end_at": "2026-10-21T16:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:37"
+      ]
+    },
+    {
+      "operation_id": "P0-BASELINE:OP:3",
+      "resource_id": "PACK-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-23T09:00:00+08:00",
+      "end_at": "2026-10-23T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:38"
+      ]
+    },
+    {
+      "operation_id": "P0-BASELINE:OP:4",
+      "resource_id": "SEW-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-21T16:00:00+08:00",
+      "end_at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:39"
+      ]
+    }
+  ],
+  "pegging": [],
+  "pegging_available": false,
+  "evidence": [
+    {
+      "id": "ENGINE:purchaseorder:5",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\purchaseorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:manufacturingorder:1",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\manufacturingorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:workorder:2",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\workorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:workorder:3",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\workorder.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:workorder:4",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\workorder.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:demand:SO-101-L1",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\demand.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:57",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\operationplanmaterial.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:58",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\operationplanmaterial.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:59",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\operationplanmaterial.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:60",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\operationplanmaterial.json",
+      "locator": "row:3"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:61",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\operationplanmaterial.json",
+      "locator": "row:4"
+    },
+    {
+      "id": "ENGINE:operationplanresource:37",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\operationplanresource.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:operationplanresource:38",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\operationplanresource.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:operationplanresource:39",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\operationplanresource.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:deliveryorder:7",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P0-BASELINE\\raw\\deliveryorder.json",
+      "locator": "row:0"
+    }
+  ],
+  "raw_artifact_refs": [
+    "evidence\\runs\\P0-BASELINE\\raw\\constraint.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\deliveryorder.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\demand.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\import-polls.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\import-submit.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\import.log",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-buffer.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-calendar.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-calendarbucket.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-customer.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-demand.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-item.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-itemsupplier.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-location.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-operation.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-operationmaterial.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-operationresource.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-parameter.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-resource.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\imported-supplier.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\manufacturingorder.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\operationplanmaterial.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\operationplanresource.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\problem.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\purchaseorder.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\solve-polls.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\solve-submit.json",
+    "evidence\\runs\\P0-BASELINE\\raw\\solve.log",
+    "evidence\\runs\\P0-BASELINE\\raw\\workorder.json"
+  ],
+  "result_hash": "8160ee7a2454512ecda8c7a7193e8b2b6a3ac091bd9ef4afd69a16ca9784da8d"
+}

@@ -1,0 +1,15 @@
+.recovery-page{height:100%;display:flex;flex-direction:column;background:var(--surface);min-height:0;padding:0 24px}
+.recovery-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0 18px;border-bottom:1px solid var(--line)}
+.recovery-heading h1{font-size:20px}.recovery-heading p{color:var(--muted);margin-top:6px;font-size:13px}
+.recovery-status{display:flex;gap:24px;align-items:center;padding:16px 0;font-size:13px;border-bottom:1px solid var(--line)}
+.recovery-body{overflow:auto;min-height:0;padding:0 0 24px}.recovery-body>section{padding:22px 0;border-bottom:1px solid var(--line)}
+.recovery-body h2{font-size:16px;margin-bottom:14px}.recovery-empty{color:var(--muted);font-size:14px;line-height:1.8}
+.recovery-table{overflow:auto;border:1px solid var(--line)}.recovery-table table{font-size:13px}.recovery-table td{height:44px}
+.recovery-read{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:20px}.recovery-read p{font-size:13px;color:var(--muted)}
+.recovery-section-title{display:flex;gap:24px;align-items:center;justify-content:space-between}.recovery-section-title h2{margin:0}
+.recovery-blocks{padding:12px 20px;color:var(--risk);font-size:14px;line-height:1.8}.recovery-blocks small{display:block;font-size:12px;color:var(--muted)}
+.recovery-sources{margin-top:16px;font-size:13px}.recovery-sources p{margin-top:12px;overflow-wrap:anywhere}.recovery-sources small{display:block;color:var(--muted);font-size:12px}
+.recovery-confirm{max-width:760px;display:grid;gap:16px;margin-top:24px;padding:20px;border:1px solid var(--line);background:var(--panel)}
+.recovery-confirm p{font-size:14px;line-height:1.8}.recovery-confirm label:not(.ant-checkbox-wrapper){display:grid;gap:6px;font-size:13px}.recovery-confirm>.ant-btn{justify-self:start}
+.recovery-history article{padding:16px 0;border-bottom:1px solid var(--line-soft);font-size:13px;line-height:1.8}.recovery-history article>div{display:flex;gap:18px;align-items:center}.recovery-history time{color:var(--muted);font-size:12px}.recovery-history p{margin-top:6px}.recovery-history details{margin-top:8px}
+@media(max-width:779px){.recovery-page{height:auto;min-height:calc(100dvh - 120px);padding:0 16px}.recovery-heading{align-items:flex-start;flex-wrap:wrap}.recovery-status{flex-wrap:wrap;gap:12px}.recovery-read{flex-direction:column;align-items:stretch}.recovery-body{overflow:visible}.recovery-confirm{padding:16px}.recovery-confirm>.ant-btn{width:100%;min-height:40px}.recovery-section-title{align-items:flex-start;gap:12px}.recovery-table{max-width:100%}}

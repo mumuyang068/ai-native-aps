@@ -1,0 +1,20 @@
+{
+  "engine_reported_version": "9.19.0",
+  "reference_source_commit": "ab8430ca26f41bac1f54a8a30070642e91d9b3e9",
+  "engine_image_digest": "sha256:0b63bd21f5246aa1eb909794ee57eaefadbc6ff19f698d63e35601196bc31f07",
+  "compose_project": "industrial-ai-planning-p1-20261014-01a13869",
+  "model_timezone": "Asia/Shanghai",
+  "date_style_with_hours": true,
+  "python_dependencies": {
+    "fastapi": "0.116.1",
+    "uvicorn": "0.35.0",
+    "requests": "2.33.1",
+    "jsonschema": "4.23.0",
+    "pytest": "8.4.1",
+    "tzdata": "2025.3"
+  },
+  "reference_source_commit_note": "Reference release commit; the official image has a version label, no build-commit label.",
+  "engine_binary_version": "9.19.0",
+  "postgres_image_digest": "sha256:e17e86066e5ef83e0952a9347f5c792b7ece00972e2aa787a6986f471b3dd3d5",
+  "python_version": "3.12.7"
+}

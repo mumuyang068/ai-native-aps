@@ -1,0 +1,9 @@
+fastapi==0.116.1
+uvicorn==0.35.0
+requests==2.33.1
+jsonschema==4.23.0
+pytest==8.4.1
+tzdata==2025.3
+# Canonical XLSX carriers and the typed API contract are direct dependencies.
+openpyxl==3.1.2
+pydantic==2.11.7

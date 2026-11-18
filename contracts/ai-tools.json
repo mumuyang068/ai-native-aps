@@ -1,0 +1,238 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "propose_due_change",
+      "description": "处理明确订单行的交期设定或保持请求。即使目标日期与当前相同也调用本工具，由后端判定无需修改；不要改用普通查询。shift_days 表示自然日偏移，提前两天为 -2，保持原交期为 0。shift_days 与 due_at 只能一个非 null。仅提出草案，不运行、不发布。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "demand_id": {
+            "type": "string"
+          },
+          "shift_days": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -365,
+            "maximum": 365
+          },
+          "due_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "demand_id",
+          "shift_days",
+          "due_at"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "propose_urgent_order",
+      "description": "提出新增急单的独立草案。必须由用户给出订单编号、产品、正整数数量、具体交期。固定规则：急单 priority=1，整批交付。未知字段先询问，不猜测。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,64}$"
+          },
+          "item_id": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,6}$"
+          },
+          "due_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "order_id",
+          "item_id",
+          "quantity",
+          "due_at"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "query_plan",
+      "description": "查询基线或已经计算过的草案，结果来自真实规划 API。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "baseline 或完整的 DRAFT- 草案编号"
+          }
+        },
+        "required": [
+          "target"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "compare_plans",
+      "description": "读取某个已经计算过的草案与不可修改基线的实际差异。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "description": "需要比较的完整 DRAFT- 草案编号"
+          }
+        },
+        "required": [
+          "candidate_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "check_plan_condition",
+      "description": "检查当前已选计划是否已满足一个条件。禁止加班、有限产能、有限物料等要求优先用此工具，由服务端核对明确规则；已满足则无需变更和重算。不会编辑约束。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string",
+            "enum": [
+              "NO_OVERTIME",
+              "FINITE_CAPACITY",
+              "FINITE_MATERIAL"
+            ]
+          }
+        },
+        "required": [
+          "condition"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "ask_clarification",
+      "description": "缺少必要条件时提出澄清问题。变更请求同时返回 intent、用户已明确提供的 known_fields 和 missing_fields；建立待确认状态，不创建订单。不得猜测下周的具体交期。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "intent": {
+            "type": "string",
+            "enum": [
+              "ADD_URGENT_ORDER",
+              "CHANGE_DUE_DATE",
+              "QUERY",
+              "UNKNOWN"
+            ]
+          },
+          "known_fields": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string"
+              },
+              "item_id": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,6}$"
+              },
+              "due_at": {
+                "type": "string"
+              },
+              "demand_id": {
+                "type": "string"
+              },
+              "shift_days": {
+                "type": "integer",
+                "minimum": -365,
+                "maximum": 365
+              }
+            },
+            "additionalProperties": false
+          },
+          "missing_fields": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "order_id",
+                "item_id",
+                "quantity",
+                "due_at",
+                "demand_id",
+                "shift_days"
+              ]
+            }
+          }
+        },
+        "required": [
+          "question"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "reject_action",
+      "description": "准确说明尚未接入的操作。班次变更用 SHIFT_CHANGE，产能编辑用 RESOURCE_CAPACITY_CHANGE，规则编辑用 OVERTIME_POLICY_CHANGE，发布审批用 PUBLISH_OR_APPROVE。先检查条件是否已满足，不笼统声称系统不能计算。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "capability": {
+            "type": "string",
+            "enum": [
+              "SHIFT_CHANGE",
+              "RESOURCE_CAPACITY_CHANGE",
+              "OVERTIME_POLICY_CHANGE",
+              "PUBLISH_OR_APPROVE",
+              "CHAINED_SCENARIO_CHANGE",
+              "OTHER"
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+]

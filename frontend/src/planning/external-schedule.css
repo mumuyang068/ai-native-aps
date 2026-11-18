@@ -1,0 +1,4 @@
+.external-schedule{min-width:0;max-width:100%}
+.external-schedule-scroll{min-width:0;max-width:100%;width:100%;overflow-x:auto}
+.external-schedule-table{width:100%;min-width:520px;border-collapse:collapse;font-size:12px}
+.external-schedule-table td,.external-schedule-table th{padding:8px;text-align:left;border-bottom:1px solid var(--theme-color-soft-bdr,#c6cbd1);vertical-align:top}

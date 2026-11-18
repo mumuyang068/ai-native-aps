@@ -1,0 +1,64 @@
+[
+  {
+    "reference": "12",
+    "status": "proposed",
+    "demand": "SO-102-L1",
+    "item": "TEE-BLK",
+    "location": "SITE-01",
+    "quantity": "300.00000000",
+    "startdate": "2026-10-20T18:00:00",
+    "enddate": "2026-10-20T18:00:00",
+    "due": "2026-10-20T18:00:00",
+    "batch": null,
+    "delay": "00:00:00",
+    "plan": {
+      "pegging": {
+        "SO-102-L1": 300.0
+      },
+      "unavailable": 0,
+      "interruptions": [],
+      "upstream_opplans": [
+        [
+          "5",
+          300.0,
+          0.0
+        ]
+      ],
+      "downstream_opplans": []
+    },
+    "source": null,
+    "lastmodified": "2026-10-14T13:07:18",
+    "forecast": null
+  },
+  {
+    "reference": "13",
+    "status": "proposed",
+    "demand": "SO-101-L1",
+    "item": "TEE-BLK",
+    "location": "SITE-01",
+    "quantity": "1000.00000000",
+    "startdate": "2026-10-23T18:00:00",
+    "enddate": "2026-10-23T18:00:00",
+    "due": "2026-10-23T18:00:00",
+    "batch": null,
+    "delay": "00:00:00",
+    "plan": {
+      "pegging": {
+        "SO-101-L1": 1000.0
+      },
+      "unavailable": 0,
+      "interruptions": [],
+      "upstream_opplans": [
+        [
+          "6",
+          1000.0,
+          0.0
+        ]
+      ],
+      "downstream_opplans": []
+    },
+    "source": null,
+    "lastmodified": "2026-10-14T13:07:18",
+    "forecast": null
+  }
+]

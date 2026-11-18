@@ -1,0 +1,38 @@
+[
+  {
+    "id": 37,
+    "operationplan": "2",
+    "resource": "CUT-LINE",
+    "quantity": "1.00000000",
+    "startdate": "2026-10-20T17:20:00",
+    "enddate": "2026-10-21T16:00:00",
+    "status": "proposed",
+    "setup": null,
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:33"
+  },
+  {
+    "id": 38,
+    "operationplan": "3",
+    "resource": "PACK-LINE",
+    "quantity": "1.00000000",
+    "startdate": "2026-10-23T09:00:00",
+    "enddate": "2026-10-23T18:00:00",
+    "status": "proposed",
+    "setup": null,
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:33"
+  },
+  {
+    "id": 39,
+    "operationplan": "4",
+    "resource": "SEW-LINE",
+    "quantity": "1.00000000",
+    "startdate": "2026-10-21T16:00:00",
+    "enddate": "2026-10-22T18:00:00",
+    "status": "proposed",
+    "setup": null,
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:33"
+  }
+]

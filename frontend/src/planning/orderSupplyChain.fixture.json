@@ -1,0 +1,4921 @@
+{
+  "baseline": {
+    "input": {
+      "assumptions": [],
+      "bom_revisions": [
+        {
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-BOM-CUT",
+          "lines": [
+            {
+              "consume_at": "START",
+              "consume_operation_id": "D16-CUT",
+              "item_id": "D16-FAB",
+              "quantity_per_output": "1",
+              "scrap_fraction": "0",
+              "uom": "m"
+            }
+          ],
+          "output_item_id": "D16-CUT-WIP",
+          "output_quantity": "1",
+          "output_uom": "set",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "BOM!A6:O6",
+            "source_record_id": "bom_revisions/D16-BOM-CUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-BOM-SEW",
+          "lines": [
+            {
+              "consume_at": "START",
+              "consume_operation_id": "D16-SEW",
+              "item_id": "D16-CUT-WIP",
+              "quantity_per_output": "1",
+              "scrap_fraction": "0",
+              "uom": "set"
+            }
+          ],
+          "output_item_id": "D16-SEWN-OUT",
+          "output_quantity": "1",
+          "output_uom": "piece",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "BOM!A7:O7",
+            "source_record_id": "bom_revisions/D16-BOM-SEW",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "calendars": [
+        {
+          "available_intervals": [
+            {
+              "end_at": "2026-11-02T12:00:00+08:00",
+              "start_at": "2026-11-02T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-02T18:00:00+08:00",
+              "start_at": "2026-11-02T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-03T12:00:00+08:00",
+              "start_at": "2026-11-03T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-03T18:00:00+08:00",
+              "start_at": "2026-11-03T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-04T12:00:00+08:00",
+              "start_at": "2026-11-04T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-04T18:00:00+08:00",
+              "start_at": "2026-11-04T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-05T12:00:00+08:00",
+              "start_at": "2026-11-05T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-05T18:00:00+08:00",
+              "start_at": "2026-11-05T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-06T12:00:00+08:00",
+              "start_at": "2026-11-06T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-06T18:00:00+08:00",
+              "start_at": "2026-11-06T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-09T12:00:00+08:00",
+              "start_at": "2026-11-09T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-09T18:00:00+08:00",
+              "start_at": "2026-11-09T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-10T12:00:00+08:00",
+              "start_at": "2026-11-10T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-10T18:00:00+08:00",
+              "start_at": "2026-11-10T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-11T12:00:00+08:00",
+              "start_at": "2026-11-11T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-11T18:00:00+08:00",
+              "start_at": "2026-11-11T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-12T12:00:00+08:00",
+              "start_at": "2026-11-12T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-12T18:00:00+08:00",
+              "start_at": "2026-11-12T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-13T12:00:00+08:00",
+              "start_at": "2026-11-13T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-13T18:00:00+08:00",
+              "start_at": "2026-11-13T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-16T12:00:00+08:00",
+              "start_at": "2026-11-16T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-16T18:00:00+08:00",
+              "start_at": "2026-11-16T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-17T12:00:00+08:00",
+              "start_at": "2026-11-17T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-17T18:00:00+08:00",
+              "start_at": "2026-11-17T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-18T12:00:00+08:00",
+              "start_at": "2026-11-18T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-18T18:00:00+08:00",
+              "start_at": "2026-11-18T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-19T12:00:00+08:00",
+              "start_at": "2026-11-19T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-19T18:00:00+08:00",
+              "start_at": "2026-11-19T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-20T12:00:00+08:00",
+              "start_at": "2026-11-20T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-20T18:00:00+08:00",
+              "start_at": "2026-11-20T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-23T12:00:00+08:00",
+              "start_at": "2026-11-23T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-23T18:00:00+08:00",
+              "start_at": "2026-11-23T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-24T12:00:00+08:00",
+              "start_at": "2026-11-24T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-24T18:00:00+08:00",
+              "start_at": "2026-11-24T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-25T12:00:00+08:00",
+              "start_at": "2026-11-25T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-25T18:00:00+08:00",
+              "start_at": "2026-11-25T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-26T12:00:00+08:00",
+              "start_at": "2026-11-26T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-26T18:00:00+08:00",
+              "start_at": "2026-11-26T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-27T12:00:00+08:00",
+              "start_at": "2026-11-27T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-27T18:00:00+08:00",
+              "start_at": "2026-11-27T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-30T12:00:00+08:00",
+              "start_at": "2026-11-30T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-30T18:00:00+08:00",
+              "start_at": "2026-11-30T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-01T12:00:00+08:00",
+              "start_at": "2026-12-01T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-01T18:00:00+08:00",
+              "start_at": "2026-12-01T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-02T12:00:00+08:00",
+              "start_at": "2026-12-02T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-02T18:00:00+08:00",
+              "start_at": "2026-12-02T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-03T12:00:00+08:00",
+              "start_at": "2026-12-03T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-03T18:00:00+08:00",
+              "start_at": "2026-12-03T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-04T12:00:00+08:00",
+              "start_at": "2026-12-04T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-04T18:00:00+08:00",
+              "start_at": "2026-12-04T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-07T12:00:00+08:00",
+              "start_at": "2026-12-07T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-07T18:00:00+08:00",
+              "start_at": "2026-12-07T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-08T12:00:00+08:00",
+              "start_at": "2026-12-08T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-08T18:00:00+08:00",
+              "start_at": "2026-12-08T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-09T12:00:00+08:00",
+              "start_at": "2026-12-09T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-09T18:00:00+08:00",
+              "start_at": "2026-12-09T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-10T12:00:00+08:00",
+              "start_at": "2026-12-10T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-10T18:00:00+08:00",
+              "start_at": "2026-12-10T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-11T12:00:00+08:00",
+              "start_at": "2026-12-11T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-11T18:00:00+08:00",
+              "start_at": "2026-12-11T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-14T12:00:00+08:00",
+              "start_at": "2026-12-14T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-14T18:00:00+08:00",
+              "start_at": "2026-12-14T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-15T12:00:00+08:00",
+              "start_at": "2026-12-15T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-15T18:00:00+08:00",
+              "start_at": "2026-12-15T13:00:00+08:00"
+            }
+          ],
+          "id": "D16-DAY",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "工作日历!A6:G6",
+            "source_record_id": "calendars/D16-DAY",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "timezone": "Asia/Shanghai"
+        }
+      ],
+      "demand_lines": [
+        {
+          "due_at": "2026-11-05T18:00:00+08:00",
+          "id": "D16-ORDER-1-L1",
+          "item_id": "D16-SEWN-OUT",
+          "line_ref": "L1",
+          "location_id": "FACTORY",
+          "maximum_lateness_seconds": 0,
+          "minimum_shipment": "1",
+          "order_ref": "D16-CUSTOMER-ORDER-1",
+          "priority": 1,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "订单!A6:Q6",
+            "source_record_id": "demand_lines/D16-ORDER-1-L1",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quantity": "10",
+          "status": "OPEN",
+          "uom": "piece"
+        },
+        {
+          "due_at": "2026-11-05T18:00:00+08:00",
+          "id": "D16-ORDER-2-L1",
+          "item_id": "D16-SEWN-OUT",
+          "line_ref": "L1",
+          "location_id": "FACTORY",
+          "maximum_lateness_seconds": 0,
+          "minimum_shipment": "1",
+          "order_ref": "D16-CUSTOMER-ORDER-2",
+          "priority": 2,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "订单!A7:Q7",
+            "source_record_id": "demand_lines/D16-ORDER-2-L1",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quantity": "10",
+          "status": "OPEN",
+          "uom": "piece"
+        }
+      ],
+      "engine": {
+        "engine": "frepple",
+        "problem_kind": "SUPPLY_PLANNING",
+        "profile": "frepple-community-9.19-supply-v1",
+        "target_version": "9.19.0"
+      },
+      "existing_orders": [
+        {
+          "available_at": "2026-11-04T09:00:00+08:00",
+          "cancelled_quantity": "0",
+          "expected_receipt_at": "2026-11-03T09:00:00+08:00",
+          "external_ref": "D16-CONFIRMED-40",
+          "freeze_policy": "LOCKED",
+          "id": "D16-CONFIRMED-40",
+          "inventory_includes_receipt": false,
+          "item_id": "D16-FAB",
+          "location_id": "FACTORY",
+          "ordered_at": "2026-10-31T09:00:00+08:00",
+          "ordered_quantity": "40",
+          "planned_start_at": "2026-10-31T09:00:00+08:00",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "采购台账!A6:R6",
+            "source_record_id": "confirmed-40",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-V1"
+          },
+          "received_quantity": "0",
+          "remaining_quantity": "40",
+          "source_status": "confirmed",
+          "supplier_id": "D16-SUP",
+          "supply_source_id": "D16-RAW-SOURCE",
+          "type": "PO",
+          "uom": "m"
+        }
+      ],
+      "horizon": {
+        "end_at": "2026-12-16T00:00:00+08:00",
+        "start_at": "2026-11-02T08:00:00+08:00"
+      },
+      "inventory_positions": [
+        {
+          "as_of": "2026-11-02T08:00:00+08:00",
+          "id": "INV-D16-FAB",
+          "item_id": "D16-FAB",
+          "location_id": "FACTORY",
+          "on_hand": "0",
+          "other_nonnettable": "0",
+          "physical_lot_ref": null,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "库存!A6:M6",
+            "source_record_id": "inventory_positions/INV-D16-FAB",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quality_blocked": "0",
+          "uom": "m"
+        },
+        {
+          "as_of": "2026-11-02T08:00:00+08:00",
+          "id": "INV-D16-CUT-WIP",
+          "item_id": "D16-CUT-WIP",
+          "location_id": "FACTORY",
+          "on_hand": "20",
+          "other_nonnettable": "0",
+          "physical_lot_ref": null,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "库存!A7:M7",
+            "source_record_id": "inventory_positions/INV-D16-CUT-WIP",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quality_blocked": "8",
+          "uom": "set"
+        },
+        {
+          "as_of": "2026-11-02T08:00:00+08:00",
+          "id": "INV-D16-SEWN-OUT",
+          "item_id": "D16-SEWN-OUT",
+          "location_id": "FACTORY",
+          "on_hand": "0",
+          "other_nonnettable": "0",
+          "physical_lot_ref": null,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "库存!A8:M8",
+            "source_record_id": "inventory_positions/INV-D16-SEWN-OUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quality_blocked": "0",
+          "uom": "piece"
+        }
+      ],
+      "items": [
+        {
+          "base_uom": "m",
+          "id": "D16-FAB",
+          "kind": "RAW",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "产品物料!A6:F6",
+            "source_record_id": "items/D16-FAB",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "base_uom": "set",
+          "id": "D16-CUT-WIP",
+          "kind": "SEMI",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "产品物料!A7:F7",
+            "source_record_id": "items/D16-CUT-WIP",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "base_uom": "piece",
+          "id": "D16-SEWN-OUT",
+          "kind": "FINISHED",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "产品物料!A8:F8",
+            "source_record_id": "items/D16-SEWN-OUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "planning_at": "2026-11-02T08:00:00+08:00",
+      "production_recipes": [
+        {
+          "bom_revision_id": "D16-BOM-CUT",
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-MAKE-CUT",
+          "location_id": "FACTORY",
+          "manufacturing_minimum_quantity": "1",
+          "manufacturing_multiple": "1",
+          "output_item_id": "D16-CUT-WIP",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "生产配方!A6:M6",
+            "source_record_id": "production_recipes/D16-MAKE-CUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "routing_revision_id": "D16-ROUTE-CUT",
+          "transfer_policy": "WHOLE_MANUFACTURING_BATCH"
+        },
+        {
+          "bom_revision_id": "D16-BOM-SEW",
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-MAKE-SEW",
+          "location_id": "FACTORY",
+          "manufacturing_minimum_quantity": "1",
+          "manufacturing_multiple": "1",
+          "output_item_id": "D16-SEWN-OUT",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "生产配方!A7:M7",
+            "source_record_id": "production_recipes/D16-MAKE-SEW",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "routing_revision_id": "D16-ROUTE-SEW",
+          "transfer_policy": "WHOLE_MANUFACTURING_BATCH"
+        }
+      ],
+      "reservations": [],
+      "resources": [
+        {
+          "availability_calendar_id": "D16-DAY",
+          "id": "D16-CUT-LINE",
+          "location_id": "FACTORY",
+          "parallel_units": "1",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "生产资源!A6:G6",
+            "source_record_id": "resources/D16-CUT-LINE",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "availability_calendar_id": "D16-DAY",
+          "id": "D16-SEW-LINE",
+          "location_id": "FACTORY",
+          "parallel_units": "1",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "生产资源!A7:G7",
+            "source_record_id": "resources/D16-SEW-LINE",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "routing_revisions": [
+        {
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-ROUTE-CUT",
+          "operations": [
+            {
+              "duration_model": "FIXED_PLUS_PER_UNIT",
+              "fixed_seconds": "0",
+              "id": "D16-CUT",
+              "predecessors": [],
+              "resource_id": "D16-CUT-LINE",
+              "resource_units": "1",
+              "seconds_per_unit": "300",
+              "sequence": 10
+            }
+          ],
+          "output_item_id": "D16-CUT-WIP",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "工艺路线!A6:O6",
+            "source_record_id": "routing_revisions/D16-ROUTE-CUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-ROUTE-SEW",
+          "operations": [
+            {
+              "duration_model": "FIXED_PLUS_PER_UNIT",
+              "fixed_seconds": "0",
+              "id": "D16-SEW",
+              "predecessors": [],
+              "resource_id": "D16-SEW-LINE",
+              "resource_units": "1",
+              "seconds_per_unit": "600",
+              "sequence": 10
+            }
+          ],
+          "output_item_id": "D16-SEWN-OUT",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "工艺路线!A7:O7",
+            "source_record_id": "routing_revisions/D16-ROUTE-SEW",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "rules": {
+        "allow_overtime": false,
+        "erase_previous_proposed": true,
+        "finite_capacity": true,
+        "finite_material": true,
+        "fix_broken_supply_path": false,
+        "freeze_existing": true,
+        "manufacturing_profile": "two-level-confirmed-supply-v1",
+        "move_approved_early": 0,
+        "profile_version": "v1"
+      },
+      "scenario_id": "PLAN-0356a983637f4e86",
+      "scenario_revision": 1,
+      "schema_version": "0.2.0",
+      "site": {
+        "id": "FACTORY",
+        "name": "SIM-D16-01 连续两级阶段需求合成切片",
+        "provenance": {
+          "import_batch_id": "P2-8df727556adf",
+          "observed_at": "2026-11-02T08:00:00+08:00",
+          "source_locator": "工厂参数!A6:E30",
+          "source_record_id": "P2-SITE",
+          "source_system": "ENTERPRISE_XLSX",
+          "source_version": "p2.0-sim-v1"
+        },
+        "timezone": "Asia/Shanghai"
+      },
+      "snapshot_id": "SNAP-PLAN-0356a983637f4e86",
+      "suppliers": [
+        {
+          "id": "D16-SUP",
+          "name": "SIM-D16 independent synthetic supplier",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "供应商!A6:E6",
+            "source_record_id": "suppliers/D16-SUP",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "supply_sources": [
+        {
+          "batch_window_seconds": 0,
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-RAW-SOURCE",
+          "item_id": "D16-FAB",
+          "lead_time_basis": "CALENDAR_TIME",
+          "lead_time_seconds": 172800,
+          "location_id": "FACTORY",
+          "minimum_order_quantity": "20",
+          "order_multiple": "20",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "供应来源!A6:N6",
+            "source_record_id": "supply_sources/D16-RAW-SOURCE",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "receiving_qc": {
+            "provenance": {
+              "import_batch_id": "P2-8df727556adf",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "source_locator": "采购台账!A6:R6",
+              "source_record_id": "confirmed-40",
+              "source_system": "ENTERPRISE_XLSX",
+              "source_version": "SIM-D16-01-V1"
+            },
+            "wait_seconds": 86400
+          },
+          "supplier_id": "D16-SUP"
+        }
+      ]
+    },
+    "view": {
+      "run": {
+        "solve_run_id": "API-1a35289835b94cf8",
+        "scenario_id": "PLAN-0356a983637f4e86",
+        "scenario_revision": 1,
+        "snapshot_id": "SNAP-PLAN-0356a983637f4e86",
+        "input_hash": "fb6f2a2420f9681694de45c4ff5e2cbf4c54397c555347475512f8d5b18ac465",
+        "engine_profile": "frepple-community-9.19-supply-v1",
+        "state": "SUCCEEDED",
+        "engine_task_ref": "4",
+        "result_ref": "/v1/solve-runs/API-1a35289835b94cf8/result",
+        "failure_code": null,
+        "created_at": "2026-10-18T08:12:32.295277+00:00",
+        "started_at": "2026-10-18T08:12:32.444934+00:00",
+        "finished_at": "2026-10-18T08:13:28.790440+00:00",
+        "worker_state": "READY"
+      },
+      "result": {
+        "schema_version": "0.2.0",
+        "solve_run_id": "API-1a35289835b94cf8",
+        "scenario_id": "PLAN-0356a983637f4e86",
+        "scenario_revision": 1,
+        "snapshot_id": "SNAP-PLAN-0356a983637f4e86",
+        "input_hash": "fb6f2a2420f9681694de45c4ff5e2cbf4c54397c555347475512f8d5b18ac465",
+        "engine": {
+          "name": "frepple",
+          "runtime_version": "9.19.0",
+          "source_commit": "UNKNOWN",
+          "adapter_version": "p0.1",
+          "engine_task_ref": "4"
+        },
+        "computed_at": "2026-10-18T16:13:25.899473+08:00",
+        "assessment": {
+          "status": "ACCEPTABLE",
+          "constraint_check": "PASS",
+          "coverage": [
+            "reported_material_onhand_nonnegative",
+            "resource_capacity",
+            "calendar_duration",
+            "routing_order",
+            "procurement_lead_time"
+          ],
+          "issues": []
+        },
+        "purchase_suggestions": [],
+        "manufacture_suggestions": [
+          {
+            "id": "API-1a35289835b94cf8:MO:1",
+            "engine_ref": "1",
+            "item_id": "D16-CUT-WIP",
+            "location_id": "FACTORY",
+            "recipe_id": "D16-MAKE-CUT",
+            "quantity": "8",
+            "uom": "set",
+            "start_at": "2026-11-05T15:40:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:manufacturingorder:1"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:MO:3",
+            "engine_ref": "3",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "recipe_id": "D16-MAKE-SEW",
+            "quantity": "10",
+            "uom": "piece",
+            "start_at": "2026-11-05T14:40:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:manufacturingorder:3"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:MO:4",
+            "engine_ref": "4",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "recipe_id": "D16-MAKE-SEW",
+            "quantity": "10",
+            "uom": "piece",
+            "start_at": "2026-11-05T16:20:00+08:00",
+            "end_at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:manufacturingorder:4"
+            ]
+          }
+        ],
+        "operations": [
+          {
+            "id": "API-1a35289835b94cf8:OP:2",
+            "manufacture_id": "API-1a35289835b94cf8:MO:1",
+            "operation_id": "D16-CUT",
+            "resource_id": "D16-CUT-LINE",
+            "resource_units": "1",
+            "quantity": "8",
+            "start_at": "2026-11-05T15:40:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:workorder:2"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:OP:5",
+            "manufacture_id": "API-1a35289835b94cf8:MO:3",
+            "operation_id": "D16-SEW",
+            "resource_id": "D16-SEW-LINE",
+            "resource_units": "1",
+            "quantity": "10",
+            "start_at": "2026-11-05T14:40:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:workorder:5"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:OP:6",
+            "manufacture_id": "API-1a35289835b94cf8:MO:4",
+            "operation_id": "D16-SEW",
+            "resource_id": "D16-SEW-LINE",
+            "resource_units": "1",
+            "quantity": "10",
+            "start_at": "2026-11-05T16:20:00+08:00",
+            "end_at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:workorder:6"
+            ]
+          }
+        ],
+        "deliveries": [
+          {
+            "demand_id": "D16-ORDER-1-L1",
+            "requested_quantity": "10",
+            "planned_quantity": "10",
+            "unfulfilled_quantity": "0",
+            "uom": "piece",
+            "due_at": "2026-11-05T18:00:00+08:00",
+            "planned_delivery_at": "2026-11-05T18:00:00+08:00",
+            "delay_seconds": 0,
+            "status": "ON_TIME",
+            "evidence_ids": [
+              "ENGINE:demand:D16-ORDER-1-L1"
+            ]
+          },
+          {
+            "demand_id": "D16-ORDER-2-L1",
+            "requested_quantity": "10",
+            "planned_quantity": "10",
+            "unfulfilled_quantity": "0",
+            "uom": "piece",
+            "due_at": "2026-11-05T18:00:00+08:00",
+            "planned_delivery_at": "2026-11-05T18:00:00+08:00",
+            "delay_seconds": 0,
+            "status": "ON_TIME",
+            "evidence_ids": [
+              "ENGINE:demand:D16-ORDER-2-L1"
+            ]
+          }
+        ],
+        "material_flows": [
+          {
+            "id": "API-1a35289835b94cf8:FLOW:9",
+            "order_id": "D16-CUT-WIP @ FACTORY",
+            "item_id": "D16-CUT-WIP",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "12",
+            "uom": "set",
+            "at": "1971-01-01T00:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:9"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:10",
+            "order_id": "5",
+            "item_id": "D16-CUT-WIP",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "10",
+            "uom": "set",
+            "at": "2026-11-05T14:40:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:10"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:11",
+            "order_id": "2",
+            "item_id": "D16-CUT-WIP",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "8",
+            "uom": "set",
+            "at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:11"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:12",
+            "order_id": "6",
+            "item_id": "D16-CUT-WIP",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "10",
+            "uom": "set",
+            "at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:12"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:13",
+            "order_id": "D16-CONFIRMED-40",
+            "item_id": "D16-FAB",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "40",
+            "uom": "m",
+            "at": "2026-11-04T09:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:13"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:14",
+            "order_id": "2",
+            "item_id": "D16-FAB",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "8",
+            "uom": "m",
+            "at": "2026-11-05T15:40:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:14"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:15",
+            "order_id": "5",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "10",
+            "uom": "piece",
+            "at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:15"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:16",
+            "order_id": "6",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "10",
+            "uom": "piece",
+            "at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:16"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:17",
+            "order_id": "10",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "10",
+            "uom": "piece",
+            "at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:17"
+            ]
+          },
+          {
+            "id": "API-1a35289835b94cf8:FLOW:18",
+            "order_id": "11",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "10",
+            "uom": "piece",
+            "at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:18"
+            ]
+          }
+        ],
+        "resource_loads": [
+          {
+            "operation_id": "API-1a35289835b94cf8:OP:2",
+            "resource_id": "D16-CUT-LINE",
+            "resource_units": "1",
+            "start_at": "2026-11-05T15:40:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanresource:3"
+            ]
+          },
+          {
+            "operation_id": "API-1a35289835b94cf8:OP:5",
+            "resource_id": "D16-SEW-LINE",
+            "resource_units": "1",
+            "start_at": "2026-11-05T14:40:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanresource:4"
+            ]
+          },
+          {
+            "operation_id": "API-1a35289835b94cf8:OP:6",
+            "resource_id": "D16-SEW-LINE",
+            "resource_units": "1",
+            "start_at": "2026-11-05T16:20:00+08:00",
+            "end_at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanresource:5"
+            ]
+          }
+        ],
+        "pegging": [],
+        "pegging_available": false,
+        "evidence": [
+          {
+            "id": "ENGINE:purchaseorder:D16-CONFIRMED-40",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\purchaseorder.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:manufacturingorder:1",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\manufacturingorder.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:manufacturingorder:3",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\manufacturingorder.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:manufacturingorder:4",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\manufacturingorder.json",
+            "locator": "row:2"
+          },
+          {
+            "id": "ENGINE:workorder:2",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\workorder.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:workorder:5",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\workorder.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:workorder:6",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\workorder.json",
+            "locator": "row:2"
+          },
+          {
+            "id": "ENGINE:demand:D16-ORDER-1-L1",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\demand.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:demand:D16-ORDER-2-L1",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\demand.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:9",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:10",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:11",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:2"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:12",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:3"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:13",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:4"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:14",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:5"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:15",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:6"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:16",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:7"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:17",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:8"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:18",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+            "locator": "row:9"
+          },
+          {
+            "id": "ENGINE:operationplanresource:3",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanresource.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:operationplanresource:4",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanresource.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:operationplanresource:5",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanresource.json",
+            "locator": "row:2"
+          },
+          {
+            "id": "ENGINE:deliveryorder:10",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\deliveryorder.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:deliveryorder:11",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-1a35289835b94cf8\\raw\\deliveryorder.json",
+            "locator": "row:1"
+          }
+        ],
+        "raw_artifact_refs": [
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\constraint.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\deliveryorder.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\demand.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\fixed_batch_post.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\fixed_batch_post.xml",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\fixed_batch_pre.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\fixed_batch_pre.xml",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\import-polls.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\import-submit.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\import.log",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-buffer.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-calendar.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-calendarbucket.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-customer.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-demand.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-item.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-itemsupplier.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-location.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-operation.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-operationmaterial.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-operationresource.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-parameter.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-purchaseorder.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-resource.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\imported-supplier.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\manufacturingorder.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanmaterial.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\operationplanresource.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\problem.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\purchaseorder.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\solve-polls.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\solve-submit.json",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\solve.log",
+          "engine\\runs\\API-1a35289835b94cf8\\raw\\workorder.json"
+        ],
+        "result_hash": "c7910208f11262d45d0fd276170dd054748f79b26587ac698cc89df1d6f61137"
+      },
+      "order_evidence": {
+        "schema_version": "order-evidence/1",
+        "solve_run_id": "API-1a35289835b94cf8",
+        "scenario_id": "PLAN-0356a983637f4e86",
+        "scenario_revision": 1,
+        "source_result_hash": "c7910208f11262d45d0fd276170dd054748f79b26587ac698cc89df1d6f61137",
+        "missing_tables": [],
+        "source_hashes": {
+          "operationplanresource": "9a888706aa51422f0cb1548b542e8e0f70bbb4112b4d41a593b0f98327161bb4",
+          "constraint": "6cbf3b6fbf6d72713623dfb5ab487adeae20a28125c3f94b716bffba9bf905c5",
+          "purchaseorder": "cdf18adcba9a55bdf934c37ca7a71eeab0e103cf1753d54df5d5b0ba21aa3329",
+          "operationplanmaterial": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75",
+          "problem": "6cbf3b6fbf6d72713623dfb5ab487adeae20a28125c3f94b716bffba9bf905c5",
+          "deliveryorder": "9ff6dc7fe397c917c976dd76e648d0326a306ee6fc01680500228c8c75c38f02",
+          "manufacturingorder": "c9df66b100457b8ef413ad91421e3d5cc67e5d6baf928903e37c16adb1f4d273",
+          "demand": "a494712af14ffe99d7b8fe4b5e8dfa3db062700be8c8fcc03934a53b9e75eb6b",
+          "workorder": "c58b25740ff358e20ca4e1f281ff81f2215fd056497ac8591ede05e5381d2da4",
+          "fixed_batch_pre": "a7f765f5361f829918bd445ba63a901d485b9f450884e20b31157e8a96ba0b9f",
+          "fixed_batch_post": "35a4082eb30389839357f8145f78f8cee7833af343730bb2a149f1264f8dc714"
+        },
+        "orders": [
+          {
+            "demand_id": "D16-ORDER-1-L1",
+            "order_ref": "D16-CUSTOMER-ORDER-1",
+            "delivery": {
+              "demand_id": "D16-ORDER-1-L1",
+              "requested_quantity": "10",
+              "planned_quantity": "10",
+              "unfulfilled_quantity": "0",
+              "uom": "piece",
+              "due_at": "2026-11-05T18:00:00+08:00",
+              "planned_delivery_at": "2026-11-05T18:00:00+08:00",
+              "delay_seconds": 0,
+              "status": "ON_TIME",
+              "evidence_ids": [
+                "ENGINE:demand:D16-ORDER-1-L1"
+              ]
+            },
+            "manufacturing": [
+              {
+                "record": {
+                  "reference": "3",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-SEW",
+                  "quantity": "10.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T14:40:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "-1 22:20:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-1-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "5",
+                        10.0,
+                        0.0
+                      ],
+                      [
+                        "D16-CUT-WIP @ FACTORY",
+                        10.0,
+                        0.0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "5",
+                        10.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "resources": [],
+                  "materials": [],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T14:40:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "manufacturingorder.json",
+                  "locator": "row:1",
+                  "native_record_id": "3",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:manufacturingorder:3",
+                  "sha256": "c9df66b100457b8ef413ad91421e3d5cc67e5d6baf928903e37c16adb1f4d273"
+                },
+                "id": "API-1a35289835b94cf8:MO:3",
+                "engine_ref": "3",
+                "task": {
+                  "id": "API-1a35289835b94cf8:MO:3",
+                  "engine_ref": "3",
+                  "item_id": "D16-SEWN-OUT",
+                  "location_id": "FACTORY",
+                  "recipe_id": "D16-MAKE-SEW",
+                  "quantity": "10",
+                  "uom": "piece",
+                  "start_at": "2026-11-05T14:40:00+08:00",
+                  "end_at": "2026-11-05T16:20:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:manufacturingorder:3"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "operations": [
+              {
+                "record": {
+                  "reference": "5",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-SEW:D16-SEW",
+                  "quantity": "10.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T14:40:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "-1 22:20:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-1-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "3",
+                        10.0,
+                        0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "10",
+                        10.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": "3",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "resources": [
+                    {
+                      "resource": "D16-SEW-LINE",
+                      "quantity": "1.00000000",
+                      "setup": null
+                    }
+                  ],
+                  "materials": [
+                    {
+                      "item": "D16-CUT-WIP",
+                      "quantity": "-10.00000000",
+                      "flowdate": "2026-11-05T14:40:00"
+                    },
+                    {
+                      "item": "D16-SEWN-OUT",
+                      "quantity": "10.00000000",
+                      "flowdate": "2026-11-05T16:20:00"
+                    }
+                  ],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T14:40:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "workorder.json",
+                  "locator": "row:1",
+                  "native_record_id": "5",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:workorder:5",
+                  "sha256": "c58b25740ff358e20ca4e1f281ff81f2215fd056497ac8591ede05e5381d2da4"
+                },
+                "id": "API-1a35289835b94cf8:OP:5",
+                "engine_ref": "5",
+                "task": {
+                  "id": "API-1a35289835b94cf8:OP:5",
+                  "manufacture_id": "API-1a35289835b94cf8:MO:3",
+                  "operation_id": "D16-SEW",
+                  "resource_id": "D16-SEW-LINE",
+                  "resource_units": "1",
+                  "quantity": "10",
+                  "start_at": "2026-11-05T14:40:00+08:00",
+                  "end_at": "2026-11-05T16:20:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:workorder:5"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": "3",
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "purchases": [],
+            "deliveries": [
+              {
+                "record": {
+                  "reference": "10",
+                  "status": "proposed",
+                  "demand": "D16-ORDER-1-L1",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "10.00000000",
+                  "startdate": "2026-11-05T18:00:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "due": "2026-11-05T18:00:00",
+                  "batch": null,
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-1-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "5",
+                        10.0,
+                        0.0
+                      ]
+                    ],
+                    "downstream_opplans": []
+                  },
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T18:00:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00",
+                  "due": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "deliveryorder.json",
+                  "locator": "row:0",
+                  "native_record_id": "10",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:deliveryorder:10",
+                  "sha256": "9ff6dc7fe397c917c976dd76e648d0326a306ee6fc01680500228c8c75c38f02"
+                },
+                "id": "API-1a35289835b94cf8:DO:10",
+                "engine_ref": "10",
+                "task": null,
+                "item_uom": "piece",
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "materials": [
+              {
+                "record": {
+                  "id": 10,
+                  "operationplan": "5",
+                  "item": "D16-CUT-WIP",
+                  "location": "FACTORY",
+                  "quantity": "-10.00000000",
+                  "onhand": "2.00000000",
+                  "flowdate": "2026-11-05T14:40:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T14:40:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:1",
+                  "native_record_id": "10",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:10",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "set",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 15,
+                  "operationplan": "5",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "10.00000000",
+                  "onhand": "10.00000000",
+                  "flowdate": "2026-11-05T16:20:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:6",
+                  "native_record_id": "15",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:15",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "piece",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 17,
+                  "operationplan": "10",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "-10.00000000",
+                  "onhand": "10.00000000",
+                  "flowdate": "2026-11-05T18:00:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:8",
+                  "native_record_id": "17",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:17",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "piece",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              }
+            ],
+            "resources": [
+              {
+                "record": {
+                  "id": 4,
+                  "operationplan": "5",
+                  "resource": "D16-SEW-LINE",
+                  "quantity": "1.00000000",
+                  "startdate": "2026-11-05T14:40:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "status": "proposed",
+                  "setup": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "startdate": "2026-11-05T14:40:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanresource.json",
+                  "locator": "row:1",
+                  "native_record_id": "4",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanresource:4",
+                  "sha256": "9a888706aa51422f0cb1548b542e8e0f70bbb4112b4d41a593b0f98327161bb4"
+                },
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_LOAD_NOT_DELAY_CAUSE"
+              }
+            ],
+            "constraints": [],
+            "demand_records": [
+              {
+                "record": {
+                  "name": "D16-ORDER-1-L1",
+                  "description": null,
+                  "category": null,
+                  "subcategory": null,
+                  "item": "D16-SEWN-OUT",
+                  "customer": "D16-CUSTOMER-D16-CUSTOMER-ORDER-1",
+                  "location": "FACTORY",
+                  "due": "2026-11-05T18:00:00",
+                  "status": "open",
+                  "operation": null,
+                  "quantity": "10.00000000",
+                  "priority": 1,
+                  "batch": null,
+                  "delay": "00:00:00",
+                  "plannedquantity": "10.00000000",
+                  "deliverydate": "2026-11-05T18:00:00",
+                  "plan": {
+                    "pegging": [
+                      {
+                        "opplan": "10",
+                        "quantity": 10.0
+                      }
+                    ]
+                  },
+                  "minshipment": "1.00000000",
+                  "maxlateness": "00:00:00",
+                  "owner": null,
+                  "policy": "independent"
+                },
+                "times": {
+                  "deliverydate": "2026-11-05T18:00:00+08:00",
+                  "due": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "demand.json",
+                  "locator": "row:0",
+                  "native_record_id": "D16-ORDER-1-L1",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:demand:D16-ORDER-1-L1",
+                  "sha256": "a494712af14ffe99d7b8fe4b5e8dfa3db062700be8c8fcc03934a53b9e75eb6b"
+                }
+              }
+            ],
+            "cause_status": "INSUFFICIENT_EVIDENCE",
+            "limitations": [
+              "原生关联不等于延期原因；共享任务的全量流转不等于该订单的分配数量。",
+              "约束记录可能不完整，不能证明唯一原因或所有替代方案均无解。"
+            ]
+          },
+          {
+            "demand_id": "D16-ORDER-2-L1",
+            "order_ref": "D16-CUSTOMER-ORDER-2",
+            "delivery": {
+              "demand_id": "D16-ORDER-2-L1",
+              "requested_quantity": "10",
+              "planned_quantity": "10",
+              "unfulfilled_quantity": "0",
+              "uom": "piece",
+              "due_at": "2026-11-05T18:00:00+08:00",
+              "planned_delivery_at": "2026-11-05T18:00:00+08:00",
+              "delay_seconds": 0,
+              "status": "ON_TIME",
+              "evidence_ids": [
+                "ENGINE:demand:D16-ORDER-2-L1"
+              ]
+            },
+            "manufacturing": [
+              {
+                "record": {
+                  "reference": "1",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-CUT",
+                  "quantity": "8.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T15:40:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 8.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "2",
+                        8.0,
+                        0.0
+                      ],
+                      [
+                        "D16-CONFIRMED-40",
+                        8.0,
+                        0.0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "2",
+                        8.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "resources": [],
+                  "materials": [],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T15:40:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "manufacturingorder.json",
+                  "locator": "row:0",
+                  "native_record_id": "1",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:manufacturingorder:1",
+                  "sha256": "c9df66b100457b8ef413ad91421e3d5cc67e5d6baf928903e37c16adb1f4d273"
+                },
+                "id": "API-1a35289835b94cf8:MO:1",
+                "engine_ref": "1",
+                "task": {
+                  "id": "API-1a35289835b94cf8:MO:1",
+                  "engine_ref": "1",
+                  "item_id": "D16-CUT-WIP",
+                  "location_id": "FACTORY",
+                  "recipe_id": "D16-MAKE-CUT",
+                  "quantity": "8",
+                  "uom": "set",
+                  "start_at": "2026-11-05T15:40:00+08:00",
+                  "end_at": "2026-11-05T16:20:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:manufacturingorder:1"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "8.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              },
+              {
+                "record": {
+                  "reference": "4",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-SEW",
+                  "quantity": "10.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T16:20:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "6",
+                        10.0,
+                        0.0
+                      ],
+                      [
+                        "D16-CUT-WIP @ FACTORY",
+                        2.0,
+                        10.0
+                      ],
+                      [
+                        "2",
+                        8.0,
+                        0.0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "6",
+                        10.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "resources": [],
+                  "materials": [],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:20:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "manufacturingorder.json",
+                  "locator": "row:2",
+                  "native_record_id": "4",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:manufacturingorder:4",
+                  "sha256": "c9df66b100457b8ef413ad91421e3d5cc67e5d6baf928903e37c16adb1f4d273"
+                },
+                "id": "API-1a35289835b94cf8:MO:4",
+                "engine_ref": "4",
+                "task": {
+                  "id": "API-1a35289835b94cf8:MO:4",
+                  "engine_ref": "4",
+                  "item_id": "D16-SEWN-OUT",
+                  "location_id": "FACTORY",
+                  "recipe_id": "D16-MAKE-SEW",
+                  "quantity": "10",
+                  "uom": "piece",
+                  "start_at": "2026-11-05T16:20:00+08:00",
+                  "end_at": "2026-11-05T18:00:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:manufacturingorder:4"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "operations": [
+              {
+                "record": {
+                  "reference": "2",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-CUT:D16-CUT",
+                  "quantity": "8.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T15:40:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 8.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "1",
+                        8.0,
+                        0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "4",
+                        8.0,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "owner": "1",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "resources": [
+                    {
+                      "resource": "D16-CUT-LINE",
+                      "quantity": "1.00000000",
+                      "setup": null
+                    }
+                  ],
+                  "materials": [
+                    {
+                      "item": "D16-CUT-WIP",
+                      "quantity": "8.00000000",
+                      "flowdate": "2026-11-05T16:20:00"
+                    },
+                    {
+                      "item": "D16-FAB",
+                      "quantity": "-8.00000000",
+                      "flowdate": "2026-11-05T15:40:00"
+                    }
+                  ],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T15:40:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "workorder.json",
+                  "locator": "row:0",
+                  "native_record_id": "2",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:workorder:2",
+                  "sha256": "c58b25740ff358e20ca4e1f281ff81f2215fd056497ac8591ede05e5381d2da4"
+                },
+                "id": "API-1a35289835b94cf8:OP:2",
+                "engine_ref": "2",
+                "task": {
+                  "id": "API-1a35289835b94cf8:OP:2",
+                  "manufacture_id": "API-1a35289835b94cf8:MO:1",
+                  "operation_id": "D16-CUT",
+                  "resource_id": "D16-CUT-LINE",
+                  "resource_units": "1",
+                  "quantity": "8",
+                  "start_at": "2026-11-05T15:40:00+08:00",
+                  "end_at": "2026-11-05T16:20:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:workorder:2"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": "1",
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "8.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              },
+              {
+                "record": {
+                  "reference": "6",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-SEW:D16-SEW",
+                  "quantity": "10.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T16:20:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "4",
+                        10.0,
+                        0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "11",
+                        10.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": "4",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "resources": [
+                    {
+                      "resource": "D16-SEW-LINE",
+                      "quantity": "1.00000000",
+                      "setup": null
+                    }
+                  ],
+                  "materials": [
+                    {
+                      "item": "D16-CUT-WIP",
+                      "quantity": "-10.00000000",
+                      "flowdate": "2026-11-05T16:20:00"
+                    },
+                    {
+                      "item": "D16-SEWN-OUT",
+                      "quantity": "10.00000000",
+                      "flowdate": "2026-11-05T18:00:00"
+                    }
+                  ],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:20:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "workorder.json",
+                  "locator": "row:2",
+                  "native_record_id": "6",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:workorder:6",
+                  "sha256": "c58b25740ff358e20ca4e1f281ff81f2215fd056497ac8591ede05e5381d2da4"
+                },
+                "id": "API-1a35289835b94cf8:OP:6",
+                "engine_ref": "6",
+                "task": {
+                  "id": "API-1a35289835b94cf8:OP:6",
+                  "manufacture_id": "API-1a35289835b94cf8:MO:4",
+                  "operation_id": "D16-SEW",
+                  "resource_id": "D16-SEW-LINE",
+                  "resource_units": "1",
+                  "quantity": "10",
+                  "start_at": "2026-11-05T16:20:00+08:00",
+                  "end_at": "2026-11-05T18:00:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:workorder:6"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": "4",
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "purchases": [
+              {
+                "record": {
+                  "reference": "D16-CONFIRMED-40",
+                  "status": "confirmed",
+                  "item": "D16-FAB",
+                  "supplier": "D16-SUP",
+                  "location": "FACTORY",
+                  "quantity": "40.00000000",
+                  "startdate": "2026-10-31T09:00:00",
+                  "enddate": "2026-11-03T09:00:00",
+                  "batch": null,
+                  "criticality": "1.00000000",
+                  "delay": "-2 17:20:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 8.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [],
+                    "downstream_opplans": [
+                      [
+                        "1",
+                        8.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-10-31T09:00:00+08:00",
+                  "enddate": "2026-11-03T09:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "purchaseorder.json",
+                  "locator": "row:0",
+                  "native_record_id": "D16-CONFIRMED-40",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:purchaseorder:D16-CONFIRMED-40",
+                  "sha256": "cdf18adcba9a55bdf934c37ca7a71eeab0e103cf1753d54df5d5b0ba21aa3329"
+                },
+                "id": "API-1a35289835b94cf8:PO:D16-CONFIRMED-40",
+                "engine_ref": "D16-CONFIRMED-40",
+                "task": null,
+                "item_uom": "m",
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "8.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "deliveries": [
+              {
+                "record": {
+                  "reference": "11",
+                  "status": "proposed",
+                  "demand": "D16-ORDER-2-L1",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "10.00000000",
+                  "startdate": "2026-11-05T18:00:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "due": "2026-11-05T18:00:00",
+                  "batch": null,
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "6",
+                        10.0,
+                        0.0
+                      ]
+                    ],
+                    "downstream_opplans": []
+                  },
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21",
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T18:00:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00",
+                  "due": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "deliveryorder.json",
+                  "locator": "row:1",
+                  "native_record_id": "11",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:deliveryorder:11",
+                  "sha256": "9ff6dc7fe397c917c976dd76e648d0326a306ee6fc01680500228c8c75c38f02"
+                },
+                "id": "API-1a35289835b94cf8:DO:11",
+                "engine_ref": "11",
+                "task": null,
+                "item_uom": "piece",
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "materials": [
+              {
+                "record": {
+                  "id": 11,
+                  "operationplan": "2",
+                  "item": "D16-CUT-WIP",
+                  "location": "FACTORY",
+                  "quantity": "8.00000000",
+                  "onhand": "10.00000000",
+                  "flowdate": "2026-11-05T16:20:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:2",
+                  "native_record_id": "11",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:11",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "set",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 12,
+                  "operationplan": "6",
+                  "item": "D16-CUT-WIP",
+                  "location": "FACTORY",
+                  "quantity": "-10.00000000",
+                  "onhand": "0.00000000",
+                  "flowdate": "2026-11-05T16:20:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:3",
+                  "native_record_id": "12",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:12",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "set",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 13,
+                  "operationplan": "D16-CONFIRMED-40",
+                  "item": "D16-FAB",
+                  "location": "FACTORY",
+                  "quantity": "40.00000000",
+                  "onhand": "40.00000000",
+                  "flowdate": "2026-11-04T09:00:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-04T09:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:4",
+                  "native_record_id": "13",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:13",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "m",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 14,
+                  "operationplan": "2",
+                  "item": "D16-FAB",
+                  "location": "FACTORY",
+                  "quantity": "-8.00000000",
+                  "onhand": "32.00000000",
+                  "flowdate": "2026-11-05T15:40:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T15:40:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:5",
+                  "native_record_id": "14",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:14",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "m",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 16,
+                  "operationplan": "6",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "10.00000000",
+                  "onhand": "20.00000000",
+                  "flowdate": "2026-11-05T18:00:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:7",
+                  "native_record_id": "16",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:16",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "piece",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 18,
+                  "operationplan": "11",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "-10.00000000",
+                  "onhand": "0.00000000",
+                  "flowdate": "2026-11-05T18:00:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:9",
+                  "native_record_id": "18",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanmaterial:18",
+                  "sha256": "cc3290d26155939f0748611121603f7a2917041cb905affdf890d9cba8bdda75"
+                },
+                "item_uom": "piece",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              }
+            ],
+            "resources": [
+              {
+                "record": {
+                  "id": 3,
+                  "operationplan": "2",
+                  "resource": "D16-CUT-LINE",
+                  "quantity": "1.00000000",
+                  "startdate": "2026-11-05T15:40:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "status": "proposed",
+                  "setup": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "startdate": "2026-11-05T15:40:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanresource.json",
+                  "locator": "row:0",
+                  "native_record_id": "3",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanresource:3",
+                  "sha256": "9a888706aa51422f0cb1548b542e8e0f70bbb4112b4d41a593b0f98327161bb4"
+                },
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_LOAD_NOT_DELAY_CAUSE"
+              },
+              {
+                "record": {
+                  "id": 5,
+                  "operationplan": "6",
+                  "resource": "D16-SEW-LINE",
+                  "quantity": "1.00000000",
+                  "startdate": "2026-11-05T16:20:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "status": "proposed",
+                  "setup": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:13:21"
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:20:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanresource.json",
+                  "locator": "row:2",
+                  "native_record_id": "5",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:operationplanresource:5",
+                  "sha256": "9a888706aa51422f0cb1548b542e8e0f70bbb4112b4d41a593b0f98327161bb4"
+                },
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_LOAD_NOT_DELAY_CAUSE"
+              }
+            ],
+            "constraints": [],
+            "demand_records": [
+              {
+                "record": {
+                  "name": "D16-ORDER-2-L1",
+                  "description": null,
+                  "category": null,
+                  "subcategory": null,
+                  "item": "D16-SEWN-OUT",
+                  "customer": "D16-CUSTOMER-D16-CUSTOMER-ORDER-2",
+                  "location": "FACTORY",
+                  "due": "2026-11-05T18:00:00",
+                  "status": "open",
+                  "operation": null,
+                  "quantity": "10.00000000",
+                  "priority": 2,
+                  "batch": null,
+                  "delay": "00:00:00",
+                  "plannedquantity": "10.00000000",
+                  "deliverydate": "2026-11-05T18:00:00",
+                  "plan": {
+                    "pegging": [
+                      {
+                        "opplan": "11",
+                        "quantity": 10.0
+                      }
+                    ]
+                  },
+                  "minshipment": "1.00000000",
+                  "maxlateness": "00:00:00",
+                  "owner": null,
+                  "policy": "independent"
+                },
+                "times": {
+                  "deliverydate": "2026-11-05T18:00:00+08:00",
+                  "due": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-1a35289835b94cf8",
+                  "scenario_id": "PLAN-0356a983637f4e86",
+                  "scenario_revision": 1,
+                  "artifact": "demand.json",
+                  "locator": "row:1",
+                  "native_record_id": "D16-ORDER-2-L1",
+                  "evidence_id": "API-1a35289835b94cf8:ENGINE:demand:D16-ORDER-2-L1",
+                  "sha256": "a494712af14ffe99d7b8fe4b5e8dfa3db062700be8c8fcc03934a53b9e75eb6b"
+                }
+              }
+            ],
+            "cause_status": "INSUFFICIENT_EVIDENCE",
+            "limitations": [
+              "原生关联不等于延期原因；共享任务的全量流转不等于该订单的分配数量。",
+              "约束记录可能不完整，不能证明唯一原因或所有替代方案均无解。"
+            ]
+          }
+        ],
+        "buffer_records": [
+          {
+            "record": {
+              "name": "D16-CUT-WIP @ FACTORY",
+              "item": "D16-CUT-WIP",
+              "location": "FACTORY",
+              "onhand": "12.0",
+              "events": [
+                {
+                  "reference": "D16-CUT-WIP @ FACTORY",
+                  "at": "1971-01-01T00:00:00",
+                  "quantity": "12.0",
+                  "onhand": "12.0"
+                },
+                {
+                  "reference": "5",
+                  "at": "2026-11-05T14:40:00",
+                  "quantity": "-10.0",
+                  "onhand": "2.0"
+                },
+                {
+                  "reference": "2",
+                  "at": "2026-11-05T16:20:00",
+                  "quantity": "8.0",
+                  "onhand": "10.0"
+                },
+                {
+                  "reference": "6",
+                  "at": "2026-11-05T16:20:00",
+                  "quantity": "-10.0",
+                  "onhand": "0.0"
+                }
+              ]
+            },
+            "source": {
+              "solve_run_id": "API-1a35289835b94cf8",
+              "scenario_id": "PLAN-0356a983637f4e86",
+              "scenario_revision": 1,
+              "artifact": "fixed_batch_post.json",
+              "locator": "/buffers/0",
+              "native_record_id": "D16-CUT-WIP @ FACTORY",
+              "evidence_id": "API-1a35289835b94cf8:ENGINE:fixed_batch_post:D16-CUT-WIP @ FACTORY",
+              "sha256": "35a4082eb30389839357f8145f78f8cee7833af343730bb2a149f1264f8dc714"
+            }
+          },
+          {
+            "record": {
+              "name": "D16-FAB @ FACTORY",
+              "item": "D16-FAB",
+              "location": "FACTORY",
+              "onhand": "0.0",
+              "events": [
+                {
+                  "reference": "D16-CONFIRMED-40",
+                  "at": "2026-11-04T09:00:00",
+                  "quantity": "40.0",
+                  "onhand": "40.0"
+                },
+                {
+                  "reference": "2",
+                  "at": "2026-11-05T15:40:00",
+                  "quantity": "-8.0",
+                  "onhand": "32.0"
+                }
+              ]
+            },
+            "source": {
+              "solve_run_id": "API-1a35289835b94cf8",
+              "scenario_id": "PLAN-0356a983637f4e86",
+              "scenario_revision": 1,
+              "artifact": "fixed_batch_post.json",
+              "locator": "/buffers/1",
+              "native_record_id": "D16-FAB @ FACTORY",
+              "evidence_id": "API-1a35289835b94cf8:ENGINE:fixed_batch_post:D16-FAB @ FACTORY",
+              "sha256": "35a4082eb30389839357f8145f78f8cee7833af343730bb2a149f1264f8dc714"
+            }
+          },
+          {
+            "record": {
+              "name": "D16-SEWN-OUT @ FACTORY",
+              "item": "D16-SEWN-OUT",
+              "location": "FACTORY",
+              "onhand": "0.0",
+              "events": [
+                {
+                  "reference": "5",
+                  "at": "2026-11-05T16:20:00",
+                  "quantity": "10.0",
+                  "onhand": "10.0"
+                },
+                {
+                  "reference": "6",
+                  "at": "2026-11-05T18:00:00",
+                  "quantity": "10.0",
+                  "onhand": "20.0"
+                },
+                {
+                  "reference": "10",
+                  "at": "2026-11-05T18:00:00",
+                  "quantity": "-10.0",
+                  "onhand": "10.0"
+                },
+                {
+                  "reference": "11",
+                  "at": "2026-11-05T18:00:00",
+                  "quantity": "-10.0",
+                  "onhand": "0.0"
+                }
+              ]
+            },
+            "source": {
+              "solve_run_id": "API-1a35289835b94cf8",
+              "scenario_id": "PLAN-0356a983637f4e86",
+              "scenario_revision": 1,
+              "artifact": "fixed_batch_post.json",
+              "locator": "/buffers/2",
+              "native_record_id": "D16-SEWN-OUT @ FACTORY",
+              "evidence_id": "API-1a35289835b94cf8:ENGINE:fixed_batch_post:D16-SEWN-OUT @ FACTORY",
+              "sha256": "35a4082eb30389839357f8145f78f8cee7833af343730bb2a149f1264f8dc714"
+            }
+          }
+        ],
+        "buffer_evidence_status": "PRESENT",
+        "projection_hash": "9b8f14aad17a5dde979dad43d05ca2f1ee68823cdba906a86b74c1a85a1c3e10"
+      },
+      "context": {
+        "enterprise_source": {
+          "plan_id": "PLAN-0356a983637f4e86",
+          "data_version_id": "DATA-5633703ef53f",
+          "snapshot_sha256": "8b530fa64fbbc6a700347a445ceb39f04e02b5ced85740022866b46be9e124a3",
+          "source_sha256": "8df727556adf4e3bb8307a0f4c786ca494831267632854aaf60f6b9ae3e41ef4"
+        },
+        "wip": {
+          "stage_endpoint": {
+            "item_id": "D16-SEWN-OUT",
+            "label": "合成缝后阶段产出，不代表完整成衣交付"
+          }
+        }
+      },
+      "interpretation": {
+        "confirmed_supply_windows": [
+          {
+            "id": "D16-CONFIRMED-40",
+            "external_ref": "D16-CONFIRMED-40",
+            "source_status": "confirmed",
+            "item_id": "D16-FAB",
+            "supplier_id": "D16-SUP",
+            "location_id": "FACTORY",
+            "quantity": "40",
+            "physical_receipt_at": "2026-11-03T09:00:00+08:00",
+            "actual_ordered_at": "2026-10-31T09:00:00+08:00",
+            "planned_start_at": "2026-10-31T09:00:00+08:00",
+            "available_at": "2026-11-04T09:00:00+08:00",
+            "supply_source_id": "D16-RAW-SOURCE",
+            "qc_wait_seconds": 86400,
+            "provenance": {
+              "import_batch_id": "P2-8df727556adf",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "source_locator": "采购台账!A6:R6",
+              "source_record_id": "confirmed-40",
+              "source_system": "ENTERPRISE_XLSX",
+              "source_version": "SIM-D16-01-V1"
+            }
+          }
+        ]
+      }
+    },
+    "planId": "PLAN-0356a983637f4e86",
+    "versionId": "DATA-5633703ef53f"
+  },
+  "delayed": {
+    "input": {
+      "assumptions": [],
+      "bom_revisions": [
+        {
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-BOM-CUT",
+          "lines": [
+            {
+              "consume_at": "START",
+              "consume_operation_id": "D16-CUT",
+              "item_id": "D16-FAB",
+              "quantity_per_output": "1",
+              "scrap_fraction": "0",
+              "uom": "m"
+            }
+          ],
+          "output_item_id": "D16-CUT-WIP",
+          "output_quantity": "1",
+          "output_uom": "set",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "BOM!A6:O6",
+            "source_record_id": "bom_revisions/D16-BOM-CUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-BOM-SEW",
+          "lines": [
+            {
+              "consume_at": "START",
+              "consume_operation_id": "D16-SEW",
+              "item_id": "D16-CUT-WIP",
+              "quantity_per_output": "1",
+              "scrap_fraction": "0",
+              "uom": "set"
+            }
+          ],
+          "output_item_id": "D16-SEWN-OUT",
+          "output_quantity": "1",
+          "output_uom": "piece",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "BOM!A7:O7",
+            "source_record_id": "bom_revisions/D16-BOM-SEW",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "calendars": [
+        {
+          "available_intervals": [
+            {
+              "end_at": "2026-11-02T12:00:00+08:00",
+              "start_at": "2026-11-02T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-02T18:00:00+08:00",
+              "start_at": "2026-11-02T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-03T12:00:00+08:00",
+              "start_at": "2026-11-03T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-03T18:00:00+08:00",
+              "start_at": "2026-11-03T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-04T12:00:00+08:00",
+              "start_at": "2026-11-04T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-04T18:00:00+08:00",
+              "start_at": "2026-11-04T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-05T12:00:00+08:00",
+              "start_at": "2026-11-05T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-05T18:00:00+08:00",
+              "start_at": "2026-11-05T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-06T12:00:00+08:00",
+              "start_at": "2026-11-06T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-06T18:00:00+08:00",
+              "start_at": "2026-11-06T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-09T12:00:00+08:00",
+              "start_at": "2026-11-09T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-09T18:00:00+08:00",
+              "start_at": "2026-11-09T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-10T12:00:00+08:00",
+              "start_at": "2026-11-10T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-10T18:00:00+08:00",
+              "start_at": "2026-11-10T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-11T12:00:00+08:00",
+              "start_at": "2026-11-11T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-11T18:00:00+08:00",
+              "start_at": "2026-11-11T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-12T12:00:00+08:00",
+              "start_at": "2026-11-12T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-12T18:00:00+08:00",
+              "start_at": "2026-11-12T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-13T12:00:00+08:00",
+              "start_at": "2026-11-13T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-13T18:00:00+08:00",
+              "start_at": "2026-11-13T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-16T12:00:00+08:00",
+              "start_at": "2026-11-16T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-16T18:00:00+08:00",
+              "start_at": "2026-11-16T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-17T12:00:00+08:00",
+              "start_at": "2026-11-17T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-17T18:00:00+08:00",
+              "start_at": "2026-11-17T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-18T12:00:00+08:00",
+              "start_at": "2026-11-18T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-18T18:00:00+08:00",
+              "start_at": "2026-11-18T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-19T12:00:00+08:00",
+              "start_at": "2026-11-19T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-19T18:00:00+08:00",
+              "start_at": "2026-11-19T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-20T12:00:00+08:00",
+              "start_at": "2026-11-20T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-20T18:00:00+08:00",
+              "start_at": "2026-11-20T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-23T12:00:00+08:00",
+              "start_at": "2026-11-23T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-23T18:00:00+08:00",
+              "start_at": "2026-11-23T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-24T12:00:00+08:00",
+              "start_at": "2026-11-24T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-24T18:00:00+08:00",
+              "start_at": "2026-11-24T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-25T12:00:00+08:00",
+              "start_at": "2026-11-25T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-25T18:00:00+08:00",
+              "start_at": "2026-11-25T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-26T12:00:00+08:00",
+              "start_at": "2026-11-26T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-26T18:00:00+08:00",
+              "start_at": "2026-11-26T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-27T12:00:00+08:00",
+              "start_at": "2026-11-27T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-27T18:00:00+08:00",
+              "start_at": "2026-11-27T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-30T12:00:00+08:00",
+              "start_at": "2026-11-30T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-11-30T18:00:00+08:00",
+              "start_at": "2026-11-30T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-01T12:00:00+08:00",
+              "start_at": "2026-12-01T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-01T18:00:00+08:00",
+              "start_at": "2026-12-01T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-02T12:00:00+08:00",
+              "start_at": "2026-12-02T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-02T18:00:00+08:00",
+              "start_at": "2026-12-02T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-03T12:00:00+08:00",
+              "start_at": "2026-12-03T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-03T18:00:00+08:00",
+              "start_at": "2026-12-03T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-04T12:00:00+08:00",
+              "start_at": "2026-12-04T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-04T18:00:00+08:00",
+              "start_at": "2026-12-04T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-07T12:00:00+08:00",
+              "start_at": "2026-12-07T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-07T18:00:00+08:00",
+              "start_at": "2026-12-07T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-08T12:00:00+08:00",
+              "start_at": "2026-12-08T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-08T18:00:00+08:00",
+              "start_at": "2026-12-08T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-09T12:00:00+08:00",
+              "start_at": "2026-12-09T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-09T18:00:00+08:00",
+              "start_at": "2026-12-09T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-10T12:00:00+08:00",
+              "start_at": "2026-12-10T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-10T18:00:00+08:00",
+              "start_at": "2026-12-10T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-11T12:00:00+08:00",
+              "start_at": "2026-12-11T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-11T18:00:00+08:00",
+              "start_at": "2026-12-11T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-14T12:00:00+08:00",
+              "start_at": "2026-12-14T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-14T18:00:00+08:00",
+              "start_at": "2026-12-14T13:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-15T12:00:00+08:00",
+              "start_at": "2026-12-15T09:00:00+08:00"
+            },
+            {
+              "end_at": "2026-12-15T18:00:00+08:00",
+              "start_at": "2026-12-15T13:00:00+08:00"
+            }
+          ],
+          "id": "D16-DAY",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "工作日历!A6:G6",
+            "source_record_id": "calendars/D16-DAY",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "timezone": "Asia/Shanghai"
+        }
+      ],
+      "demand_lines": [
+        {
+          "due_at": "2026-11-05T18:00:00+08:00",
+          "id": "D16-ORDER-1-L1",
+          "item_id": "D16-SEWN-OUT",
+          "line_ref": "L1",
+          "location_id": "FACTORY",
+          "maximum_lateness_seconds": 0,
+          "minimum_shipment": "1",
+          "order_ref": "D16-CUSTOMER-ORDER-1",
+          "priority": 1,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "订单!A6:Q6",
+            "source_record_id": "demand_lines/D16-ORDER-1-L1",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quantity": "10",
+          "status": "OPEN",
+          "uom": "piece"
+        },
+        {
+          "due_at": "2026-11-05T18:00:00+08:00",
+          "id": "D16-ORDER-2-L1",
+          "item_id": "D16-SEWN-OUT",
+          "line_ref": "L1",
+          "location_id": "FACTORY",
+          "maximum_lateness_seconds": 0,
+          "minimum_shipment": "1",
+          "order_ref": "D16-CUSTOMER-ORDER-2",
+          "priority": 2,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "订单!A7:Q7",
+            "source_record_id": "demand_lines/D16-ORDER-2-L1",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quantity": "10",
+          "status": "OPEN",
+          "uom": "piece"
+        }
+      ],
+      "engine": {
+        "engine": "frepple",
+        "problem_kind": "SUPPLY_PLANNING",
+        "profile": "frepple-community-9.19-supply-v1",
+        "target_version": "9.19.0"
+      },
+      "existing_orders": [
+        {
+          "available_at": "2026-11-04T09:00:00+08:00",
+          "cancelled_quantity": "0",
+          "expected_receipt_at": "2026-11-03T09:00:00+08:00",
+          "external_ref": "D16-CONFIRMED-40",
+          "freeze_policy": "LOCKED",
+          "id": "D16-CONFIRMED-40",
+          "inventory_includes_receipt": false,
+          "item_id": "D16-FAB",
+          "location_id": "FACTORY",
+          "ordered_at": "2026-10-31T09:00:00+08:00",
+          "ordered_quantity": "40",
+          "planned_start_at": "2026-10-31T09:00:00+08:00",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "采购台账!A6:R6",
+            "source_record_id": "confirmed-40",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-V1"
+          },
+          "received_quantity": "0",
+          "remaining_quantity": "40",
+          "source_status": "confirmed",
+          "supplier_id": "D16-SUP",
+          "supply_source_id": "D16-RAW-SOURCE",
+          "type": "PO",
+          "uom": "m"
+        }
+      ],
+      "horizon": {
+        "end_at": "2026-12-16T00:00:00+08:00",
+        "start_at": "2026-11-02T08:00:00+08:00"
+      },
+      "inventory_positions": [
+        {
+          "as_of": "2026-11-02T08:00:00+08:00",
+          "id": "INV-D16-FAB",
+          "item_id": "D16-FAB",
+          "location_id": "FACTORY",
+          "on_hand": "0",
+          "other_nonnettable": "0",
+          "physical_lot_ref": null,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "库存!A6:M6",
+            "source_record_id": "inventory_positions/INV-D16-FAB",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quality_blocked": "0",
+          "uom": "m"
+        },
+        {
+          "as_of": "2026-11-02T08:00:00+08:00",
+          "id": "INV-D16-CUT-WIP",
+          "item_id": "D16-CUT-WIP",
+          "location_id": "FACTORY",
+          "on_hand": "20",
+          "other_nonnettable": "0",
+          "physical_lot_ref": null,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "库存!A7:M7",
+            "source_record_id": "inventory_positions/INV-D16-CUT-WIP",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quality_blocked": "8",
+          "uom": "set"
+        },
+        {
+          "as_of": "2026-11-02T08:00:00+08:00",
+          "id": "INV-D16-SEWN-OUT",
+          "item_id": "D16-SEWN-OUT",
+          "location_id": "FACTORY",
+          "on_hand": "0",
+          "other_nonnettable": "0",
+          "physical_lot_ref": null,
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "库存!A8:M8",
+            "source_record_id": "inventory_positions/INV-D16-SEWN-OUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "quality_blocked": "0",
+          "uom": "piece"
+        }
+      ],
+      "items": [
+        {
+          "base_uom": "m",
+          "id": "D16-FAB",
+          "kind": "RAW",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "产品物料!A6:F6",
+            "source_record_id": "items/D16-FAB",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "base_uom": "set",
+          "id": "D16-CUT-WIP",
+          "kind": "SEMI",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "产品物料!A7:F7",
+            "source_record_id": "items/D16-CUT-WIP",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "base_uom": "piece",
+          "id": "D16-SEWN-OUT",
+          "kind": "FINISHED",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "产品物料!A8:F8",
+            "source_record_id": "items/D16-SEWN-OUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "planning_at": "2026-11-02T08:00:00+08:00",
+      "production_recipes": [
+        {
+          "bom_revision_id": "D16-BOM-CUT",
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-MAKE-CUT",
+          "location_id": "FACTORY",
+          "manufacturing_minimum_quantity": "1",
+          "manufacturing_multiple": "1",
+          "output_item_id": "D16-CUT-WIP",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "生产配方!A6:M6",
+            "source_record_id": "production_recipes/D16-MAKE-CUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "routing_revision_id": "D16-ROUTE-CUT",
+          "transfer_policy": "WHOLE_MANUFACTURING_BATCH"
+        },
+        {
+          "bom_revision_id": "D16-BOM-SEW",
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-MAKE-SEW",
+          "location_id": "FACTORY",
+          "manufacturing_minimum_quantity": "1",
+          "manufacturing_multiple": "1",
+          "output_item_id": "D16-SEWN-OUT",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "生产配方!A7:M7",
+            "source_record_id": "production_recipes/D16-MAKE-SEW",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "routing_revision_id": "D16-ROUTE-SEW",
+          "transfer_policy": "WHOLE_MANUFACTURING_BATCH"
+        }
+      ],
+      "reservations": [],
+      "resources": [
+        {
+          "availability_calendar_id": "D16-DAY",
+          "id": "D16-CUT-LINE",
+          "location_id": "FACTORY",
+          "parallel_units": "1",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "生产资源!A6:G6",
+            "source_record_id": "resources/D16-CUT-LINE",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "availability_calendar_id": "D16-DAY",
+          "id": "D16-SEW-LINE",
+          "location_id": "FACTORY",
+          "parallel_units": "1",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "生产资源!A7:G7",
+            "source_record_id": "resources/D16-SEW-LINE",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "routing_revisions": [
+        {
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-ROUTE-CUT",
+          "operations": [
+            {
+              "duration_model": "FIXED_PLUS_PER_UNIT",
+              "fixed_seconds": "0",
+              "id": "D16-CUT",
+              "predecessors": [],
+              "resource_id": "D16-CUT-LINE",
+              "resource_units": "1",
+              "seconds_per_unit": "300",
+              "sequence": 10
+            }
+          ],
+          "output_item_id": "D16-CUT-WIP",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "工艺路线!A6:O6",
+            "source_record_id": "routing_revisions/D16-ROUTE-CUT",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        },
+        {
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-ROUTE-SEW",
+          "operations": [
+            {
+              "duration_model": "FIXED_PLUS_PER_UNIT",
+              "fixed_seconds": "0",
+              "id": "D16-SEW",
+              "predecessors": [],
+              "resource_id": "D16-SEW-LINE",
+              "resource_units": "1",
+              "seconds_per_unit": "600",
+              "sequence": 10
+            }
+          ],
+          "output_item_id": "D16-SEWN-OUT",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "工艺路线!A7:O7",
+            "source_record_id": "routing_revisions/D16-ROUTE-SEW",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "rules": {
+        "allow_overtime": false,
+        "erase_previous_proposed": true,
+        "finite_capacity": true,
+        "finite_material": true,
+        "fix_broken_supply_path": false,
+        "freeze_existing": true,
+        "manufacturing_profile": "two-level-confirmed-supply-v1",
+        "move_approved_early": 0,
+        "profile_version": "v1"
+      },
+      "scenario_id": "PLAN-0356a983637f4e86",
+      "scenario_revision": 1,
+      "schema_version": "0.2.0",
+      "site": {
+        "id": "FACTORY",
+        "name": "SIM-D16-01 连续两级阶段需求合成切片",
+        "provenance": {
+          "import_batch_id": "P2-8df727556adf",
+          "observed_at": "2026-11-02T08:00:00+08:00",
+          "source_locator": "工厂参数!A6:E30",
+          "source_record_id": "P2-SITE",
+          "source_system": "ENTERPRISE_XLSX",
+          "source_version": "p2.0-sim-v1"
+        },
+        "timezone": "Asia/Shanghai"
+      },
+      "snapshot_id": "SNAP-PLAN-0356a983637f4e86",
+      "suppliers": [
+        {
+          "id": "D16-SUP",
+          "name": "SIM-D16 independent synthetic supplier",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "供应商!A6:E6",
+            "source_record_id": "suppliers/D16-SUP",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          }
+        }
+      ],
+      "supply_sources": [
+        {
+          "batch_window_seconds": 0,
+          "effective_from": "2026-10-01T00:00:00+08:00",
+          "effective_to": "2026-12-16T00:00:00+08:00",
+          "id": "D16-RAW-SOURCE",
+          "item_id": "D16-FAB",
+          "lead_time_basis": "CALENDAR_TIME",
+          "lead_time_seconds": 172800,
+          "location_id": "FACTORY",
+          "minimum_order_quantity": "20",
+          "order_multiple": "20",
+          "provenance": {
+            "import_batch_id": "P2-8df727556adf",
+            "observed_at": "2026-11-02T08:00:00+08:00",
+            "source_locator": "供应来源!A6:N6",
+            "source_record_id": "supply_sources/D16-RAW-SOURCE",
+            "source_system": "ENTERPRISE_XLSX",
+            "source_version": "SIM-D16-01-B"
+          },
+          "receiving_qc": {
+            "provenance": {
+              "import_batch_id": "P2-8df727556adf",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "source_locator": "采购台账!A6:R6",
+              "source_record_id": "confirmed-40",
+              "source_system": "ENTERPRISE_XLSX",
+              "source_version": "SIM-D16-01-V1"
+            },
+            "wait_seconds": 86400
+          },
+          "supplier_id": "D16-SUP"
+        }
+      ]
+    },
+    "view": {
+      "run": {
+        "solve_run_id": "API-c6abcca0d1e442b1",
+        "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+        "scenario_revision": 1,
+        "snapshot_id": "SNAP-PLAN-0356a983637f4e86",
+        "input_hash": "a813fe615d7f48295603690ec0ac70867a695dbe63242c1909f6cfc8748329f0",
+        "engine_profile": "frepple-community-9.19-supply-v1",
+        "state": "SUCCEEDED",
+        "engine_task_ref": "6",
+        "result_ref": "/v1/solve-runs/API-c6abcca0d1e442b1/result",
+        "failure_code": null,
+        "created_at": "2026-10-18T08:15:15.039629+00:00",
+        "started_at": "2026-10-18T08:15:15.088651+00:00",
+        "finished_at": "2026-10-18T08:16:12.425529+00:00",
+        "worker_state": "READY"
+      },
+      "result": {
+        "schema_version": "0.2.0",
+        "solve_run_id": "API-c6abcca0d1e442b1",
+        "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+        "scenario_revision": 1,
+        "snapshot_id": "SNAP-PLAN-0356a983637f4e86",
+        "input_hash": "a813fe615d7f48295603690ec0ac70867a695dbe63242c1909f6cfc8748329f0",
+        "engine": {
+          "name": "frepple",
+          "runtime_version": "9.19.0",
+          "source_commit": "UNKNOWN",
+          "adapter_version": "p0.1",
+          "engine_task_ref": "6"
+        },
+        "computed_at": "2026-10-18T16:16:09.360669+08:00",
+        "assessment": {
+          "status": "NEEDS_REVIEW",
+          "constraint_check": "PASS",
+          "coverage": [
+            "reported_material_onhand_nonnegative",
+            "resource_capacity",
+            "calendar_duration",
+            "routing_order",
+            "procurement_lead_time"
+          ],
+          "issues": [
+            {
+              "code": "OVERLOAD",
+              "severity": "WARNING",
+              "entity_id": "D16-ORDER-2-L1",
+              "field_ref": null,
+              "message": "Resource 'D16-SEW-LINE' has capacity shortage",
+              "evidence_ids": [
+                "ENGINE:constraint:1"
+              ]
+            },
+            {
+              "code": "AWAIT_SUPPLY",
+              "severity": "WARNING",
+              "entity_id": "D16-ORDER-2-L1",
+              "field_ref": null,
+              "message": "Buffer 'D16-FAB @ FACTORY' awaits confirmed supply",
+              "evidence_ids": [
+                "ENGINE:constraint:2"
+              ]
+            }
+          ]
+        },
+        "purchase_suggestions": [],
+        "manufacture_suggestions": [
+          {
+            "id": "API-c6abcca0d1e442b1:MO:1",
+            "engine_ref": "1",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "recipe_id": "D16-MAKE-SEW",
+            "quantity": "2",
+            "uom": "piece",
+            "start_at": "2026-11-05T16:00:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:manufacturingorder:1"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:MO:2",
+            "engine_ref": "2",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "recipe_id": "D16-MAKE-SEW",
+            "quantity": "10",
+            "uom": "piece",
+            "start_at": "2026-11-05T16:20:00+08:00",
+            "end_at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:manufacturingorder:2"
+            ]
+          }
+        ],
+        "operations": [
+          {
+            "id": "API-c6abcca0d1e442b1:OP:3",
+            "manufacture_id": "API-c6abcca0d1e442b1:MO:1",
+            "operation_id": "D16-SEW",
+            "resource_id": "D16-SEW-LINE",
+            "resource_units": "1",
+            "quantity": "2",
+            "start_at": "2026-11-05T16:00:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:workorder:3"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:OP:4",
+            "manufacture_id": "API-c6abcca0d1e442b1:MO:2",
+            "operation_id": "D16-SEW",
+            "resource_id": "D16-SEW-LINE",
+            "resource_units": "1",
+            "quantity": "10",
+            "start_at": "2026-11-05T16:20:00+08:00",
+            "end_at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:workorder:4"
+            ]
+          }
+        ],
+        "deliveries": [
+          {
+            "demand_id": "D16-ORDER-1-L1",
+            "requested_quantity": "10",
+            "planned_quantity": "10",
+            "unfulfilled_quantity": "0",
+            "uom": "piece",
+            "due_at": "2026-11-05T18:00:00+08:00",
+            "planned_delivery_at": "2026-11-05T18:00:00+08:00",
+            "delay_seconds": 0,
+            "status": "ON_TIME",
+            "evidence_ids": [
+              "ENGINE:demand:D16-ORDER-1-L1"
+            ]
+          },
+          {
+            "demand_id": "D16-ORDER-2-L1",
+            "requested_quantity": "10",
+            "planned_quantity": "2",
+            "unfulfilled_quantity": "8",
+            "uom": "piece",
+            "due_at": "2026-11-05T18:00:00+08:00",
+            "planned_delivery_at": "2026-11-05T18:00:00+08:00",
+            "delay_seconds": 0,
+            "status": "SHORT",
+            "evidence_ids": [
+              "ENGINE:demand:D16-ORDER-2-L1"
+            ]
+          }
+        ],
+        "material_flows": [
+          {
+            "id": "API-c6abcca0d1e442b1:FLOW:19",
+            "order_id": "D16-CUT-WIP @ FACTORY",
+            "item_id": "D16-CUT-WIP",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "12",
+            "uom": "set",
+            "at": "1971-01-01T00:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:19"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:FLOW:20",
+            "order_id": "3",
+            "item_id": "D16-CUT-WIP",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "2",
+            "uom": "set",
+            "at": "2026-11-05T16:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:20"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:FLOW:21",
+            "order_id": "4",
+            "item_id": "D16-CUT-WIP",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "10",
+            "uom": "set",
+            "at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:21"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:FLOW:22",
+            "order_id": "D16-CONFIRMED-40",
+            "item_id": "D16-FAB",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "40",
+            "uom": "m",
+            "at": "2026-11-06T09:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:22"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:FLOW:23",
+            "order_id": "3",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "2",
+            "uom": "piece",
+            "at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:23"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:FLOW:24",
+            "order_id": "4",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "direction": "PRODUCE",
+            "quantity": "10",
+            "uom": "piece",
+            "at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:24"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:FLOW:25",
+            "order_id": "8",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "2",
+            "uom": "piece",
+            "at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:25"
+            ]
+          },
+          {
+            "id": "API-c6abcca0d1e442b1:FLOW:26",
+            "order_id": "7",
+            "item_id": "D16-SEWN-OUT",
+            "location_id": "FACTORY",
+            "direction": "CONSUME",
+            "quantity": "10",
+            "uom": "piece",
+            "at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanmaterial:26"
+            ]
+          }
+        ],
+        "resource_loads": [
+          {
+            "operation_id": "API-c6abcca0d1e442b1:OP:3",
+            "resource_id": "D16-SEW-LINE",
+            "resource_units": "1",
+            "start_at": "2026-11-05T16:00:00+08:00",
+            "end_at": "2026-11-05T16:20:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanresource:6"
+            ]
+          },
+          {
+            "operation_id": "API-c6abcca0d1e442b1:OP:4",
+            "resource_id": "D16-SEW-LINE",
+            "resource_units": "1",
+            "start_at": "2026-11-05T16:20:00+08:00",
+            "end_at": "2026-11-05T18:00:00+08:00",
+            "evidence_ids": [
+              "ENGINE:operationplanresource:7"
+            ]
+          }
+        ],
+        "pegging": [],
+        "pegging_available": false,
+        "evidence": [
+          {
+            "id": "ENGINE:purchaseorder:D16-CONFIRMED-40",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\purchaseorder.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:manufacturingorder:1",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\manufacturingorder.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:manufacturingorder:2",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\manufacturingorder.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:workorder:3",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\workorder.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:workorder:4",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\workorder.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:demand:D16-ORDER-1-L1",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\demand.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:demand:D16-ORDER-2-L1",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\demand.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:19",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:20",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:21",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+            "locator": "row:2"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:22",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+            "locator": "row:3"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:23",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+            "locator": "row:4"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:24",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+            "locator": "row:5"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:25",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+            "locator": "row:6"
+          },
+          {
+            "id": "ENGINE:operationplanmaterial:26",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+            "locator": "row:7"
+          },
+          {
+            "id": "ENGINE:operationplanresource:6",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanresource.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:operationplanresource:7",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanresource.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:deliveryorder:7",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\deliveryorder.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:deliveryorder:8",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\deliveryorder.json",
+            "locator": "row:1"
+          },
+          {
+            "id": "ENGINE:constraint:1",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\constraint.json",
+            "locator": "row:0"
+          },
+          {
+            "id": "ENGINE:constraint:2",
+            "kind": "ENGINE_OUTPUT",
+            "artifact_ref": "engine\\runs\\API-c6abcca0d1e442b1\\raw\\constraint.json",
+            "locator": "row:1"
+          }
+        ],
+        "raw_artifact_refs": [
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\constraint.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\deliveryorder.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\demand.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\fixed_batch_post.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\fixed_batch_post.xml",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\fixed_batch_pre.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\fixed_batch_pre.xml",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\import-polls.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\import-submit.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\import.log",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-buffer.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-calendar.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-calendarbucket.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-customer.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-demand.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-item.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-itemsupplier.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-location.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-operation.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-operationmaterial.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-operationresource.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-parameter.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-purchaseorder.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-resource.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\imported-supplier.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\manufacturingorder.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanmaterial.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\operationplanresource.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\problem.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\purchaseorder.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\solve-polls.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\solve-submit.json",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\solve.log",
+          "engine\\runs\\API-c6abcca0d1e442b1\\raw\\workorder.json"
+        ],
+        "result_hash": "4e57d5ec4e4525acbf34574b63c7b091d86e480ea33187272ddc3eec9923e5d7"
+      },
+      "order_evidence": {
+        "schema_version": "order-evidence/1",
+        "solve_run_id": "API-c6abcca0d1e442b1",
+        "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+        "scenario_revision": 1,
+        "source_result_hash": "4e57d5ec4e4525acbf34574b63c7b091d86e480ea33187272ddc3eec9923e5d7",
+        "missing_tables": [],
+        "source_hashes": {
+          "operationplanresource": "e828009cdf1693b7aed609dfaa64c489458e680a1cfe71ea3c39fbe5ed09bbb3",
+          "constraint": "5cfee4b857d919721b68875f5eae52d1826a2ed5a6958b77288cddee28aa08ea",
+          "purchaseorder": "8d75c1078f21e65fe56f8d64536e677feb3bff929ba76220b2f83b1f94bc6664",
+          "operationplanmaterial": "37b0babaf25a720bcf87888b0cda2ccaa4128845e707e706d6d7e913b8889d76",
+          "problem": "6cbf3b6fbf6d72713623dfb5ab487adeae20a28125c3f94b716bffba9bf905c5",
+          "deliveryorder": "d76ce2d293073f11fc9be1d65c4245f63f7fb8d70c725bb7a0b0aa54fad911cd",
+          "manufacturingorder": "eafb982e1e31dc81cb142162b5272a3ad33cacaaacb30b7b9d45dc0b29702cd1",
+          "demand": "d6da180db5b1d9c661ed0cffc999641adcfb5fdd0fd93a9928f32a41417267d7",
+          "workorder": "d871910322c25879988b9487f8e70e950e7459485f49a01d6b3ef7dd86d78280",
+          "fixed_batch_pre": "6614a70d276176709de71592062e663670b63e6cd91fa1271c463b5cc5c5557b",
+          "fixed_batch_post": "07b3fc7f8b03b5d88b81e67cdb742718f64a6fea611a6fc67de21df4cc6f1706"
+        },
+        "orders": [
+          {
+            "demand_id": "D16-ORDER-1-L1",
+            "order_ref": "D16-CUSTOMER-ORDER-1",
+            "delivery": {
+              "demand_id": "D16-ORDER-1-L1",
+              "requested_quantity": "10",
+              "planned_quantity": "10",
+              "unfulfilled_quantity": "0",
+              "uom": "piece",
+              "due_at": "2026-11-05T18:00:00+08:00",
+              "planned_delivery_at": "2026-11-05T18:00:00+08:00",
+              "delay_seconds": 0,
+              "status": "ON_TIME",
+              "evidence_ids": [
+                "ENGINE:demand:D16-ORDER-1-L1"
+              ]
+            },
+            "manufacturing": [
+              {
+                "record": {
+                  "reference": "2",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-SEW",
+                  "quantity": "10.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T16:20:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-1-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "4",
+                        10.0,
+                        0.0
+                      ],
+                      [
+                        "D16-CUT-WIP @ FACTORY",
+                        10.0,
+                        2.0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "4",
+                        10.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05",
+                  "resources": [],
+                  "materials": [],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:20:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "manufacturingorder.json",
+                  "locator": "row:1",
+                  "native_record_id": "2",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:manufacturingorder:2",
+                  "sha256": "eafb982e1e31dc81cb142162b5272a3ad33cacaaacb30b7b9d45dc0b29702cd1"
+                },
+                "id": "API-c6abcca0d1e442b1:MO:2",
+                "engine_ref": "2",
+                "task": {
+                  "id": "API-c6abcca0d1e442b1:MO:2",
+                  "engine_ref": "2",
+                  "item_id": "D16-SEWN-OUT",
+                  "location_id": "FACTORY",
+                  "recipe_id": "D16-MAKE-SEW",
+                  "quantity": "10",
+                  "uom": "piece",
+                  "start_at": "2026-11-05T16:20:00+08:00",
+                  "end_at": "2026-11-05T18:00:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:manufacturingorder:2"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "operations": [
+              {
+                "record": {
+                  "reference": "4",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-SEW:D16-SEW",
+                  "quantity": "10.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T16:20:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-1-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "2",
+                        10.0,
+                        0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "7",
+                        10.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": "2",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05",
+                  "resources": [
+                    {
+                      "resource": "D16-SEW-LINE",
+                      "quantity": "1.00000000",
+                      "setup": null
+                    }
+                  ],
+                  "materials": [
+                    {
+                      "item": "D16-CUT-WIP",
+                      "quantity": "-10.00000000",
+                      "flowdate": "2026-11-05T16:20:00"
+                    },
+                    {
+                      "item": "D16-SEWN-OUT",
+                      "quantity": "10.00000000",
+                      "flowdate": "2026-11-05T18:00:00"
+                    }
+                  ],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:20:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "workorder.json",
+                  "locator": "row:1",
+                  "native_record_id": "4",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:workorder:4",
+                  "sha256": "d871910322c25879988b9487f8e70e950e7459485f49a01d6b3ef7dd86d78280"
+                },
+                "id": "API-c6abcca0d1e442b1:OP:4",
+                "engine_ref": "4",
+                "task": {
+                  "id": "API-c6abcca0d1e442b1:OP:4",
+                  "manufacture_id": "API-c6abcca0d1e442b1:MO:2",
+                  "operation_id": "D16-SEW",
+                  "resource_id": "D16-SEW-LINE",
+                  "resource_units": "1",
+                  "quantity": "10",
+                  "start_at": "2026-11-05T16:20:00+08:00",
+                  "end_at": "2026-11-05T18:00:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:workorder:4"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": "2",
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "purchases": [],
+            "deliveries": [
+              {
+                "record": {
+                  "reference": "7",
+                  "status": "proposed",
+                  "demand": "D16-ORDER-1-L1",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "10.00000000",
+                  "startdate": "2026-11-05T18:00:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "due": "2026-11-05T18:00:00",
+                  "batch": null,
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-1-L1": 10.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "4",
+                        10.0,
+                        0.0
+                      ]
+                    ],
+                    "downstream_opplans": []
+                  },
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05",
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T18:00:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00",
+                  "due": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "deliveryorder.json",
+                  "locator": "row:0",
+                  "native_record_id": "7",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:deliveryorder:7",
+                  "sha256": "d76ce2d293073f11fc9be1d65c4245f63f7fb8d70c725bb7a0b0aa54fad911cd"
+                },
+                "id": "API-c6abcca0d1e442b1:DO:7",
+                "engine_ref": "7",
+                "task": null,
+                "item_uom": "piece",
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "10.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "materials": [
+              {
+                "record": {
+                  "id": 21,
+                  "operationplan": "4",
+                  "item": "D16-CUT-WIP",
+                  "location": "FACTORY",
+                  "quantity": "-10.00000000",
+                  "onhand": "0.00000000",
+                  "flowdate": "2026-11-05T16:20:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:2",
+                  "native_record_id": "21",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:operationplanmaterial:21",
+                  "sha256": "37b0babaf25a720bcf87888b0cda2ccaa4128845e707e706d6d7e913b8889d76"
+                },
+                "item_uom": "set",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 24,
+                  "operationplan": "4",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "10.00000000",
+                  "onhand": "12.00000000",
+                  "flowdate": "2026-11-05T18:00:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:5",
+                  "native_record_id": "24",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:operationplanmaterial:24",
+                  "sha256": "37b0babaf25a720bcf87888b0cda2ccaa4128845e707e706d6d7e913b8889d76"
+                },
+                "item_uom": "piece",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 26,
+                  "operationplan": "7",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "-10.00000000",
+                  "onhand": "0.00000000",
+                  "flowdate": "2026-11-05T18:00:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:7",
+                  "native_record_id": "26",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:operationplanmaterial:26",
+                  "sha256": "37b0babaf25a720bcf87888b0cda2ccaa4128845e707e706d6d7e913b8889d76"
+                },
+                "item_uom": "piece",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              }
+            ],
+            "resources": [
+              {
+                "record": {
+                  "id": 7,
+                  "operationplan": "4",
+                  "resource": "D16-SEW-LINE",
+                  "quantity": "1.00000000",
+                  "startdate": "2026-11-05T16:20:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "status": "proposed",
+                  "setup": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05"
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:20:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanresource.json",
+                  "locator": "row:1",
+                  "native_record_id": "7",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:operationplanresource:7",
+                  "sha256": "e828009cdf1693b7aed609dfaa64c489458e680a1cfe71ea3c39fbe5ed09bbb3"
+                },
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_LOAD_NOT_DELAY_CAUSE"
+              }
+            ],
+            "constraints": [],
+            "demand_records": [
+              {
+                "record": {
+                  "name": "D16-ORDER-1-L1",
+                  "description": null,
+                  "category": null,
+                  "subcategory": null,
+                  "item": "D16-SEWN-OUT",
+                  "customer": "D16-CUSTOMER-D16-CUSTOMER-ORDER-1",
+                  "location": "FACTORY",
+                  "due": "2026-11-05T18:00:00",
+                  "status": "open",
+                  "operation": null,
+                  "quantity": "10.00000000",
+                  "priority": 1,
+                  "batch": null,
+                  "delay": "00:00:00",
+                  "plannedquantity": "10.00000000",
+                  "deliverydate": "2026-11-05T18:00:00",
+                  "plan": {
+                    "pegging": [
+                      {
+                        "opplan": "7",
+                        "quantity": 10.0
+                      }
+                    ]
+                  },
+                  "minshipment": "1.00000000",
+                  "maxlateness": "00:00:00",
+                  "owner": null,
+                  "policy": "independent"
+                },
+                "times": {
+                  "deliverydate": "2026-11-05T18:00:00+08:00",
+                  "due": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "demand.json",
+                  "locator": "row:0",
+                  "native_record_id": "D16-ORDER-1-L1",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:demand:D16-ORDER-1-L1",
+                  "sha256": "d6da180db5b1d9c661ed0cffc999641adcfb5fdd0fd93a9928f32a41417267d7"
+                }
+              }
+            ],
+            "cause_status": "INSUFFICIENT_EVIDENCE",
+            "limitations": [
+              "原生关联不等于延期原因；共享任务的全量流转不等于该订单的分配数量。",
+              "约束记录可能不完整，不能证明唯一原因或所有替代方案均无解。"
+            ]
+          },
+          {
+            "demand_id": "D16-ORDER-2-L1",
+            "order_ref": "D16-CUSTOMER-ORDER-2",
+            "delivery": {
+              "demand_id": "D16-ORDER-2-L1",
+              "requested_quantity": "10",
+              "planned_quantity": "2",
+              "unfulfilled_quantity": "8",
+              "uom": "piece",
+              "due_at": "2026-11-05T18:00:00+08:00",
+              "planned_delivery_at": "2026-11-05T18:00:00+08:00",
+              "delay_seconds": 0,
+              "status": "SHORT",
+              "evidence_ids": [
+                "ENGINE:demand:D16-ORDER-2-L1"
+              ]
+            },
+            "manufacturing": [
+              {
+                "record": {
+                  "reference": "1",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-SEW",
+                  "quantity": "2.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T16:00:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "-1 22:20:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 2.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "3",
+                        2.0,
+                        0.0
+                      ],
+                      [
+                        "D16-CUT-WIP @ FACTORY",
+                        2.0,
+                        0.0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "3",
+                        2.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05",
+                  "resources": [],
+                  "materials": [],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:00:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "manufacturingorder.json",
+                  "locator": "row:0",
+                  "native_record_id": "1",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:manufacturingorder:1",
+                  "sha256": "eafb982e1e31dc81cb142162b5272a3ad33cacaaacb30b7b9d45dc0b29702cd1"
+                },
+                "id": "API-c6abcca0d1e442b1:MO:1",
+                "engine_ref": "1",
+                "task": {
+                  "id": "API-c6abcca0d1e442b1:MO:1",
+                  "engine_ref": "1",
+                  "item_id": "D16-SEWN-OUT",
+                  "location_id": "FACTORY",
+                  "recipe_id": "D16-MAKE-SEW",
+                  "quantity": "2",
+                  "uom": "piece",
+                  "start_at": "2026-11-05T16:00:00+08:00",
+                  "end_at": "2026-11-05T16:20:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:manufacturingorder:1"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "2.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "operations": [
+              {
+                "record": {
+                  "reference": "3",
+                  "status": "proposed",
+                  "operation": "D16-MAKE-SEW:D16-SEW",
+                  "quantity": "2.00000000",
+                  "quantity_completed": null,
+                  "startdate": "2026-11-05T16:00:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "batch": null,
+                  "criticality": "0.00000000",
+                  "delay": "-1 22:20:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 2.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "1",
+                        2.0,
+                        0
+                      ]
+                    ],
+                    "downstream_opplans": [
+                      [
+                        "8",
+                        2.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "owner": "1",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05",
+                  "resources": [
+                    {
+                      "resource": "D16-SEW-LINE",
+                      "quantity": "1.00000000",
+                      "setup": null
+                    }
+                  ],
+                  "materials": [
+                    {
+                      "item": "D16-CUT-WIP",
+                      "quantity": "-2.00000000",
+                      "flowdate": "2026-11-05T16:00:00"
+                    },
+                    {
+                      "item": "D16-SEWN-OUT",
+                      "quantity": "2.00000000",
+                      "flowdate": "2026-11-05T16:20:00"
+                    }
+                  ],
+                  "demand": null,
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:00:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "workorder.json",
+                  "locator": "row:0",
+                  "native_record_id": "3",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:workorder:3",
+                  "sha256": "d871910322c25879988b9487f8e70e950e7459485f49a01d6b3ef7dd86d78280"
+                },
+                "id": "API-c6abcca0d1e442b1:OP:3",
+                "engine_ref": "3",
+                "task": {
+                  "id": "API-c6abcca0d1e442b1:OP:3",
+                  "manufacture_id": "API-c6abcca0d1e442b1:MO:1",
+                  "operation_id": "D16-SEW",
+                  "resource_id": "D16-SEW-LINE",
+                  "resource_units": "1",
+                  "quantity": "2",
+                  "start_at": "2026-11-05T16:00:00+08:00",
+                  "end_at": "2026-11-05T16:20:00+08:00",
+                  "evidence_ids": [
+                    "ENGINE:workorder:3"
+                  ]
+                },
+                "item_uom": null,
+                "owner_ref": "1",
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "2.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "purchases": [],
+            "deliveries": [
+              {
+                "record": {
+                  "reference": "8",
+                  "status": "proposed",
+                  "demand": "D16-ORDER-2-L1",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "2.00000000",
+                  "startdate": "2026-11-05T18:00:00",
+                  "enddate": "2026-11-05T18:00:00",
+                  "due": "2026-11-05T18:00:00",
+                  "batch": null,
+                  "delay": "00:00:00",
+                  "plan": {
+                    "pegging": {
+                      "D16-ORDER-2-L1": 2.0
+                    },
+                    "unavailable": 0,
+                    "interruptions": [],
+                    "upstream_opplans": [
+                      [
+                        "3",
+                        2.0,
+                        0.0
+                      ]
+                    ],
+                    "downstream_opplans": []
+                  },
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05",
+                  "forecast": null
+                },
+                "times": {
+                  "startdate": "2026-11-05T18:00:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00",
+                  "due": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "deliveryorder.json",
+                  "locator": "row:1",
+                  "native_record_id": "8",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:deliveryorder:8",
+                  "sha256": "d76ce2d293073f11fc9be1d65c4245f63f7fb8d70c725bb7a0b0aa54fad911cd"
+                },
+                "id": "API-c6abcca0d1e442b1:DO:8",
+                "engine_ref": "8",
+                "task": null,
+                "item_uom": "piece",
+                "owner_ref": null,
+                "relation_kind": "NATIVE_DEMAND_PEGGING",
+                "native_pegging_quantity": "2.0",
+                "quantity_semantics": "NATIVE_PEGGING_VALUE_NOT_MATERIAL_ALLOCATION"
+              }
+            ],
+            "materials": [
+              {
+                "record": {
+                  "id": 20,
+                  "operationplan": "3",
+                  "item": "D16-CUT-WIP",
+                  "location": "FACTORY",
+                  "quantity": "-2.00000000",
+                  "onhand": "10.00000000",
+                  "flowdate": "2026-11-05T16:00:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T16:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:1",
+                  "native_record_id": "20",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:operationplanmaterial:20",
+                  "sha256": "37b0babaf25a720bcf87888b0cda2ccaa4128845e707e706d6d7e913b8889d76"
+                },
+                "item_uom": "set",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 23,
+                  "operationplan": "3",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "2.00000000",
+                  "onhand": "2.00000000",
+                  "flowdate": "2026-11-05T16:20:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:4",
+                  "native_record_id": "23",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:operationplanmaterial:23",
+                  "sha256": "37b0babaf25a720bcf87888b0cda2ccaa4128845e707e706d6d7e913b8889d76"
+                },
+                "item_uom": "piece",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              },
+              {
+                "record": {
+                  "id": 25,
+                  "operationplan": "8",
+                  "item": "D16-SEWN-OUT",
+                  "location": "FACTORY",
+                  "quantity": "-2.00000000",
+                  "onhand": "10.00000000",
+                  "flowdate": "2026-11-05T18:00:00",
+                  "status": "proposed",
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05"
+                },
+                "times": {
+                  "flowdate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanmaterial.json",
+                  "locator": "row:6",
+                  "native_record_id": "25",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:operationplanmaterial:25",
+                  "sha256": "37b0babaf25a720bcf87888b0cda2ccaa4128845e707e706d6d7e913b8889d76"
+                },
+                "item_uom": "piece",
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_FLOW_NOT_ORDER_ALLOCATION"
+              }
+            ],
+            "resources": [
+              {
+                "record": {
+                  "id": 6,
+                  "operationplan": "3",
+                  "resource": "D16-SEW-LINE",
+                  "quantity": "1.00000000",
+                  "startdate": "2026-11-05T16:00:00",
+                  "enddate": "2026-11-05T16:20:00",
+                  "status": "proposed",
+                  "setup": null,
+                  "source": null,
+                  "lastmodified": "2026-10-18T16:16:05"
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:00:00+08:00",
+                  "enddate": "2026-11-05T16:20:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "operationplanresource.json",
+                  "locator": "row:0",
+                  "native_record_id": "6",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:operationplanresource:6",
+                  "sha256": "e828009cdf1693b7aed609dfaa64c489458e680a1cfe71ea3c39fbe5ed09bbb3"
+                },
+                "relation_kind": "NATIVE_TASK_REFERENCE",
+                "quantity_scope": "FULL_TASK_LOAD_NOT_DELAY_CAUSE"
+              }
+            ],
+            "constraints": [
+              {
+                "record": {
+                  "id": "1",
+                  "demand": "D16-ORDER-2-L1",
+                  "entity": "capacity",
+                  "name": "overload",
+                  "owner": "D16-SEW-LINE",
+                  "description": "Resource 'D16-SEW-LINE' has capacity shortage",
+                  "startdate": "2026-11-05 16:20:00",
+                  "enddate": "2026-11-05 18:00:00"
+                },
+                "times": {
+                  "startdate": "2026-11-05T16:20:00+08:00",
+                  "enddate": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "constraint.json",
+                  "locator": "row:0",
+                  "native_record_id": "1",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:constraint:1",
+                  "sha256": "5cfee4b857d919721b68875f5eae52d1826a2ed5a6958b77288cddee28aa08ea"
+                }
+              },
+              {
+                "record": {
+                  "id": "2",
+                  "demand": "D16-ORDER-2-L1",
+                  "entity": "material",
+                  "name": "await supply",
+                  "owner": "D16-FAB @ FACTORY",
+                  "description": "Buffer 'D16-FAB @ FACTORY' awaits confirmed supply",
+                  "startdate": "2026-11-05 15:40:00",
+                  "enddate": "2026-11-06 09:00:00"
+                },
+                "times": {
+                  "startdate": "2026-11-05T15:40:00+08:00",
+                  "enddate": "2026-11-06T09:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "constraint.json",
+                  "locator": "row:1",
+                  "native_record_id": "2",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:constraint:2",
+                  "sha256": "5cfee4b857d919721b68875f5eae52d1826a2ed5a6958b77288cddee28aa08ea"
+                }
+              }
+            ],
+            "demand_records": [
+              {
+                "record": {
+                  "name": "D16-ORDER-2-L1",
+                  "description": null,
+                  "category": null,
+                  "subcategory": null,
+                  "item": "D16-SEWN-OUT",
+                  "customer": "D16-CUSTOMER-D16-CUSTOMER-ORDER-2",
+                  "location": "FACTORY",
+                  "due": "2026-11-05T18:00:00",
+                  "status": "open",
+                  "operation": null,
+                  "quantity": "10.00000000",
+                  "priority": 2,
+                  "batch": null,
+                  "delay": "00:00:00",
+                  "plannedquantity": "2.00000000",
+                  "deliverydate": "2026-11-05T18:00:00",
+                  "plan": {
+                    "pegging": [
+                      {
+                        "opplan": "8",
+                        "quantity": 2.0
+                      }
+                    ]
+                  },
+                  "minshipment": "1.00000000",
+                  "maxlateness": "00:00:00",
+                  "owner": null,
+                  "policy": "independent"
+                },
+                "times": {
+                  "deliverydate": "2026-11-05T18:00:00+08:00",
+                  "due": "2026-11-05T18:00:00+08:00"
+                },
+                "source": {
+                  "solve_run_id": "API-c6abcca0d1e442b1",
+                  "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+                  "scenario_revision": 1,
+                  "artifact": "demand.json",
+                  "locator": "row:1",
+                  "native_record_id": "D16-ORDER-2-L1",
+                  "evidence_id": "API-c6abcca0d1e442b1:ENGINE:demand:D16-ORDER-2-L1",
+                  "sha256": "d6da180db5b1d9c661ed0cffc999641adcfb5fdd0fd93a9928f32a41417267d7"
+                }
+              }
+            ],
+            "cause_status": "ENGINE_CONSTRAINTS_REPORTED",
+            "limitations": [
+              "原生关联不等于延期原因；共享任务的全量流转不等于该订单的分配数量。",
+              "约束记录可能不完整，不能证明唯一原因或所有替代方案均无解。"
+            ]
+          }
+        ],
+        "buffer_records": [
+          {
+            "record": {
+              "name": "D16-CUT-WIP @ FACTORY",
+              "item": "D16-CUT-WIP",
+              "location": "FACTORY",
+              "onhand": "12.0",
+              "events": [
+                {
+                  "reference": "D16-CUT-WIP @ FACTORY",
+                  "at": "1971-01-01T00:00:00",
+                  "quantity": "12.0",
+                  "onhand": "12.0"
+                },
+                {
+                  "reference": "3",
+                  "at": "2026-11-05T16:00:00",
+                  "quantity": "-2.0",
+                  "onhand": "10.0"
+                },
+                {
+                  "reference": "4",
+                  "at": "2026-11-05T16:20:00",
+                  "quantity": "-10.0",
+                  "onhand": "0.0"
+                }
+              ]
+            },
+            "source": {
+              "solve_run_id": "API-c6abcca0d1e442b1",
+              "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+              "scenario_revision": 1,
+              "artifact": "fixed_batch_post.json",
+              "locator": "/buffers/0",
+              "native_record_id": "D16-CUT-WIP @ FACTORY",
+              "evidence_id": "API-c6abcca0d1e442b1:ENGINE:fixed_batch_post:D16-CUT-WIP @ FACTORY",
+              "sha256": "07b3fc7f8b03b5d88b81e67cdb742718f64a6fea611a6fc67de21df4cc6f1706"
+            }
+          },
+          {
+            "record": {
+              "name": "D16-FAB @ FACTORY",
+              "item": "D16-FAB",
+              "location": "FACTORY",
+              "onhand": "0.0",
+              "events": [
+                {
+                  "reference": "D16-CONFIRMED-40",
+                  "at": "2026-11-06T09:00:00",
+                  "quantity": "40.0",
+                  "onhand": "40.0"
+                }
+              ]
+            },
+            "source": {
+              "solve_run_id": "API-c6abcca0d1e442b1",
+              "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+              "scenario_revision": 1,
+              "artifact": "fixed_batch_post.json",
+              "locator": "/buffers/1",
+              "native_record_id": "D16-FAB @ FACTORY",
+              "evidence_id": "API-c6abcca0d1e442b1:ENGINE:fixed_batch_post:D16-FAB @ FACTORY",
+              "sha256": "07b3fc7f8b03b5d88b81e67cdb742718f64a6fea611a6fc67de21df4cc6f1706"
+            }
+          },
+          {
+            "record": {
+              "name": "D16-SEWN-OUT @ FACTORY",
+              "item": "D16-SEWN-OUT",
+              "location": "FACTORY",
+              "onhand": "0.0",
+              "events": [
+                {
+                  "reference": "3",
+                  "at": "2026-11-05T16:20:00",
+                  "quantity": "2.0",
+                  "onhand": "2.0"
+                },
+                {
+                  "reference": "4",
+                  "at": "2026-11-05T18:00:00",
+                  "quantity": "10.0",
+                  "onhand": "12.0"
+                },
+                {
+                  "reference": "8",
+                  "at": "2026-11-05T18:00:00",
+                  "quantity": "-2.0",
+                  "onhand": "10.0"
+                },
+                {
+                  "reference": "7",
+                  "at": "2026-11-05T18:00:00",
+                  "quantity": "-10.0",
+                  "onhand": "0.0"
+                }
+              ]
+            },
+            "source": {
+              "solve_run_id": "API-c6abcca0d1e442b1",
+              "scenario_id": "DRAFT-90cf626fd3d8f6ef",
+              "scenario_revision": 1,
+              "artifact": "fixed_batch_post.json",
+              "locator": "/buffers/2",
+              "native_record_id": "D16-SEWN-OUT @ FACTORY",
+              "evidence_id": "API-c6abcca0d1e442b1:ENGINE:fixed_batch_post:D16-SEWN-OUT @ FACTORY",
+              "sha256": "07b3fc7f8b03b5d88b81e67cdb742718f64a6fea611a6fc67de21df4cc6f1706"
+            }
+          }
+        ],
+        "buffer_evidence_status": "PRESENT",
+        "projection_hash": "9e3ad601286ce8e6c32cd1136c20727a4d55367fda2cb70cb9b854522f32d9d6"
+      },
+      "context": {
+        "enterprise_source": {
+          "plan_id": "PLAN-0356a983637f4e86",
+          "data_version_id": "DATA-5633703ef53f",
+          "snapshot_sha256": "8b530fa64fbbc6a700347a445ceb39f04e02b5ced85740022866b46be9e124a3",
+          "source_sha256": "8df727556adf4e3bb8307a0f4c786ca494831267632854aaf60f6b9ae3e41ef4"
+        },
+        "wip": {
+          "stage_endpoint": {
+            "item_id": "D16-SEWN-OUT",
+            "label": "合成缝后阶段产出，不代表完整成衣交付"
+          }
+        }
+      },
+      "interpretation": {
+        "confirmed_supply_windows": [
+          {
+            "id": "D16-CONFIRMED-40",
+            "external_ref": "D16-CONFIRMED-40",
+            "source_status": "confirmed",
+            "item_id": "D16-FAB",
+            "supplier_id": "D16-SUP",
+            "location_id": "FACTORY",
+            "quantity": "40",
+            "physical_receipt_at": "2026-11-05T09:00:00+08:00",
+            "actual_ordered_at": "2026-10-31T09:00:00+08:00",
+            "planned_start_at": "2026-10-31T09:00:00+08:00",
+            "available_at": "2026-11-06T09:00:00+08:00",
+            "supply_source_id": "D16-RAW-SOURCE",
+            "qc_wait_seconds": 86400,
+            "provenance": {
+              "import_batch_id": "P2-8df727556adf",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "source_locator": "采购台账!A6:R6",
+              "source_record_id": "confirmed-40",
+              "source_system": "ENTERPRISE_XLSX",
+              "source_version": "SIM-D16-01-V1"
+            }
+          }
+        ]
+      }
+    },
+    "planId": "PLAN-0356a983637f4e86",
+    "versionId": "DATA-5633703ef53f"
+  }
+}

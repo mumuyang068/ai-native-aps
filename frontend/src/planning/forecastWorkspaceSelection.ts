@@ -1,0 +1,2 @@
+export function forecastWorkspaceVersion(search:URLSearchParams,scope:string,versions:Record<string,unknown>[]){const id=search.get('forecast_version');return search.get('forecast_scope')===scope&&versions.some(v=>v.id===id)?id!:typeof versions[0]?.id==='string'?versions[0].id:''}
+export function forecastWorkspaceSearch(previous:URLSearchParams,scope:string,version:string,row=''){const q=new URLSearchParams(previous);q.set('forecast_scope',scope);q.set('forecast_version',version);row?q.set('forecast_row',row):q.delete('forecast_row');return q}

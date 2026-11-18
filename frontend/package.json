@@ -1,0 +1,39 @@
+{
+  "name": "industrial-planning-workspace",
+  "private": true,
+  "version": "0.3.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest",
+    "dev": "vite build --watch"
+  },
+  "dependencies": {
+    "@siemens/ix": "5.3.0",
+    "@siemens/ix-aggrid": "5.1.0",
+    "@siemens/ix-echarts": "4.1.1",
+    "@siemens/ix-icons": "3.7.0",
+    "@siemens/ix-react": "5.3.0",
+    "@tanstack/react-table": "9.3.1",
+    "ag-grid-community": "35.3.1",
+    "ag-grid-react": "35.3.1",
+    "antd": "6.6.6",
+    "echarts": "6.1.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router": "7.18.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.43",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "4.1.12"
+  }
+}

@@ -1,0 +1,38 @@
+import {describe,it,expect} from 'vitest';
+import {homeResources,homeStocks,homeComparison,homeQuality} from './cockpitHomeModel';
+import {calendarMetric,type DemandDay} from './cockpitDemandCalendar';
+import {homeTip} from './cockpitChartOptions';
+import type {Dict} from '../api/contracts';
+const profile='routing-alternate-capacity-v1';
+const identity=(run='R',target='D')=>({plan_id:'P',data_version_id:'V',profile,run_id:run,target});
+const report=(run='R',target='D'):Dict=>({identity:identity(run,target),timezone:'Asia/Shanghai',grain:'week',range:{start_at:'2026-11-02T08:00:00+08:00',end_at:'2026-11-03T18:00:00+08:00'},resource:{status:'PRESENT',validation:{status:'PASS'},rows:[]},demand:{status:'PRESENT',validation:{status:'PASS'},lines:[{demand_id:'L',order_ref:'订单',item_id:'衣',location_id:'厂',endpoint:'缝后',uom:'件',demand_kind:'FIRM_ORDER',unfulfilled_quantity:'4',delivery_validation_status:'PASS',delivery_evidence_status:'PRESENT'}]}});
+const scope={planId:'P',versionId:'V',runId:'R',target:'D',profile};
+const resource=(extra:Dict={})=>({resource_id:'M1',role:'MACHINE',start_at:'2026-11-02T08:00:00+08:00',end_at:'2026-11-02T18:00:00+08:00',available_hours:'8',load_hours:'2',interval_ids:['E'],...extra});
+describe('Home certified projections',()=>{
+ it('compares load against the same resource capacity and omits pools',()=>{const r=report();r.resource.rows=[resource(),resource({resource_id:'POOL',role:'OPERATOR_POOL'}),resource({resource_id:'MACHINE-POOL',role:'MACHINE_POOL'})];const rows=homeResources(r);expect(rows).toHaveLength(1);expect(rows[0].percent).toBe(25);expect(rows[0].load).toBe(2)});
+ it('never turns missing capacity into zero or a valid percent',()=>{const r=report();r.resource.rows=[resource({available_hours:null})];expect(homeResources(r)[0]).toMatchObject({known:false,percent:null})});
+ it('retains zero-capacity load as a priority problem without an infinite percentage',()=>{const r=report();r.resource.rows=[...Array.from({length:6},(_,i)=>resource({resource_id:'HEALTHY'+i})),resource({available_hours:'0'})];expect(homeResources(r)[0]).toMatchObject({resource_id:'M1',known:true,load:2,available:0,percent:null})});
+ it('rejects overlapping buckets instead of double counting',()=>{const r=report();r.resource.rows=[resource(),resource()];expect(homeResources(r)[0].known).toBe(false)});
+ it('retains valid zero load in the model for like-for-like comparison',()=>{const r=report();r.resource.rows=[resource({load_hours:'0',interval_ids:[]})];expect(homeResources(r)[0].load).toBe(0)});
+ it('fails closed for known violations or uncertified profiles',()=>{const r=report();r.resource.rows=[resource()];r.known_business_fail=true;expect(homeResources(r)).toEqual([]);r.known_business_fail=false;r.identity.profile='unregistered-profile-v0';expect(homeResources(r)).toEqual([])});
+ it('preserves native same-time inventory sequence and selected-window opening',()=>{const r=report();r.identity.profile='enterprise-accessory-supply-v1';const native:Dict={inventory_analysis:{status:'PRESENT',validation:{status:'PASS'},series:[{id:'衣@厂',item_id:'衣',location_id:'厂',uom:'件',complete:true,event_status:'PRESENT',opening:'12',verified_through:'2026-11-03T18:00:00+08:00',events:[{id:'A',at:'2026-11-02T10:00:00+08:00',balance:'32',kind:'manufacturing_receipt',native_sequence:1},{id:'B',at:'2026-11-02T10:00:00+08:00',balance:'22',kind:'manufacturing_consumption',native_sequence:2}]}]}};const s=homeStocks(r,native)[0];expect(s.points.filter((p:Dict)=>p.eventId).map((p:Dict)=>p.eventId)).toEqual(['A','B']);expect(s.endingInWindow).toBe(22);expect(s.minimumInWindow).toBe(12);r.range.start_at='2026-11-02T11:00:00+08:00';expect(homeStocks(r,native)[0].openingInWindow).toBe(22)});
+ it('never renders incomplete inventory observations as a flat zero',()=>{expect(homeStocks(report(),{inventory_analysis:{status:'NOT_COLLECTED',series:[]}})).toEqual([])});
+ it('keeps the observation end exclusive and requires coverage through that end',()=>{const r=report();r.identity.profile='enterprise-accessory-supply-v1';const s:Dict={id:'x',item_id:'衣',location_id:'厂',uom:'件',complete:true,event_status:'PRESENT',opening:'12',verified_through:r.range.end_at,events:[{id:'outside',at:r.range.end_at,balance:'99',kind:'manufacturing_receipt',native_sequence:1}]};const n={inventory_analysis:{status:'PRESENT',validation:{status:'PASS'},series:[s]}};expect(homeStocks(r,n)[0].endingInWindow).toBe(12);s.verified_through=r.range.start_at;expect(homeStocks(r,n)).toEqual([])});
+ it('uses compatible demand identity and preserves signed deltas',()=>{const b=report('B','baseline');b.demand.lines[0].unfulfilled_quantity='0';const m=homeComparison(report(),b,null,null,{}, {},scope);expect(m.valid).toBe(true);expect(m.rows[0]).toMatchObject({domain:'需求',before:0,after:4,delta:4,uom:'件'})});
+ it.each(['plan_id','data_version_id','profile'])('rejects mismatched %s',key=>{const b=report('B','baseline');b.identity[key]='other';expect(homeComparison(report(),b,null,null,{}, {},scope).valid).toBe(false)});
+ it('rejects different windows and never fabricates differences for missing objects',()=>{const b=report('B','baseline');b.range.end_at='2026-11-04T18:00:00+08:00';expect(homeComparison(report(),b,null,null,{}, {},scope).valid).toBe(false);b.range=report().range;b.demand.lines=[];const m=homeComparison(report(),b,null,null,{}, {},scope);expect(m.rows).toEqual([]);expect(m.notes.some(n=>n.includes('对象或摘要范围变化'))).toBe(true)});
+ it('does not compare quantities from different units or demand kinds',()=>{const b=report('B','baseline');b.demand.lines[0].uom='米';expect(homeComparison(report(),b,null,null,{}, {},scope).rows).toEqual([]);b.demand.lines[0].uom='件';b.demand.lines[0].demand_kind='NET_FORECAST';expect(homeComparison(report(),b,null,null,{}, {},scope).rows).toEqual([])});
+ it('escapes business names in native HTML tooltip',()=>expect(homeTip(['<img src=x onerror=alert(1)>','A&B'])).toBe('&lt;img src=x onerror=alert(1)&gt;<br/>A&amp;B'));
+});
+describe('calendar quantity color semantics',()=>{
+ const day:DemandDay={id:'2026-11-06',unplanned:2,late:0,unknown:0,attention:2,lines:[{group:'g',short:4,quantityValid:true},{group:'g',short:8,quantityValid:true}] as any};
+ it('keeps counts and same-object unplanned quantities distinct',()=>{expect(calendarMetric(day)).toBe(2);expect(calendarMetric(day,true)).toBe(12)});
+ it('refuses quantity aggregation across groups or unknown evidence',()=>{expect(calendarMetric({...day,lines:[day.lines[0],{...day.lines[1],group:'other'}]},true)).toBe(-3);expect(calendarMetric({...day,unknown:1},true)).toBe(-3)});
+ it('distinguishes outside, observed empty and observed zero shortage',()=>{expect(calendarMetric(undefined)).toBe(-2);expect(calendarMetric({...day,lines:[]})).toBe(-1);expect(calendarMetric({...day,lines:[{...day.lines[0],short:0}]},true)).toBe(0)});
+});
+
+
+describe('received quality conservation',()=>{
+ it('normalizes each unit independently and retains real quantities',()=>{const a={received_quantity:'10',released_received_quantity:'4',qc_waiting_quantity:'4',frozen_received_quantity:'2'};expect(homeQuality(a)).toEqual([{quantity:4,percent:40},{quantity:4,percent:40},{quantity:2,percent:20}]);expect(homeQuality({...a,received_quantity:'100',released_received_quantity:'40',qc_waiting_quantity:'40',frozen_received_quantity:'20'})?.map(v=>v.percent)).toEqual([40,40,20])});
+ it('rejects missing and nonconserving evidence',()=>{expect(homeQuality({received_quantity:'10',released_received_quantity:'4',qc_waiting_quantity:'4',frozen_received_quantity:null})).toBeNull();expect(homeQuality({received_quantity:'10',released_received_quantity:'6',qc_waiting_quantity:'4',frozen_received_quantity:'2'})).toBeNull()});
+});

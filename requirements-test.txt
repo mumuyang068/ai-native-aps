@@ -1,0 +1,4 @@
+-r requirements.txt
+# API regression and optional browser acceptance; versions already present locally.
+httpx==0.28.1
+playwright==1.57.0

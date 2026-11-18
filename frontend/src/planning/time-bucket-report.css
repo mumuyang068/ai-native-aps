@@ -1,0 +1,14 @@
+.time-bucket-report{min-width:0;max-width:100%;border-top:1px solid var(--border);margin-top:12px}
+.bucket-toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:12px 0}
+.bucket-toolbar label{display:flex;align-items:center;gap:8px;min-width:0;max-width:100%}.bucket-toolbar input{max-width:100%;width:240px}.bucket-toolbar select{min-width:0;max-width:100%}
+.bucket-chart-scroll{overflow-x:auto;max-width:100%}.bucket-multi-chart{min-width:780px;width:100%}
+.bucket-multi-chart .planning-chart{height:100%;margin:0}.bucket-multi-chart .planning-chart-canvas{height:100%;min-height:0}
+.bucket-value{border:0;background:transparent;color:var(--primary);font:inherit;cursor:pointer;min-height:32px;min-width:48px;padding:4px 8px}
+.bucket-value[aria-pressed=true]{background:var(--selection);outline:1px solid var(--primary)}
+.bucket-value:focus-visible{outline:2px solid var(--primary)}
+.bucket-selection{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border);padding:16px;margin-top:12px}
+.bucket-selection>div{flex:1;min-width:200px}.bucket-selection p{margin:5px 0}.bucket-selection small{overflow-wrap:anywhere}
+.bucket-pagination{display:flex;gap:16px;align-items:center;justify-content:flex-end;padding:12px 0}
+.bucket-chart-note{display:block;padding:6px 0;color:var(--text-secondary)}
+.forecast-period-scroll{max-width:100%;overflow:auto}.forecast-period-scroll table{border-collapse:collapse;min-width:100%;font-variant-numeric:tabular-nums}.forecast-period-scroll th,.forecast-period-scroll td{border-bottom:1px solid var(--border);padding:8px 12px;text-align:right;min-width:150px}.forecast-period-scroll th:first-child{position:sticky;left:0;background:var(--surface);z-index:1;text-align:left;min-width:170px}.forecast-period-scroll thead{background:var(--panel)}.forecast-period-scroll small{display:block;font-weight:normal;color:var(--muted)}.forecast-single-edit{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin-top:16px;padding:12px}.forecast-single-edit label{display:grid;gap:6px}.forecast-single-edit small{flex-basis:100%}
+@media(max-width:600px){.bucket-toolbar{gap:8px}.bucket-toolbar label{width:100%}.bucket-toolbar input{flex:1;min-width:0}.bucket-pagination{justify-content:flex-start}.bucket-selection{padding:12px}.time-bucket-report .professional-grid{overflow:hidden}}

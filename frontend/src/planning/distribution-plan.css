@@ -1,0 +1,7 @@
+.distribution-plan{padding:12px 16px;min-width:0;background:var(--panel-bg,#fff)}
+.distribution-plan h2{font-size:15px;margin:0 0 10px}.distribution-plan h3{font-size:14px;margin:16px 0 8px}
+.distribution-plan p{font-size:13px;line-height:1.6}.distribution-plan table{min-width:850px}
+.distribution-plan details{margin:14px 0}.distribution-plan summary{cursor:pointer;min-height:32px}
+
+.workspace-page .work-main.distribution-work-main{grid-template-rows:minmax(0,1fr)}
+@media(max-width:779px){.workspace-page .work-main.distribution-work-main{height:640px}.distribution-plan summary{min-height:42px}}

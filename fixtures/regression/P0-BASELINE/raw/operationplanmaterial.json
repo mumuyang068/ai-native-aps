@@ -1,0 +1,62 @@
+[
+  {
+    "id": 57,
+    "operationplan": "FAB-BLK @ SITE-01",
+    "item": "FAB-BLK",
+    "location": "SITE-01",
+    "quantity": "800.00000000",
+    "onhand": "800.00000000",
+    "flowdate": "1971-01-01T00:00:00",
+    "status": "proposed",
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:33"
+  },
+  {
+    "id": 58,
+    "operationplan": "5",
+    "item": "FAB-BLK",
+    "location": "SITE-01",
+    "quantity": "1200.00000000",
+    "onhand": "2000.00000000",
+    "flowdate": "2026-10-20T17:20:00",
+    "status": "proposed",
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:33"
+  },
+  {
+    "id": 59,
+    "operationplan": "2",
+    "item": "FAB-BLK",
+    "location": "SITE-01",
+    "quantity": "-2000.00000000",
+    "onhand": "0.00000000",
+    "flowdate": "2026-10-20T17:20:00",
+    "status": "proposed",
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:33"
+  },
+  {
+    "id": 60,
+    "operationplan": "3",
+    "item": "TEE-BLK",
+    "location": "SITE-01",
+    "quantity": "1000.00000000",
+    "onhand": "1000.00000000",
+    "flowdate": "2026-10-23T18:00:00",
+    "status": "proposed",
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:33"
+  },
+  {
+    "id": 61,
+    "operationplan": "7",
+    "item": "TEE-BLK",
+    "location": "SITE-01",
+    "quantity": "-1000.00000000",
+    "onhand": "0.00000000",
+    "flowdate": "2026-10-23T18:00:00",
+    "status": "proposed",
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:33"
+  }
+]

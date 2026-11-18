@@ -1,0 +1,506 @@
+{
+  "schema_version": "p403-capabilities-1",
+  "profiles": [
+    "foundation-planning-projection-v1",
+    "ordinary-routing-v1",
+    "fixed-batch-window-v1",
+    "fixed-batch-confirmed-supply-v1",
+    "fixed-batch-priority-supply-v1",
+    "two-level-wip-v1",
+    "two-level-confirmed-supply-v1",
+    "mixed-fixed-batch-wip-v1",
+    "mixed-fixed-batch-confirmed-supply-v1",
+    "mixed-fixed-batch-confirmed-qualified-v1",
+    "mixed-fixed-batch-confirmed-cut-qualified-v1",
+    "machine-qualified-operator-v1",
+    "single-lane-distribution-v1",
+    "finished-garment-confirmed-v1",
+    "forecast-net-demand-v1",
+    "enterprise-forecast-fg-v1",
+    "enterprise-accessory-supply-v1",
+    "multi-receipt-protected-manufacturing-v1",
+    "routing-alternate-capacity-v1",
+    "network-distribution-confirmed-supply-v1"
+  ],
+  "analyses": {
+    "resources": {
+      "profiles": [
+        "foundation-planning-projection-v1",
+        "machine-qualified-operator-v1",
+        "mixed-fixed-batch-confirmed-qualified-v1",
+        "enterprise-forecast-fg-v1",
+        "enterprise-accessory-supply-v1",
+        "multi-receipt-protected-manufacturing-v1",
+        "routing-alternate-capacity-v1"
+      ],
+      "reason": "连续资源分析仅认证原设备/具名人员与明确登记的联合修订；数量窗口不换算为容量小时。 新企业预测成品组合仅核验连续设备/具名人员；CUT数量窗口仍在制造审计中，不能转容量小时。 多笔收货联合模型只认证同一运行的连续机器与唯一具名操作员实际LoadPlan；既有MO叶任务与新routing子任务分别读取。 foundation既有修订必须通过同一运行的完整企业联合审计，不借用旧profile的PASS。",
+      "evidence_required": [
+        "exact_plan_version_run_target",
+        "authenticated_native_resource_records",
+        "LoadPlan",
+        "resource_validation"
+      ]
+    },
+    "inventory": {
+      "profiles": [
+        "foundation-planning-projection-v1",
+        "single-lane-distribution-v1",
+        "mixed-fixed-batch-confirmed-supply-v1",
+        "mixed-fixed-batch-confirmed-qualified-v1",
+        "enterprise-forecast-fg-v1",
+        "enterprise-accessory-supply-v1",
+        "network-distribution-confirmed-supply-v1"
+      ],
+      "reason": "库存动态分析仅认证已有配送、采购整批WIP及明确登记的联合修订，不自动继承新制造组合。 企业预测成品组合使用质量净期初与原生事件，待检与冻结不计可用。 foundation既有修订必须通过同一运行的完整企业联合审计，保留物理、冻结、净可用及采购物理到货/QC可用时点。",
+      "evidence_required": [
+        "exact_plan_version_run_target",
+        "authenticated_material_events",
+        "opening_balance",
+        "material_validation"
+      ]
+    },
+    "order_pegging": {
+      "profiles": [
+        "two-level-confirmed-supply-v1"
+      ],
+      "reason": "订单时间链仅认证D16；原生pegging/upstream引用及摘要有效才可关联，不按物料或时间推断分配。",
+      "evidence_required": [
+        "exact_demand_line",
+        "native_pegging",
+        "native_upstream_reference",
+        "source_SHA"
+      ]
+    },
+    "constraints": {
+      "profiles": [
+        "foundation-planning-projection-v1",
+        "ordinary-routing-v1",
+        "fixed-batch-window-v1",
+        "fixed-batch-confirmed-supply-v1",
+        "fixed-batch-priority-supply-v1",
+        "two-level-wip-v1",
+        "two-level-confirmed-supply-v1",
+        "mixed-fixed-batch-wip-v1",
+        "mixed-fixed-batch-confirmed-supply-v1",
+        "mixed-fixed-batch-confirmed-qualified-v1",
+        "mixed-fixed-batch-confirmed-cut-qualified-v1",
+        "machine-qualified-operator-v1",
+        "single-lane-distribution-v1",
+        "finished-garment-confirmed-v1",
+        "forecast-net-demand-v1",
+        "enterprise-forecast-fg-v1",
+        "enterprise-accessory-supply-v1",
+        "multi-receipt-protected-manufacturing-v1",
+        "routing-alternate-capacity-v1",
+        "network-distribution-confirmed-supply-v1"
+      ],
+      "reason": "只展示当前运行采集的Constraint/Problem；Constraint按原生demand精确归属，Problem保留运行级。",
+      "evidence_required": [
+        "exact_plan_version_run_target",
+        "native_constraint_or_problem_collection_status",
+        "source_SHA"
+      ]
+    },
+    "exceptions": {
+      "profiles": [
+        "foundation-planning-projection-v1",
+        "ordinary-routing-v1",
+        "fixed-batch-window-v1",
+        "fixed-batch-confirmed-supply-v1",
+        "fixed-batch-priority-supply-v1",
+        "two-level-wip-v1",
+        "two-level-confirmed-supply-v1",
+        "mixed-fixed-batch-wip-v1",
+        "mixed-fixed-batch-confirmed-supply-v1",
+        "mixed-fixed-batch-confirmed-qualified-v1",
+        "mixed-fixed-batch-confirmed-cut-qualified-v1",
+        "machine-qualified-operator-v1",
+        "single-lane-distribution-v1",
+        "finished-garment-confirmed-v1",
+        "forecast-net-demand-v1",
+        "enterprise-forecast-fg-v1",
+        "enterprise-accessory-supply-v1",
+        "multi-receipt-protected-manufacturing-v1",
+        "routing-alternate-capacity-v1",
+        "network-distribution-confirmed-supply-v1"
+      ],
+      "reason": "异常依据本运行实际需求履约和原生记录；缺记录不表示没有瓶颈。",
+      "evidence_required": [
+        "exact_plan_version_run_target",
+        "authenticated_PlanResult",
+        "native_collection_status"
+      ]
+    },
+    "scenario_review": {
+      "profiles": [
+        "foundation-planning-projection-v1",
+        "ordinary-routing-v1",
+        "fixed-batch-window-v1",
+        "fixed-batch-confirmed-supply-v1",
+        "fixed-batch-priority-supply-v1",
+        "two-level-wip-v1",
+        "two-level-confirmed-supply-v1",
+        "mixed-fixed-batch-wip-v1",
+        "mixed-fixed-batch-confirmed-supply-v1",
+        "mixed-fixed-batch-confirmed-qualified-v1",
+        "mixed-fixed-batch-confirmed-cut-qualified-v1",
+        "machine-qualified-operator-v1",
+        "single-lane-distribution-v1",
+        "finished-garment-confirmed-v1",
+        "forecast-net-demand-v1",
+        "enterprise-forecast-fg-v1",
+        "enterprise-accessory-supply-v1",
+        "multi-receipt-protected-manufacturing-v1",
+        "routing-alternate-capacity-v1",
+        "network-distribution-confirmed-supply-v1"
+      ],
+      "reason": "只比较同计划、版本、基线、profile和业务终点的有效独立结果；不自动择优或发布。",
+      "evidence_required": [
+        "same_plan_version_baseline_profile_endpoint",
+        "immutable_run_result",
+        "successful_run",
+        "no_known_hard_FAIL"
+      ]
+    },
+    "demand_planning": {
+      "profiles": [
+        "forecast-net-demand-v1",
+        "enterprise-forecast-fg-v1",
+        "enterprise-accessory-supply-v1"
+      ],
+      "reason": "同维度、同半开桶的确定性订单抵扣与净预测规划，非统计预测算法。",
+      "evidence_required": [
+        "exact_plan_version_run_target",
+        "confirmed_forecast_policy_and_source",
+        "canonical_net_demands",
+        "native_demand_results"
+      ]
+    },
+    "inventory_availability": {
+      "profiles": [
+        "finished-garment-confirmed-v1",
+        "enterprise-forecast-fg-v1",
+        "enterprise-accessory-supply-v1"
+      ],
+      "reason": "现货质量可用性与未来计划FG分离；不确认实际放行或发货。",
+      "evidence_required": [
+        "current_inventory_source",
+        "explicit_quality_breakdown_when_present",
+        "current_plan_result"
+      ]
+    },
+    "inventory_policy": {
+      "profiles": [
+        "enterprise-forecast-fg-v1",
+        "enterprise-accessory-supply-v1"
+      ],
+      "reason": "版本化合成期间最低净库存与真实事件的只读缺口调查；不生成补货。",
+      "evidence_required": [
+        "exact_plan_version_run_target",
+        "authenticated_material_events",
+        "explicit_policy_source_unit_location_period",
+        "material_validation"
+      ]
+    },
+    "foundation_forecast_management": {
+      "profiles": [
+        "foundation-planning-projection-v1"
+      ],
+      "reason": "完整企业来源Gross和Firm分开管理；未知Net、原始期间、来源与调整历史保持，不认证净预测规划。",
+      "evidence_required": [
+        "same_plan_version_baseline_source",
+        "authenticated_foundation_projection",
+        "exact_forecast_source_identity"
+      ]
+    }
+  },
+  "actions": {
+    "professional_policy": {
+      "profiles": [
+        "foundation-planning-projection-v1"
+      ],
+      "reason": "显式版本的隔离研究抵扣、非执行询价与多物料软补货目标；完整重放、原Worker及独立审计，企业政策与正式承诺未授权。",
+      "evidence_required": [
+        "exact_plan_version_baseline_run",
+        "confirmed_preview_fingerprint",
+        "full_input_replay",
+        "native_policy_readback",
+        "existing_commitment_protection"
+      ]
+    },
+    "controlled_conditions": {
+      "profiles": [
+        "enterprise-accessory-supply-v1"
+      ],
+      "reason": "同一企业基线的精确Firm优先级与具名合格SEW人员不可用时段；只读预览、确认后创建独立未运行草案，不改企业事实。",
+      "evidence_required": [
+        "exact_plan_version_run_source",
+        "typed_conditions",
+        "confirmed_preview_fingerprint",
+        "full_input_replay"
+      ]
+    },
+    "resource_unavailability": {
+      "profiles": [
+        "machine-qualified-operator-v1",
+        "mixed-fixed-batch-confirmed-qualified-v1"
+      ],
+      "reason": "仅扣减已认证profile中单一连续设备或具名人员的已有可用窗口；人员池、数量窗口和已有MO组合不允许。",
+      "evidence_required": [
+        "current_baseline",
+        "exact_resource_identity",
+        "existing_calendar_overlap",
+        "no_existing_MO",
+        "typed_local_permission"
+      ]
+    },
+    "approved_mo_move": {
+      "profiles": [
+        "fixed-batch-window-v1"
+      ],
+      "reason": "仅原M模型中指定approved工单的隔离窗口模拟，不释放其他承诺或授予执行许可。",
+      "evidence_required": [
+        "current_baseline",
+        "explicit_approved_MO",
+        "legal_window",
+        "other_commitments_protected"
+      ]
+    },
+    "priority_source_terms": {
+      "profiles": [
+        "fixed-batch-priority-supply-v1"
+      ],
+      "reason": "仅D12认证双来源PRIORITY的指定来源条款模拟。",
+      "evidence_required": [
+        "current_baseline",
+        "exact_source",
+        "one_confirmed_PO",
+        "source_capacity_audit"
+      ]
+    },
+    "purchase_delay": {
+      "profiles": [
+        "ordinary-routing-v1",
+        "fixed-batch-confirmed-supply-v1",
+        "fixed-batch-priority-supply-v1",
+        "two-level-confirmed-supply-v1",
+        "mixed-fixed-batch-confirmed-supply-v1",
+        "enterprise-accessory-supply-v1"
+      ],
+      "reason": "仅认证单笔完整未收confirmed采购的物理到货延期；enterprise-accessory由精确事实重放与原QC规则保护，不开放其他企业组合。",
+      "evidence_required": [
+        "current_baseline",
+        "one_complete_unreceived_confirmed_PO",
+        "later_timezone_date",
+        "unchanged_purchase_facts"
+      ]
+    },
+    "due_change": {
+      "profiles": [
+        "ordinary-routing-v1",
+        "fixed-batch-window-v1",
+        "fixed-batch-confirmed-supply-v1",
+        "fixed-batch-priority-supply-v1",
+        "two-level-wip-v1",
+        "two-level-confirmed-supply-v1",
+        "mixed-fixed-batch-wip-v1",
+        "mixed-fixed-batch-confirmed-supply-v1",
+        "mixed-fixed-batch-confirmed-qualified-v1",
+        "mixed-fixed-batch-confirmed-cut-qualified-v1",
+        "machine-qualified-operator-v1",
+        "single-lane-distribution-v1"
+      ],
+      "reason": "指定需求交期的现有独立草案，不改变客户已确认的原版本。",
+      "evidence_required": [
+        "current_baseline",
+        "exact_demand_line",
+        "explicit_timezone_due",
+        "typed_local_permission"
+      ]
+    },
+    "urgent_order": {
+      "profiles": [
+        "ordinary-routing-v1",
+        "fixed-batch-window-v1",
+        "fixed-batch-confirmed-supply-v1",
+        "fixed-batch-priority-supply-v1",
+        "two-level-wip-v1",
+        "two-level-confirmed-supply-v1",
+        "mixed-fixed-batch-wip-v1",
+        "mixed-fixed-batch-confirmed-supply-v1",
+        "mixed-fixed-batch-confirmed-qualified-v1",
+        "mixed-fixed-batch-confirmed-cut-qualified-v1",
+        "machine-qualified-operator-v1",
+        "single-lane-distribution-v1"
+      ],
+      "reason": "既有模型下明确订单、产品、数量、客户与交期的隔离急单草案；新成品profile尚未认证此变更。",
+      "evidence_required": [
+        "current_baseline",
+        "exact_demand_line",
+        "explicit_timezone_due",
+        "typed_local_permission"
+      ]
+    },
+    "demand_priority": {
+      "profiles": [
+        "foundation-planning-projection-v1",
+        "two-level-confirmed-supply-v1",
+        "finished-garment-confirmed-v1"
+      ],
+      "reason": "精确订单需求行的隔离优先级模拟；不修改原订单、数量、交期或硬约束，不授予执行许可。",
+      "evidence_required": [
+        "current_baseline",
+        "exact_firm_demand_line",
+        "integer_priority_0_2147483647",
+        "typed_local_permission"
+      ]
+    },
+    "forecast_override": {
+      "profiles": [
+        "forecast-net-demand-v1",
+        "enterprise-forecast-fg-v1"
+      ],
+      "reason": "只覆盖指定有来源桶的假设Gross并重新抵扣；Firm及原确认版本不变，不授予执行许可。",
+      "evidence_required": [
+        "current_baseline",
+        "exact_bucket_dimensions_source",
+        "explicit_reason",
+        "typed_local_permission",
+        "recomputed_net_demands"
+      ]
+    },
+    "accessory_supply": {
+      "profiles": [
+        "enterprise-accessory-supply-v1"
+      ],
+      "reason": "仅启用一个预先冻结、有来源的研发合成辅料选项；不批准采购或改confirmed事实。",
+      "evidence_required": [
+        "exact_plan_version_baseline_source",
+        "frozen_source_terms",
+        "simulation_only_permission",
+        "immutable_draft_replay"
+      ]
+    },
+    "firm_demand": {
+      "profiles": [
+        "enterprise-accessory-supply-v1"
+      ],
+      "reason": "仅本轮已验收的辅料组合新增单条Firm研究假设；FG组合未认证此动作。原Firm/Gross及供给资源不变，Net由服务端重算。",
+      "evidence_required": [
+        "exact_plan_version_baseline",
+        "explicit_hypothesis_identity",
+        "gross_dimension_bucket_coverage",
+        "simulation_permission",
+        "immutable_draft_replay"
+      ]
+    },
+    "inventory_decision": {
+      "profiles": [
+        "enterprise-accessory-supply-v1"
+      ],
+      "reason": "仅精确LABEL地点与已确认冻结条款目录；显式预览确认后建立库存软目标和来源条款隔离草案，执行权限不变。",
+      "evidence_required": [
+        "exact_plan_version_run_source",
+        "frozen_inventory_decision_catalog",
+        "typed_buffer_policy_or_source_option",
+        "confirmed_preview_fingerprint",
+        "full_input_replay"
+      ]
+    },
+    "outstanding_receipt": {
+      "profiles": [
+        "multi-receipt-protected-manufacturing-v1"
+      ],
+      "reason": "仅来源绑定的未来未收余量延期假设；已收/QC事实、总下单量、供应商和受保护MO不变，不是ERP变更。",
+      "evidence_required": [
+        "exact_plan_version_baseline_run",
+        "source_SHA",
+        "preview_fingerprint",
+        "confirmed_outstanding_balance",
+        "immutable_receipts_and_manufacturing"
+      ]
+    },
+    "resource_capacity": {
+      "profiles": [
+        "routing-alternate-capacity-v1"
+      ],
+      "reason": "仅减少一台具有声明资格和稳定业务身份机器的可用时段；精确预览确认及全量回放，保护原MO与来源，不授予执行权限。",
+      "evidence_required": [
+        "exact_plan_version_baseline_run_source_SHA",
+        "qualified_machine_pool",
+        "preview_fingerprint",
+        "acknowledge_limits",
+        "immutable_full_input_replay"
+      ]
+    },
+    "distribution_leadtime": {
+      "profiles": [
+        "network-distribution-confirmed-supply-v1"
+      ],
+      "reason": "单一冻结路线运输提前期增加；只读预览、来源与原运行指纹确认、NOT_RUN、完整输入回放；不修改PO或已有DO，不授予执行权限。",
+      "evidence_required": [
+        "exact_plan_version_baseline_run_source_SHA",
+        "frozen_route_option",
+        "preview_fingerprint",
+        "immutable_full_input_replay"
+      ]
+    },
+    "foundation_forecast_management": {
+      "profiles": [
+        "foundation-planning-projection-v1"
+      ],
+      "reason": "有来源Gross调整的独立未计算候选；净额化政策未确认，Worker始终明确拒绝；原24条Firm和原事实不变。",
+      "evidence_required": [
+        "same_plan_version_baseline_source",
+        "exact_forecast_source_identity",
+        "confirmed_preview_fingerprint",
+        "FORECAST_POLICY_PENDING_WORKER_GATE"
+      ]
+    },
+    "plan_editor": {
+      "profiles": [
+        "fixed-batch-window-v1",
+        "routing-alternate-capacity-v1",
+        "ordinary-routing-v1"
+      ],
+      "reason": "仅未执行approved固定批量窗口，或首次计算前冻结的唯一任务设备及完整换线研究合同；完整企业工单不开放编辑。",
+      "evidence_required": [
+        "current_baseline",
+        "source_version_and_snapshot",
+        "atomic_confirmed_edits",
+        "original_worker_and_native_audit",
+        "frozen_research_contract_for_proposed_tasks"
+      ]
+    }
+  },
+  "certification_boundaries": {
+    "enterprise-forecast-fg-v1": {
+      "input": "BOUNDED_EXPLICIT_COMBINATION",
+      "native": "REQUIRES_SAME_RUN_READBACK_AND_AUDIT",
+      "read_analysis": [
+        "continuous_resource_events",
+        "net_inventory_events",
+        "inventory_policy"
+      ],
+      "draft_actions": [
+        "forecast_override"
+      ],
+      "demand_pegging": "UNSUPPORTED",
+      "independent_natural_language_agent": "NOT_CHECKED"
+    },
+    "network-distribution-confirmed-supply-v1": {
+      "input": "BOUNDED_EXPLICIT_COMBINATION",
+      "native": "REQUIRES_SAME_RUN_READBACK_AND_AUDIT",
+      "read_analysis": [
+        "per_location_net_inventory",
+        "planned_distribution_transit",
+        "confirmed_PO_QC"
+      ],
+      "draft_actions": [
+        "distribution_leadtime"
+      ],
+      "demand_pegging": "UNSUPPORTED",
+      "independent_natural_language_agent": "NOT_CHECKED"
+    }
+  }
+}

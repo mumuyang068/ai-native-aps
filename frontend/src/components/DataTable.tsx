@@ -1,0 +1,11 @@
+import {useState,type ReactNode} from 'react';
+import {Icon} from './Controls';
+import {useTable,tableFeatures,createSortedRowModel,rowSortingFeature,sortFns,flexRender,type ColumnDef,type RowData,type SortingState} from '@tanstack/react-table';
+export type TableColumn<T>={id:string;title:string;value:(row:T)=>ReactNode;sortValue?:(row:T)=>string|number;numeric?:boolean};
+const features=tableFeatures({rowSortingFeature,sortedRowModel:createSortedRowModel(),sortFns});
+export function DataTable<T extends RowData>({rows,columns,rowId,selected,onSelect,empty='没有记录。',compact=false}:{rows:T[];columns:TableColumn<T>[];rowId:(row:T)=>string;selected?:string;onSelect?:(row:T)=>void;empty?:string;compact?:boolean}){
+ const [sorting,setSorting]=useState<SortingState>([]);
+ const defs=columns.map(c=>({id:c.id,accessorFn:c.sortValue??((row:T)=>String(c.value(row)??'')),header:c.title,cell:({row}:any)=>c.value(row.original),enableSorting:!!c.sortValue})) as ColumnDef<typeof features,T>[];
+ const table=useTable({features,columns:defs,data:rows,getRowId:rowId,state:{sorting},onSortingChange:setSorting});
+ return <><table className={compact?'compact':''}><thead>{table.getHeaderGroups().map(group=><tr key={group.id}>{group.headers.map(h=><th key={h.id} className={columns.find(c=>c.id===h.column.id)?.numeric?'numeric':''} aria-sort={h.column.getIsSorted()==='asc'?'ascending':h.column.getIsSorted()==='desc'?'descending':undefined}>{h.column.getCanSort()?<button className="table-sort" onClick={h.column.getToggleSortingHandler()}>{flexRender(h.column.columnDef.header,h.getContext())}{h.column.getIsSorted()&&<Icon name={h.column.getIsSorted()==='asc'?'up':'down'}/>}</button>:flexRender(h.column.columnDef.header,h.getContext())}</th>)}</tr>)}</thead><tbody>{table.getRowModel().rows.map(row=><tr key={row.id} data-record-id={row.id} className={row.id===selected?'selected-row':''} onClick={()=>onSelect?.(row.original)}>{row.getAllCells().map((cell,i)=><td key={cell.id} className={columns[i]?.numeric?'numeric':''}>{onSelect&&i===0?<button className="record-link" onClick={e=>{e.stopPropagation();onSelect(row.original)}}>{flexRender(cell.column.columnDef.cell,cell.getContext())}</button>:flexRender(cell.column.columnDef.cell,cell.getContext())}</td>)}</tr>)}</tbody></table>{!rows.length&&<div className="empty-records">{empty}</div>}</>
+}

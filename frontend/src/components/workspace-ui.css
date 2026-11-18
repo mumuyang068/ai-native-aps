@@ -1,0 +1,65 @@
+/* Shared component integration. Business grids keep their own geometry. */
+.workspace-icon{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;font-size:16px;line-height:1;flex:none}
+.workspace-icon svg{width:1em;height:1em}
+.identity>.workspace-icon{font-size:21px}
+.rail .workspace-icon{font-size:20px}
+.workspace-status{display:inline-flex;align-items:center;white-space:normal;line-height:1.55;gap:0;max-width:100%}
+.workspace-status .ant-badge-status-text{margin-inline-start:7px;font-size:13px;color:var(--text);overflow-wrap:anywhere}
+.workspace-status .ant-badge-status-dot{flex:none}
+.ant-btn:disabled{opacity:1}
+.ant-btn:focus-visible,.ant-checkbox-wrapper:focus-within{outline:2px solid var(--primary);outline-offset:2px}
+.ant-checkbox-input{min-height:0;padding:0;border:0}
+.ant-btn>.button-content{display:inline-flex;align-items:center;justify-content:inherit;gap:6px;min-width:0}
+.ant-btn-icon{flex:none}
+.icon-button.ant-btn{width:30px;padding-inline:5px}
+.icon-button.ant-btn>.button-content{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.workspace-page .contextbar{min-height:48px;gap:10px}
+.workspace-page .contextbar .ant-btn{height:32px;min-height:32px;font-size:13px;padding-inline:10px}
+.workspace-page .contextbar select,.workspace-page .toolbar select{min-height:30px;border-color:#a9b3bc;border-radius:2px;font-size:13px;background:var(--surface)}
+.workspace-page .state-summary{gap:12px}
+.workspace-page .toolbar{gap:6px;min-height:42px}
+.workspace-page .toolbar .ant-btn{height:30px;min-height:30px;padding:4px 8px;font-size:13px}
+.workspace-page .toolbar .icon-button{padding-inline:5px}
+.workspace-page .search-field{border-color:#a9b3bc;border-radius:2px;width:190px;min-height:30px}
+.workspace-page .search-field .ant-input{font-size:13px;min-height:28px;padding:3px 0;background:transparent}
+.workspace-page .search-field .ant-input:focus-visible{outline:none}
+.workspace-page .records-tabs>button,.workspace-page .records-footer .ant-btn{font-size:13px}
+.workspace-page .records-footer .ant-btn{height:24px;min-height:24px;padding:1px 6px}
+.workspace-page .record-scroll table{font-size:13px}
+.workspace-page .table-sort{display:inline-flex;align-items:center;gap:5px}
+.workspace-page .table-sort .workspace-icon{font-size:12px;width:12px;height:12px}
+.workspace-page .inspector-body{padding:16px}
+.workspace-page .inspector .definition{font-size:13px}
+.workspace-page .inspector .ant-btn{font-size:13px;min-height:32px}
+.workspace-page .detail-status,.workspace-page .status-pair{gap:12px;flex-wrap:wrap}
+.workspace-page .condition-pills{gap:6px 12px}
+.workspace-page .condition-pills .workspace-status{font-size:13px}
+.order-related-links>.ant-btn{height:36px}
+.order-related-links>.ant-btn>.button-content{flex:1;display:flex;justify-content:space-between;text-align:left}
+.order-related-links>.ant-btn>.ant-btn-icon{flex:none}
+.resource-task-list>.ant-btn{height:auto;min-height:54px;white-space:normal}
+.resource-task-list>.ant-btn>.button-content{display:grid;gap:4px;text-align:left}
+.flow>.ant-btn>.button-content{display:flex;flex-direction:column;gap:1px;max-width:100%;overflow:hidden}
+.flow>.ant-btn>.button-content small{overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.assistant-pane h2{font-size:16px}
+.assistant-pane .assistant-form .ant-input{font-size:14px;line-height:1.7;background:var(--surface)}
+.assistant-pane .assistant-form .ant-btn{min-height:34px}
+.assistant-pane .assistant-context{flex-wrap:wrap;gap:10px}
+.assistant-pane .suggestions{gap:8px}
+.compare-page .status-pair{gap:12px;flex-wrap:wrap}
+.comparison-scroll th small{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:4px}
+.compare-page .ant-btn,.version-page .ant-btn,.list-page .ant-btn{min-height:34px}
+.button-link{border-radius:2px;border-color:#a9b3bc;min-height:32px}
+@media(max-width:779px){
+ .workspace-page .contextbar{gap:8px}
+ .workspace-page .context-actions{flex-wrap:wrap;min-width:0;max-width:100%}
+ .workspace-page .context-actions>.ant-btn{flex:1 1 160px;min-width:0;max-width:100%}
+ .workspace-page .contextbar .ant-btn,.workspace-page .toolbar .ant-btn{min-height:36px;height:36px}
+ .workspace-page .inspector .ant-btn{min-height:36px}
+ .workspace-page .toolbar .icon-button{width:36px}
+ .workspace-page .search-field{min-height:36px}
+ .workspace-page .search-field .ant-input{min-height:32px}
+ .workspace-page .state-summary{flex-wrap:wrap;gap:8px}
+ .workspace-page .condition-pills{gap:8px}
+ .resource-task-list>.ant-btn{min-height:60px}
+}

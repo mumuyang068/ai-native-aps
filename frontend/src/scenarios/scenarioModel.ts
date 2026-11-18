@@ -1,0 +1,4 @@
+import type {ChatOutcome,PlanView} from '../api/contracts';
+import {runLabel} from '../planning/planModel';
+export function describeScenario(view:PlanView){const draft=view.draft,discarded=draft?.state==='DISCARDED';return {decisionLabel:!draft?'计划草案 · 未下达':discarded?'已放弃 · '+(view.run?.state==='SUCCEEDED'?'历史结果':'历史草案'):draft.changes?.simulation_only?'模拟方案 · 待业务确认':draft.state==='RETAINED'?'已保留 · 未下达':'草案待决定 · 未下达',calculationLabel:runLabel(view.run?.state),canRun:!!draft&&!discarded&&!draft.run_id,canRetain:!!draft&&draft.state==='DRAFT',canDiscard:!!draft&&!discarded}}
+export function applyChatOutcome(outcome:ChatOutcome):{type:'SELECT_DRAFT';draftId:string;message:string}|{type:'MESSAGE';message:string}{return outcome.kind==='DRAFT'&&outcome.draft?{type:'SELECT_DRAFT',draftId:outcome.draft.id,message:outcome.message}:{type:'MESSAGE',message:outcome.message}}

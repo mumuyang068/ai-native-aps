@@ -1,0 +1,6 @@
+import {it,expect} from 'vitest';
+import {visibleDays,formatSiteTime,addDays,siteDate,localHourAt} from './timeRange';
+it('keeps factory dates through month/year boundaries',()=>{const days=visibleDays('2026-12-31',3,'Asia/Shanghai');expect(days.map(d=>d.date)).toEqual(['2026-12-31','2027-01-01','2027-01-02']);expect(addDays('2026-10-31',1)).toBe('2026-11-01')});
+it('uses local calendar boundaries instead of fixed day milliseconds at DST',()=>{const days=visibleDays('2026-03-08',2,'America/New_York');expect(days[0].end-days[0].start).toBe(23*3600000);expect(days[1].end-days[1].start).toBe(24*3600000);expect(new Date(days[0].start).toISOString()).toBe('2026-03-08T05:00:00.000Z')});
+it('formats the explicit factory timezone independently of browser timezone',()=>{expect(formatSiteTime('2026-10-14T01:00:00Z','Asia/Shanghai')).toContain('09:00');expect(siteDate('2026-10-14T01:00:00Z','America/New_York')).toBe('2026-10-13')});
+it('places local noon at its actual instant on a shortened DST day',()=>{const day=visibleDays('2026-03-08',1,'America/New_York')[0],noon=localHourAt(day.date,12,'America/New_York');expect(new Date(noon).toISOString()).toBe('2026-03-08T16:00:00.000Z');expect((noon-day.start)/(day.end-day.start)).toBeCloseTo(11/23)});

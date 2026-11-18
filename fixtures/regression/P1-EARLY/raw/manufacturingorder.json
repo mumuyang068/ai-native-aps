@@ -1,0 +1,52 @@
+[
+  {
+    "reference": "1",
+    "status": "proposed",
+    "operation": "MAKE-TEE-R1",
+    "quantity": "1000.00000000",
+    "quantity_completed": null,
+    "startdate": "2026-10-19T17:20:00",
+    "enddate": "2026-10-22T18:00:00",
+    "batch": null,
+    "criticality": "0.00000000",
+    "delay": "1 00:00:00",
+    "plan": {
+      "pegging": {
+        "SO-101-L1": 1000.0
+      },
+      "unavailable": 0,
+      "interruptions": [],
+      "upstream_opplans": [
+        [
+          "2",
+          1000.0,
+          0.0
+        ],
+        [
+          "FAB-BLK @ SITE-01",
+          800.0,
+          0.0
+        ],
+        [
+          "5",
+          1200.0,
+          0.0
+        ]
+      ],
+      "downstream_opplans": [
+        [
+          "2",
+          1000.0,
+          0.0
+        ]
+      ]
+    },
+    "owner": null,
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:55",
+    "resources": [],
+    "materials": [],
+    "demand": null,
+    "forecast": null
+  }
+]

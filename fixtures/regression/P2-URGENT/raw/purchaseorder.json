@@ -1,0 +1,33 @@
+[
+  {
+    "reference": "9",
+    "status": "proposed",
+    "item": "FAB-BLK",
+    "supplier": "SUP-A",
+    "location": "SITE-01",
+    "quantity": "1800.00000000",
+    "startdate": "2026-10-17T17:20:00",
+    "enddate": "2026-10-20T17:20:00",
+    "batch": null,
+    "criticality": "0.00000000",
+    "delay": "00:00:00",
+    "plan": {
+      "pegging": {
+        "SO-101-L1": 900.0
+      },
+      "unavailable": 0,
+      "interruptions": [],
+      "upstream_opplans": [],
+      "downstream_opplans": [
+        [
+          "2",
+          900.0,
+          100.0
+        ]
+      ]
+    },
+    "source": null,
+    "lastmodified": "2026-10-14T13:07:18",
+    "forecast": null
+  }
+]

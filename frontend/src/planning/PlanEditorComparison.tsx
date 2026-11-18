@@ -1,0 +1,15 @@
+import type {Dict} from '../api/contracts';
+import {Definition} from '../components/Controls';
+import {qty,unit} from './planModel';
+import {delayLabel,deliveryStatusLabel} from './orderModel';
+export function PlanEditorComparison({value,time}:{value:Dict;time:(v:string)=>string}){
+ const window=(v:Dict|null)=>!v?'未认证对应关系':(v.operations??[]).map((o:Dict)=>time(o.start_at)+' → '+time(o.end_at)+' · '+(o.operation_kind==='AVAILABILITY_TRANSFER'?'计划入库可用转换':o.resource_id??'无资源需求')).join(' / ');
+ const snapshot=(v:Dict|null,kind:string)=>!v?'未认证对应关系':kind==='demand'?<><strong>{deliveryStatusLabel(v.status)} · {qty(v.planned_quantity)} / {qty(v.requested_quantity)} {unit(v.uom??'')}</strong><small>要求 {time(v.due_at)} · 计划交付 {v.planned_delivery_at?time(v.planned_delivery_at):'尚未排定'}</small><small>未满足 {qty(v.unfulfilled_quantity)} · {v.delay_seconds>0?'延期 '+delayLabel(v.delay_seconds):'未显示延期'}</small></>:<><strong>数量 {qty(v.quantity)} {unit(v.uom??'')}{v.recipe_id?' · 工艺 '+v.recipe_id:''}</strong><div>{window(v)}</div>{v.resources&&<small>实际资源 {v.resources.join('、')}</small>}</>;
+ return <section aria-label="排程调整原对象对照"><h2>排程调整 · 原业务对象</h2><div className="decision-table-scroll" tabIndex={0}><table><thead><tr><th>原业务对象</th><th>原生基线</th><th>本次原生候选</th></tr></thead><tbody>{(value.stable_objects??[]).map((r:Dict)=><tr key={r.reference}><th scope="row">{r.reference}{r.demand_id&&<small>需求 {r.demand_id}</small>}</th><td>{snapshot(r.base,r.kind)}</td><td>{snapshot(r.candidate,r.kind)}</td></tr>)}</tbody></table></div>
+ {value.optimization_certification&&<Definition rows={[["联合优化业务核验",value.optimization_certification.status==='PASS'?'原生采用、物料与逐行交付核验通过':'候选未通过完整业务保护'],["原逐行交付",value.optimization_certification.deliveries.every((d:Dict)=>d.protected)?'满足量与延期未退化':'存在退化，不能采纳'],["正向改善",value.optimization_certification.improved?'已核验换线减少':'未认证']]} />}
+ {value.setup.status==='CHECKED'&&<Definition rows={[["原生基线换线",String(Number(value.setup.base_seconds)/60)+' 分钟'],["原生候选换线",String(Number(value.setup.candidate_seconds)/60)+' 分钟'],["换线减少",String(Number(value.setup.saved_seconds)/60)+' 分钟']]}/>}
+ {value.setup.status==='CHECKED'&&<div className="decision-table-scroll" tabIndex={0}><table aria-label="原生设备实际生产顺序"><thead><tr><th>运行</th><th>设备</th><th>实际加工顺序与换线</th></tr></thead><tbody>{[['基线',value.setup.base_sequence],['候选',value.setup.candidate_sequence]].map(([label,sequence])=><tr key={String(label)}><th scope="row">{String(label)}</th><td>{[...new Set((sequence??[]).map((j:Dict)=>j.resource_id))].join('、')}</td><td><ol>{(sequence??[]).map((j:Dict,i:number)=><li key={i}>{j.state} · {j.quantity} · {time(j.start_at)} → {time(j.end_at)} · 换线 {Number(j.setup_seconds)/60} 分钟</li>)}</ol></td></tr>)}</tbody></table></div>}
+ {value.declared_changes.filter((e:Dict)=>e.kind==='sequence').map((e:Dict)=><Definition key={e.reference} rows={[["原需求处理顺序",e.before.join(' → ')],["候选需求处理顺序",e.after.join(' → ')],["目标",e.goal==='setup_then_delay'?'减少换线，保护各需求交付':e.goal]]}/>)}
+ <p>制造建议的临时编号不作跨运行配对；这里只关联明确的原工单或冻结的唯一业务任务。完整资源、物料和履约核验继续在方案评审中查看。</p>
+ </section>;
+}

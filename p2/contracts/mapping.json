@@ -1,0 +1,1430 @@
+{
+  "version": "p2.0-mapping-v1",
+  "header_row": 5,
+  "source_sha256": "bed143fe7cd13bdcdd3b524030ea0bbfb37e97f5fc0ba5f786d7c35fdc3fb646",
+  "sheets": {
+    "订单": {
+      "entity": "demand_lines",
+      "nested": null,
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "order_ref",
+          "header": "订单号",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/order_ref",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "line_ref",
+          "header": "行号",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/line_ref",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "item_id",
+          "header": "产品物料编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/item_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "location_id",
+          "header": "工厂编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/location_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "quantity",
+          "header": "数量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/quantity",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "uom",
+          "header": "数量单位",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/uom",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "due_at",
+          "header": "承诺交期",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/due_at",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "priority",
+          "header": "优先级",
+          "type": "integer",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/priority",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "minimum_shipment",
+          "header": "最小交付量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/minimum_shipment",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "maximum_lateness_seconds",
+          "header": "延期搜索窗口秒",
+          "type": "integer",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/maximum_lateness_seconds",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "status",
+          "header": "状态",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/demand_lines/*/status",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [
+        "客户编码",
+        "联系人"
+      ],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true,
+      "optional_headers": [
+        "需求类型",
+        "预测来源编码"
+      ]
+    },
+    "产品物料": {
+      "entity": "items",
+      "nested": null,
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/items/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "kind",
+          "header": "类别",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/items/*/kind",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "base_uom",
+          "header": "基本单位",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/items/*/base_uom",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true
+    },
+    "BOM": {
+      "entity": "bom_revisions",
+      "nested": "lines",
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "output_item_id",
+          "header": "产出产品编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/output_item_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "output_quantity",
+          "header": "产出基数",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/output_quantity",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "output_uom",
+          "header": "产出单位",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/output_uom",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "effective_from",
+          "header": "版本生效时间",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/effective_from",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "effective_to",
+          "header": "版本失效时间",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/effective_to",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "lines.item_id",
+          "header": "材料编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/lines/item_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "lines.quantity_per_output",
+          "header": "材料用量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/lines/quantity_per_output",
+          "unit_rule": "CONVERT_TO_ITEM_BASE",
+          "nullable": false
+        },
+        {
+          "field": "lines.uom",
+          "header": "材料单位",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/lines/uom",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "lines.scrap_fraction",
+          "header": "损耗比例",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/lines/scrap_fraction",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "lines.consume_operation_id",
+          "header": "领料工序",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/lines/consume_operation_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "lines.consume_at",
+          "header": "领料时点",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/bom_revisions/*/lines/consume_at",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true
+    },
+    "工艺路线": {
+      "entity": "routing_revisions",
+      "nested": "operations",
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "output_item_id",
+          "header": "产出产品编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/output_item_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "effective_from",
+          "header": "版本生效时间",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/effective_from",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "effective_to",
+          "header": "版本失效时间",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/effective_to",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "operations.id",
+          "header": "工序编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/operations/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "operations.sequence",
+          "header": "工序顺序",
+          "type": "integer",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/operations/sequence",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "operations.predecessors",
+          "header": "前置工序",
+          "type": "list",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/operations/predecessors",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "operations.duration_model",
+          "header": "工时模型",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/operations/duration_model",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "operations.fixed_seconds",
+          "header": "固定准备秒",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/operations/fixed_seconds",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "operations.seconds_per_unit",
+          "header": "每件工时秒",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/operations/seconds_per_unit",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "operations.resource_id",
+          "header": "生产线编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/operations/resource_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "operations.resource_units",
+          "header": "占用资源数",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/routing_revisions/*/operations/resource_units",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true,
+      "optional_headers": [
+        "人员池编码",
+        "必需技能",
+        "所需人数",
+        "设备必需技能"
+      ]
+    },
+    "生产配方": {
+      "entity": "production_recipes",
+      "nested": null,
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "output_item_id",
+          "header": "产出产品编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/output_item_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "location_id",
+          "header": "工厂编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/location_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "bom_revision_id",
+          "header": "BOM版本",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/bom_revision_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "routing_revision_id",
+          "header": "工艺版本",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/routing_revision_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "effective_from",
+          "header": "版本生效时间",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/effective_from",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "effective_to",
+          "header": "版本失效时间",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/effective_to",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "manufacturing_minimum_quantity",
+          "header": "最小制造批量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/manufacturing_minimum_quantity",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "manufacturing_multiple",
+          "header": "制造倍量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/manufacturing_multiple",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "transfer_policy",
+          "header": "转运批量规则",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/production_recipes/*/transfer_policy",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true,
+      "optional_headers": [
+        "最大制造批量"
+      ]
+    },
+    "生产资源": {
+      "entity": "resources",
+      "nested": null,
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/resources/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "location_id",
+          "header": "工厂编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/resources/*/location_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "availability_calendar_id",
+          "header": "日历编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/resources/*/availability_calendar_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "parallel_units",
+          "header": "有效并行数",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/resources/*/parallel_units",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true,
+      "optional_headers": [
+        "产能模型",
+        "窗口产能",
+        "产能单位",
+        "最大提前秒",
+        "资源角色",
+        "所属人员池"
+      ]
+    },
+    "工作日历": {
+      "entity": "calendars",
+      "nested": "available_intervals",
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/calendars/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "timezone",
+          "header": "时区",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/calendars/*/timezone",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "available_intervals.start_at",
+          "header": "工作开始",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/calendars/*/available_intervals/start_at",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "available_intervals.end_at",
+          "header": "工作结束",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/calendars/*/available_intervals/end_at",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true
+    },
+    "库存": {
+      "entity": "inventory_positions",
+      "nested": null,
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/inventory_positions/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "item_id",
+          "header": "产品物料编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/inventory_positions/*/item_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "location_id",
+          "header": "工厂编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/inventory_positions/*/location_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "physical_lot_ref",
+          "header": "指定实物批次",
+          "type": "nullable_string",
+          "required": false,
+          "critical": true,
+          "target": "/inventory_positions/*/physical_lot_ref",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": true
+        },
+        {
+          "field": "on_hand",
+          "header": "实存数量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/inventory_positions/*/on_hand",
+          "unit_rule": "CONVERT_TO_ITEM_BASE",
+          "nullable": false
+        },
+        {
+          "field": "quality_blocked",
+          "header": "质检冻结量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/inventory_positions/*/quality_blocked",
+          "unit_rule": "CONVERT_TO_ITEM_BASE",
+          "nullable": false
+        },
+        {
+          "field": "other_nonnettable",
+          "header": "其他不可用量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/inventory_positions/*/other_nonnettable",
+          "unit_rule": "CONVERT_TO_ITEM_BASE",
+          "nullable": false
+        },
+        {
+          "field": "uom",
+          "header": "数量单位",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/inventory_positions/*/uom",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "as_of",
+          "header": "库存时点",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/inventory_positions/*/as_of",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [
+        "预留数量"
+      ],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true
+    },
+    "供应商": {
+      "entity": "suppliers",
+      "nested": null,
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/suppliers/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "name",
+          "header": "名称",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/suppliers/*/name",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true
+    },
+    "供应来源": {
+      "entity": "supply_sources",
+      "nested": null,
+      "columns": [
+        {
+          "field": "id",
+          "header": "记录编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "supplier_id",
+          "header": "供应商编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/supplier_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "item_id",
+          "header": "产品物料编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/item_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "location_id",
+          "header": "工厂编码",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/location_id",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "lead_time_seconds",
+          "header": "采购提前期秒",
+          "type": "integer",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/lead_time_seconds",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "lead_time_basis",
+          "header": "提前期口径",
+          "type": "string",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/lead_time_basis",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "minimum_order_quantity",
+          "header": "最小采购量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/minimum_order_quantity",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "order_multiple",
+          "header": "采购倍量",
+          "type": "decimal_string",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/order_multiple",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "batch_window_seconds",
+          "header": "合批窗口秒",
+          "type": "integer",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/batch_window_seconds",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "effective_from",
+          "header": "版本生效时间",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/effective_from",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        },
+        {
+          "field": "effective_to",
+          "header": "版本失效时间",
+          "type": "datetime_offset",
+          "required": true,
+          "critical": true,
+          "target": "/supply_sources/*/effective_to",
+          "unit_rule": "PRESERVE_EXPLICIT",
+          "nullable": false
+        }
+      ],
+      "extras": [],
+      "key": "id",
+      "source_columns": [
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true,
+      "optional_headers": [
+        "供应优先级",
+        "采购模型单价",
+        "采购币种",
+        "价格口径",
+        "规划期供应总量",
+        "供应能力单位",
+        "供应能力起点",
+        "供应能力终点",
+        "供应能力口径",
+        "供应质检等待秒"
+      ]
+    }
+  },
+  "scope": "SYNTHETIC_ONLY",
+  "approval_policy": "ALL_MAPPED_AND_POLICY_FIELDS",
+  "empty_arrays_require_review": [
+    "reservations",
+    "existing_orders"
+  ],
+  "forbidden_inference": [
+    "capacity",
+    "routing",
+    "lead_time",
+    "uom_factor",
+    "recipe_binding",
+    "calendar",
+    "overtime_policy"
+  ],
+  "settings": {
+    "schema_version": {
+      "type": "string",
+      "critical": true,
+      "target": "/schema_version",
+      "source": "工厂参数",
+      "required": true
+    },
+    "snapshot_id": {
+      "type": "string",
+      "critical": true,
+      "target": "/snapshot_id",
+      "source": "工厂参数",
+      "required": true
+    },
+    "scenario_id": {
+      "type": "string",
+      "critical": true,
+      "target": "/scenario_id",
+      "source": "工厂参数",
+      "required": true
+    },
+    "scenario_revision": {
+      "type": "integer",
+      "critical": true,
+      "target": "/scenario_revision",
+      "source": "工厂参数",
+      "required": true
+    },
+    "planning_at": {
+      "type": "datetime_offset",
+      "critical": true,
+      "target": "/planning_at",
+      "source": "工厂参数",
+      "required": true
+    },
+    "horizon.start_at": {
+      "type": "datetime_offset",
+      "critical": true,
+      "target": "/horizon/start_at",
+      "source": "工厂参数",
+      "required": true
+    },
+    "horizon.end_at": {
+      "type": "datetime_offset",
+      "critical": true,
+      "target": "/horizon/end_at",
+      "source": "工厂参数",
+      "required": true
+    },
+    "site.id": {
+      "type": "string",
+      "critical": true,
+      "target": "/site/id",
+      "source": "工厂参数",
+      "required": true
+    },
+    "site.name": {
+      "type": "string",
+      "critical": true,
+      "target": "/site/name",
+      "source": "工厂参数",
+      "required": true
+    },
+    "site.timezone": {
+      "type": "string",
+      "critical": true,
+      "target": "/site/timezone",
+      "source": "工厂参数",
+      "required": true
+    },
+    "engine.profile": {
+      "type": "string",
+      "critical": true,
+      "target": "/engine/profile",
+      "source": "工厂参数",
+      "required": true
+    },
+    "engine.engine": {
+      "type": "string",
+      "critical": true,
+      "target": "/engine/engine",
+      "source": "工厂参数",
+      "required": true
+    },
+    "engine.target_version": {
+      "type": "string",
+      "critical": true,
+      "target": "/engine/target_version",
+      "source": "工厂参数",
+      "required": true
+    },
+    "engine.problem_kind": {
+      "type": "string",
+      "critical": true,
+      "target": "/engine/problem_kind",
+      "source": "工厂参数",
+      "required": true
+    },
+    "rules.profile_version": {
+      "type": "string",
+      "critical": true,
+      "target": "/rules/profile_version",
+      "source": "工厂参数",
+      "required": true
+    },
+    "rules.finite_material": {
+      "type": "boolean",
+      "critical": true,
+      "target": "/rules/finite_material",
+      "source": "工厂参数",
+      "required": true
+    },
+    "rules.finite_capacity": {
+      "type": "boolean",
+      "critical": true,
+      "target": "/rules/finite_capacity",
+      "source": "工厂参数",
+      "required": true
+    },
+    "rules.allow_overtime": {
+      "type": "boolean",
+      "critical": true,
+      "target": "/rules/allow_overtime",
+      "source": "工厂参数",
+      "required": true
+    },
+    "rules.freeze_existing": {
+      "type": "boolean",
+      "critical": true,
+      "target": "/rules/freeze_existing",
+      "source": "工厂参数",
+      "required": true
+    },
+    "p2.allow_demo_customer": {
+      "type": "boolean",
+      "critical": true,
+      "target": "/p2/allow_demo_customer",
+      "source": "工厂参数",
+      "required": true
+    },
+    "p2.no_unlisted_supply_or_reservations": {
+      "type": "boolean",
+      "critical": true,
+      "target": "/p2/no_unlisted_supply_or_reservations",
+      "source": "工厂参数",
+      "required": true
+    },
+    "rules.manufacturing_profile": {
+      "type": "string",
+      "optional": true
+    },
+    "rules.move_approved_early": {
+      "type": "integer",
+      "optional": true
+    },
+    "rules.erase_previous_proposed": {
+      "type": "boolean",
+      "optional": true
+    },
+    "rules.fix_broken_supply_path": {
+      "type": "boolean",
+      "optional": true
+    },
+    "rules.procurement_strategy": {
+      "type": "string",
+      "critical": true,
+      "target": "/rules/procurement_strategy",
+      "source": "工厂参数",
+      "required": false,
+      "optional": true
+    }
+  },
+  "auxiliary": {
+    "技能主档": {
+      "headers": [
+        "技能编码",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "人员技能资格": {
+      "headers": [
+        "人员编码",
+        "技能编码",
+        "资格优先级",
+        "资格生效",
+        "资格失效",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "停工日历": {
+      "headers": [
+        "日历编码",
+        "时区",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "单位换算": {
+      "headers": [
+        "物料编码",
+        "原单位",
+        "基本单位",
+        "换算倍数",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true
+    },
+    "采购台账": {
+      "optional_headers": [
+        "供应来源编码",
+        "下单时间",
+        "计划采购开始",
+        "质检等待秒",
+        "质检后可用时间"
+      ],
+      "headers": [
+        "采购单号",
+        "物料编码",
+        "供应商编码",
+        "订购量",
+        "已收量",
+        "未收量",
+        "单位",
+        "状态",
+        "预计到货",
+        "库存已含收货",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "required": true
+    },
+    "制造工单": {
+      "headers": [
+        "工单号",
+        "外部工单号",
+        "产品物料编码",
+        "工厂编码",
+        "配方编码",
+        "制造数量",
+        "已完工数量",
+        "单位",
+        "状态",
+        "冻结规则",
+        "工序编码",
+        "资源编码",
+        "单件窗口用量",
+        "原开始",
+        "原结束",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ],
+      "optional_headers": [
+        "操作员编码"
+      ]
+    },
+    "历史制造建议": {
+      "headers": [
+        "建议编号",
+        "配方编码",
+        "制造数量",
+        "状态",
+        "原开始",
+        "原结束",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "地点主档": {
+      "headers": [
+        "地点编码",
+        "名称",
+        "时区",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "配送路径": {
+      "headers": [
+        "路径编码",
+        "物料编码",
+        "起运地点",
+        "目的地点",
+        "运输秒",
+        "最小配送量",
+        "配送倍数",
+        "单位",
+        "生效时间",
+        "失效时间",
+        "路径状态",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "已有配送单": {
+      "headers": [
+        "配送单号",
+        "起运地点",
+        "目的地点",
+        "状态",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "库存质量状态": {
+      "headers": [
+        "库存记录编码",
+        "待检数量",
+        "放行净可用量",
+        "单位",
+        "放行凭证",
+        "证据类型",
+        "质量时点",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "预测需求": {
+      "headers": [
+        "预测编码",
+        "产品物料编码",
+        "工厂编码",
+        "客户编码",
+        "数量单位",
+        "期间开始",
+        "期间结束",
+        "原始预测量",
+        "预测确认版本",
+        "订单抵扣策略",
+        "预测覆盖口径",
+        "来源证据类型",
+        "净预测需求时点",
+        "净预测优先级",
+        "净预测最小交付量",
+        "净预测延期搜索秒",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "库存目标策略": {
+      "headers": [
+        "策略桶编码",
+        "策略版本",
+        "物料编码",
+        "地点编码",
+        "数量单位",
+        "期间开始",
+        "期间结束",
+        "目标净可用量",
+        "目标口径",
+        "事实类型",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "辅料补给选项": {
+      "headers": [
+        "供应来源编码",
+        "模拟启用",
+        "最早下单",
+        "最晚下单",
+        "全期供应总量",
+        "数量单位",
+        "事实类型",
+        "许可口径",
+        "辅料质检等待秒",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "库存与供应条件": {
+      "headers": [
+        "条件类型",
+        "选项编码",
+        "选项名称",
+        "供应来源编码",
+        "物料编码",
+        "地点编码",
+        "数量单位",
+        "最小采购量",
+        "采购倍数",
+        "单笔采购上限",
+        "全期供应总量",
+        "采购提前秒",
+        "质检等待秒",
+        "最早下单",
+        "最晚下单",
+        "来源有效开始",
+        "来源有效结束",
+        "事实类型",
+        "最低净库存",
+        "补给目标净库存",
+        "政策开始",
+        "政策结束",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "采购收货记录": {
+      "headers": [
+        "采购单号",
+        "收货记录号",
+        "收货数量",
+        "数量单位",
+        "实际物理收货",
+        "质量状态",
+        "计划放行时间",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    },
+    "运输条件假设": {
+      "headers": [
+        "路径编码",
+        "最大运输秒",
+        "来源记录",
+        "来源版本",
+        "来源说明"
+      ]
+    }
+  }
+}

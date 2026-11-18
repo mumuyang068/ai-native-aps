@@ -1,0 +1,359 @@
+{
+  "schema_version": "0.2.0",
+  "solve_run_id": "P1-EARLY",
+  "scenario_id": "SC-DEMO-EARLY",
+  "scenario_revision": 1,
+  "snapshot_id": "SNAP-DEMO-001",
+  "input_hash": "9237900669c3d6c361af2c32b1f1199fe3c064bb70e0355322173a904ac17ae5",
+  "engine": {
+    "name": "frepple",
+    "runtime_version": "9.19.0",
+    "source_commit": "ab8430ca26f41bac1f54a8a30070642e91d9b3e9",
+    "adapter_version": "p0.1",
+    "engine_task_ref": "25"
+  },
+  "computed_at": "2026-10-14T13:06:59.862183+08:00",
+  "assessment": {
+    "status": "NEEDS_REVIEW",
+    "constraint_check": "PASS",
+    "coverage": [
+      "material_balance",
+      "resource_capacity",
+      "calendar_duration",
+      "routing_order",
+      "procurement_lead_time"
+    ],
+    "issues": [
+      {
+        "code": "PURCHASING_LEAD_TIME",
+        "severity": "WARNING",
+        "entity_id": "SO-101-L1",
+        "field_ref": null,
+        "message": "Purchasing lead time on 'Purchase FAB-BLK @ SITE-01 from SUP-A'",
+        "evidence_ids": [
+          "ENGINE:constraint:5"
+        ]
+      }
+    ]
+  },
+  "purchase_suggestions": [
+    {
+      "id": "P1-EARLY:PO:5",
+      "engine_ref": "5",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "supplier_id": "SUP-A",
+      "quantity": "1200",
+      "uom": "m",
+      "order_at": "2026-10-16T17:20:00+08:00",
+      "receipt_at": "2026-10-19T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:purchaseorder:5"
+      ]
+    }
+  ],
+  "manufacture_suggestions": [
+    {
+      "id": "P1-EARLY:MO:1",
+      "engine_ref": "1",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "recipe_id": "MAKE-TEE-R1",
+      "quantity": "1000",
+      "uom": "piece",
+      "start_at": "2026-10-19T17:20:00+08:00",
+      "end_at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:manufacturingorder:1"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "id": "P1-EARLY:OP:2",
+      "manufacture_id": "P1-EARLY:MO:1",
+      "operation_id": "CUT",
+      "resource_id": "CUT-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-19T17:20:00+08:00",
+      "end_at": "2026-10-20T16:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:2"
+      ]
+    },
+    {
+      "id": "P1-EARLY:OP:3",
+      "manufacture_id": "P1-EARLY:MO:1",
+      "operation_id": "PACK",
+      "resource_id": "PACK-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-22T09:00:00+08:00",
+      "end_at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:3"
+      ]
+    },
+    {
+      "id": "P1-EARLY:OP:4",
+      "manufacture_id": "P1-EARLY:MO:1",
+      "operation_id": "SEW",
+      "resource_id": "SEW-LINE",
+      "resource_units": "1",
+      "quantity": "1000",
+      "start_at": "2026-10-20T16:00:00+08:00",
+      "end_at": "2026-10-21T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:workorder:4"
+      ]
+    }
+  ],
+  "deliveries": [
+    {
+      "demand_id": "SO-101-L1",
+      "requested_quantity": "1000",
+      "planned_quantity": "1000",
+      "unfulfilled_quantity": "0",
+      "uom": "piece",
+      "due_at": "2026-10-21T18:00:00+08:00",
+      "planned_delivery_at": "2026-10-22T18:00:00+08:00",
+      "delay_seconds": 86400,
+      "status": "LATE",
+      "evidence_ids": [
+        "ENGINE:demand:SO-101-L1"
+      ]
+    }
+  ],
+  "material_flows": [
+    {
+      "id": "P1-EARLY:FLOW:62",
+      "order_id": "FAB-BLK @ SITE-01",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "800",
+      "uom": "m",
+      "at": "1971-01-01T00:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:62"
+      ]
+    },
+    {
+      "id": "P1-EARLY:FLOW:63",
+      "order_id": "5",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "1200",
+      "uom": "m",
+      "at": "2026-10-19T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:63"
+      ]
+    },
+    {
+      "id": "P1-EARLY:FLOW:64",
+      "order_id": "2",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "direction": "CONSUME",
+      "quantity": "2000",
+      "uom": "m",
+      "at": "2026-10-19T17:20:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:64"
+      ]
+    },
+    {
+      "id": "P1-EARLY:FLOW:65",
+      "order_id": "3",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "direction": "PRODUCE",
+      "quantity": "1000",
+      "uom": "piece",
+      "at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:65"
+      ]
+    },
+    {
+      "id": "P1-EARLY:FLOW:66",
+      "order_id": "7",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "direction": "CONSUME",
+      "quantity": "1000",
+      "uom": "piece",
+      "at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanmaterial:66"
+      ]
+    }
+  ],
+  "resource_loads": [
+    {
+      "operation_id": "P1-EARLY:OP:2",
+      "resource_id": "CUT-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-19T17:20:00+08:00",
+      "end_at": "2026-10-20T16:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:40"
+      ]
+    },
+    {
+      "operation_id": "P1-EARLY:OP:3",
+      "resource_id": "PACK-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-22T09:00:00+08:00",
+      "end_at": "2026-10-22T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:41"
+      ]
+    },
+    {
+      "operation_id": "P1-EARLY:OP:4",
+      "resource_id": "SEW-LINE",
+      "resource_units": "1",
+      "start_at": "2026-10-20T16:00:00+08:00",
+      "end_at": "2026-10-21T18:00:00+08:00",
+      "evidence_ids": [
+        "ENGINE:operationplanresource:42"
+      ]
+    }
+  ],
+  "pegging": [],
+  "pegging_available": false,
+  "evidence": [
+    {
+      "id": "ENGINE:purchaseorder:5",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\purchaseorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:manufacturingorder:1",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\manufacturingorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:workorder:2",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\workorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:workorder:3",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\workorder.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:workorder:4",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\workorder.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:demand:SO-101-L1",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\demand.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:62",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\operationplanmaterial.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:63",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\operationplanmaterial.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:64",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\operationplanmaterial.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:65",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\operationplanmaterial.json",
+      "locator": "row:3"
+    },
+    {
+      "id": "ENGINE:operationplanmaterial:66",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\operationplanmaterial.json",
+      "locator": "row:4"
+    },
+    {
+      "id": "ENGINE:operationplanresource:40",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\operationplanresource.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:operationplanresource:41",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\operationplanresource.json",
+      "locator": "row:1"
+    },
+    {
+      "id": "ENGINE:operationplanresource:42",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\operationplanresource.json",
+      "locator": "row:2"
+    },
+    {
+      "id": "ENGINE:deliveryorder:7",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\deliveryorder.json",
+      "locator": "row:0"
+    },
+    {
+      "id": "ENGINE:constraint:5",
+      "kind": "ENGINE_OUTPUT",
+      "artifact_ref": "evidence\\runs\\P1-EARLY\\raw\\constraint.json",
+      "locator": "row:0"
+    }
+  ],
+  "raw_artifact_refs": [
+    "evidence\\runs\\P1-EARLY\\raw\\constraint.json",
+    "evidence\\runs\\P1-EARLY\\raw\\deliveryorder.json",
+    "evidence\\runs\\P1-EARLY\\raw\\demand.json",
+    "evidence\\runs\\P1-EARLY\\raw\\import-polls.json",
+    "evidence\\runs\\P1-EARLY\\raw\\import-submit.json",
+    "evidence\\runs\\P1-EARLY\\raw\\import.log",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-buffer.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-calendar.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-calendarbucket.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-customer.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-demand.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-item.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-itemsupplier.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-location.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-operation.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-operationmaterial.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-operationresource.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-parameter.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-resource.json",
+    "evidence\\runs\\P1-EARLY\\raw\\imported-supplier.json",
+    "evidence\\runs\\P1-EARLY\\raw\\manufacturingorder.json",
+    "evidence\\runs\\P1-EARLY\\raw\\operationplanmaterial.json",
+    "evidence\\runs\\P1-EARLY\\raw\\operationplanresource.json",
+    "evidence\\runs\\P1-EARLY\\raw\\problem.json",
+    "evidence\\runs\\P1-EARLY\\raw\\purchaseorder.json",
+    "evidence\\runs\\P1-EARLY\\raw\\solve-polls.json",
+    "evidence\\runs\\P1-EARLY\\raw\\solve-submit.json",
+    "evidence\\runs\\P1-EARLY\\raw\\solve.log",
+    "evidence\\runs\\P1-EARLY\\raw\\workorder.json"
+  ],
+  "result_hash": "b6e4716d8c73986995ce52c6100a8de1d423ee34052ab5884a7bc7c35cae9bef"
+}

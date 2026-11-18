@@ -1,0 +1,702 @@
+{
+  "schema_version": "0.2.0",
+  "snapshot_id": "SNAP-F05-R4",
+  "scenario_id": "SC-F05-R4",
+  "scenario_revision": 1,
+  "planning_at": "2026-11-03T08:00:00+00:00",
+  "horizon": {
+    "start_at": "2026-11-03T08:00:00+00:00",
+    "end_at": "2026-11-07T00:00:00+00:00"
+  },
+  "site": {
+    "id": "F05_ISOLATED_PLANT",
+    "name": "F05 合成工厂",
+    "timezone": "UTC",
+    "provenance": {
+      "source_system": "SYNTHETIC_FACTORY",
+      "source_record_id": "/scenario/common/location",
+      "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+      "observed_at": "2026-11-03T08:00:00+00:00",
+      "import_batch_id": "D05-02-F05-R4",
+      "source_locator": "research://F05/R4/effective_input.json#/scenario/common/location"
+    }
+  },
+  "engine": {
+    "profile": "frepple-community-9.19-supply-v1",
+    "engine": "frepple",
+    "target_version": "9.19.0",
+    "problem_kind": "SUPPLY_PLANNING"
+  },
+  "rules": {
+    "profile_version": "v1",
+    "finite_material": true,
+    "finite_capacity": true,
+    "allow_overtime": false,
+    "freeze_existing": true,
+    "manufacturing_profile": "fixed-batch-window-v1",
+    "move_approved_early": 0,
+    "erase_previous_proposed": true,
+    "fix_broken_supply_path": false
+  },
+  "items": [
+    {
+      "id": "F05_RAW",
+      "kind": "RAW",
+      "base_uom": "piece",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_RAW",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_RAW"
+      }
+    },
+    {
+      "id": "F05_ITEM_A",
+      "kind": "FINISHED",
+      "base_uom": "piece",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_ITEM_A",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_ITEM_A"
+      }
+    },
+    {
+      "id": "F05_ITEM_B",
+      "kind": "FINISHED",
+      "base_uom": "piece",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_ITEM_B",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_ITEM_B"
+      }
+    },
+    {
+      "id": "F05_ITEM_C",
+      "kind": "FINISHED",
+      "base_uom": "piece",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_ITEM_C",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_ITEM_C"
+      }
+    },
+    {
+      "id": "F05_ITEM_D",
+      "kind": "FINISHED",
+      "base_uom": "piece",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_ITEM_D",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_ITEM_D"
+      }
+    }
+  ],
+  "calendars": [
+    {
+      "id": "WORKING",
+      "timezone": "UTC",
+      "available_intervals": [
+        {
+          "start_at": "2026-11-04T17:00:00+00:00",
+          "end_at": "2026-11-04T18:00:00+00:00"
+        },
+        {
+          "start_at": "2026-11-05T17:00:00+00:00",
+          "end_at": "2026-11-05T18:00:00+00:00"
+        },
+        {
+          "start_at": "2026-11-06T17:00:00+00:00",
+          "end_at": "2026-11-06T18:00:00+00:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/working_windows",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/working_windows"
+      }
+    }
+  ],
+  "resources": [
+    {
+      "id": "F05_SHARED_RESOURCE",
+      "location_id": "F05_ISOLATED_PLANT",
+      "availability_calendar_id": "WORKING",
+      "capacity_model": "WINDOW_QUANTITY",
+      "window_capacity_quantity": "20",
+      "capacity_uom": "piece",
+      "maxearly_seconds": 2592000,
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/resource",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/resource"
+      }
+    }
+  ],
+  "bom_revisions": [
+    {
+      "id": "F05_MAKE_A-BOM",
+      "output_item_id": "F05_ITEM_A",
+      "output_quantity": "1",
+      "output_uom": "piece",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "lines": [
+        {
+          "item_id": "F05_RAW",
+          "quantity_per_output": "1",
+          "uom": "piece",
+          "scrap_fraction": "0",
+          "consume_operation_id": "F05_MAKE_A",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_A",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_A"
+      }
+    },
+    {
+      "id": "F05_MAKE_B-BOM",
+      "output_item_id": "F05_ITEM_B",
+      "output_quantity": "1",
+      "output_uom": "piece",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "lines": [
+        {
+          "item_id": "F05_RAW",
+          "quantity_per_output": "1",
+          "uom": "piece",
+          "scrap_fraction": "0",
+          "consume_operation_id": "F05_MAKE_B",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_B",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_B"
+      }
+    },
+    {
+      "id": "F05_MAKE_C-BOM",
+      "output_item_id": "F05_ITEM_C",
+      "output_quantity": "1",
+      "output_uom": "piece",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "lines": [
+        {
+          "item_id": "F05_RAW",
+          "quantity_per_output": "1",
+          "uom": "piece",
+          "scrap_fraction": "0",
+          "consume_operation_id": "F05_MAKE_C",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_C",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_C"
+      }
+    },
+    {
+      "id": "F05_MAKE_D-BOM",
+      "output_item_id": "F05_ITEM_D",
+      "output_quantity": "1",
+      "output_uom": "piece",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "lines": [
+        {
+          "item_id": "F05_RAW",
+          "quantity_per_output": "1",
+          "uom": "piece",
+          "scrap_fraction": "0",
+          "consume_operation_id": "F05_MAKE_D",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_D",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_D"
+      }
+    }
+  ],
+  "routing_revisions": [
+    {
+      "id": "F05_MAKE_A-ROUTE",
+      "output_item_id": "F05_ITEM_A",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "operations": [
+        {
+          "id": "F05_MAKE_A",
+          "sequence": 1,
+          "predecessors": [],
+          "duration_model": "FIXED_BATCH",
+          "fixed_seconds": "3600",
+          "seconds_per_unit": "0",
+          "resource_id": "F05_SHARED_RESOURCE",
+          "resource_units": "1"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_A",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_A"
+      }
+    },
+    {
+      "id": "F05_MAKE_B-ROUTE",
+      "output_item_id": "F05_ITEM_B",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "operations": [
+        {
+          "id": "F05_MAKE_B",
+          "sequence": 1,
+          "predecessors": [],
+          "duration_model": "FIXED_BATCH",
+          "fixed_seconds": "3600",
+          "seconds_per_unit": "0",
+          "resource_id": "F05_SHARED_RESOURCE",
+          "resource_units": "1"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_B",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_B"
+      }
+    },
+    {
+      "id": "F05_MAKE_C-ROUTE",
+      "output_item_id": "F05_ITEM_C",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "operations": [
+        {
+          "id": "F05_MAKE_C",
+          "sequence": 1,
+          "predecessors": [],
+          "duration_model": "FIXED_BATCH",
+          "fixed_seconds": "3600",
+          "seconds_per_unit": "0",
+          "resource_id": "F05_SHARED_RESOURCE",
+          "resource_units": "1"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_C",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_C"
+      }
+    },
+    {
+      "id": "F05_MAKE_D-ROUTE",
+      "output_item_id": "F05_ITEM_D",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "operations": [
+        {
+          "id": "F05_MAKE_D",
+          "sequence": 1,
+          "predecessors": [],
+          "duration_model": "FIXED_BATCH",
+          "fixed_seconds": "3600",
+          "seconds_per_unit": "0",
+          "resource_id": "F05_SHARED_RESOURCE",
+          "resource_units": "1"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_D",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_D"
+      }
+    }
+  ],
+  "production_recipes": [
+    {
+      "id": "F05_MAKE_A",
+      "output_item_id": "F05_ITEM_A",
+      "location_id": "F05_ISOLATED_PLANT",
+      "bom_revision_id": "F05_MAKE_A-BOM",
+      "routing_revision_id": "F05_MAKE_A-ROUTE",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "manufacturing_minimum_quantity": "20",
+      "manufacturing_maximum_quantity": "20",
+      "manufacturing_multiple": "20",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_A",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_A"
+      }
+    },
+    {
+      "id": "F05_MAKE_B",
+      "output_item_id": "F05_ITEM_B",
+      "location_id": "F05_ISOLATED_PLANT",
+      "bom_revision_id": "F05_MAKE_B-BOM",
+      "routing_revision_id": "F05_MAKE_B-ROUTE",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "manufacturing_minimum_quantity": "20",
+      "manufacturing_maximum_quantity": "20",
+      "manufacturing_multiple": "20",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_B",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_B"
+      }
+    },
+    {
+      "id": "F05_MAKE_C",
+      "output_item_id": "F05_ITEM_C",
+      "location_id": "F05_ISOLATED_PLANT",
+      "bom_revision_id": "F05_MAKE_C-BOM",
+      "routing_revision_id": "F05_MAKE_C-ROUTE",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "manufacturing_minimum_quantity": "20",
+      "manufacturing_maximum_quantity": "20",
+      "manufacturing_multiple": "20",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_C",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_C"
+      }
+    },
+    {
+      "id": "F05_MAKE_D",
+      "output_item_id": "F05_ITEM_D",
+      "location_id": "F05_ISOLATED_PLANT",
+      "bom_revision_id": "F05_MAKE_D-BOM",
+      "routing_revision_id": "F05_MAKE_D-ROUTE",
+      "effective_from": "2026-11-03T08:00:00+00:00",
+      "effective_to": "2026-11-07T00:00:00+00:00",
+      "manufacturing_minimum_quantity": "20",
+      "manufacturing_maximum_quantity": "20",
+      "manufacturing_multiple": "20",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/F05_MAKE_D",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/F05_MAKE_D"
+      }
+    }
+  ],
+  "inventory_positions": [
+    {
+      "id": "F05-OPENING-RAW",
+      "item_id": "F05_RAW",
+      "location_id": "F05_ISOLATED_PLANT",
+      "on_hand": "80",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "piece",
+      "as_of": "2026-11-03T08:00:00+00:00",
+      "physical_lot_ref": null,
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/common/starting_raw_qty",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/common/starting_raw_qty"
+      }
+    },
+    {
+      "id": "F05-OPENING-F05_ITEM_A",
+      "item_id": "F05_ITEM_A",
+      "location_id": "F05_ISOLATED_PLANT",
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "piece",
+      "as_of": "2026-11-03T08:00:00+00:00",
+      "physical_lot_ref": null,
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/input.xml/buffers/F05_ITEM_A",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/input.xml/buffers/F05_ITEM_A"
+      }
+    },
+    {
+      "id": "F05-OPENING-F05_ITEM_B",
+      "item_id": "F05_ITEM_B",
+      "location_id": "F05_ISOLATED_PLANT",
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "piece",
+      "as_of": "2026-11-03T08:00:00+00:00",
+      "physical_lot_ref": null,
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/input.xml/buffers/F05_ITEM_B",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/input.xml/buffers/F05_ITEM_B"
+      }
+    },
+    {
+      "id": "F05-OPENING-F05_ITEM_C",
+      "item_id": "F05_ITEM_C",
+      "location_id": "F05_ISOLATED_PLANT",
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "piece",
+      "as_of": "2026-11-03T08:00:00+00:00",
+      "physical_lot_ref": null,
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/input.xml/buffers/F05_ITEM_C",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/input.xml/buffers/F05_ITEM_C"
+      }
+    },
+    {
+      "id": "F05-OPENING-F05_ITEM_D",
+      "item_id": "F05_ITEM_D",
+      "location_id": "F05_ISOLATED_PLANT",
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "piece",
+      "as_of": "2026-11-03T08:00:00+00:00",
+      "physical_lot_ref": null,
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/input.xml/buffers/F05_ITEM_D",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/input.xml/buffers/F05_ITEM_D"
+      }
+    }
+  ],
+  "reservations": [],
+  "suppliers": [],
+  "supply_sources": [],
+  "demand_lines": [
+    {
+      "id": "F05_ORDER_A",
+      "order_ref": "F05_ORDER_A",
+      "line_ref": "1",
+      "item_id": "F05_ITEM_A",
+      "location_id": "F05_ISOLATED_PLANT",
+      "quantity": "20",
+      "uom": "piece",
+      "due_at": "2026-11-06T18:00:00+00:00",
+      "priority": 2,
+      "minimum_shipment": "1",
+      "maximum_lateness_seconds": 0,
+      "status": "OPEN",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/demands/F05_ORDER_A",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/demands/F05_ORDER_A"
+      }
+    },
+    {
+      "id": "F05_ORDER_B",
+      "order_ref": "F05_ORDER_B",
+      "line_ref": "1",
+      "item_id": "F05_ITEM_B",
+      "location_id": "F05_ISOLATED_PLANT",
+      "quantity": "20",
+      "uom": "piece",
+      "due_at": "2026-11-05T18:00:00+00:00",
+      "priority": 3,
+      "minimum_shipment": "1",
+      "maximum_lateness_seconds": 0,
+      "status": "OPEN",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/demands/F05_ORDER_B",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/demands/F05_ORDER_B"
+      }
+    },
+    {
+      "id": "F05_ORDER_C",
+      "order_ref": "F05_ORDER_C",
+      "line_ref": "1",
+      "item_id": "F05_ITEM_C",
+      "location_id": "F05_ISOLATED_PLANT",
+      "quantity": "20",
+      "uom": "piece",
+      "due_at": "2026-11-06T18:00:00+00:00",
+      "priority": 4,
+      "minimum_shipment": "1",
+      "maximum_lateness_seconds": 0,
+      "status": "OPEN",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/demands/F05_ORDER_C",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/demands/F05_ORDER_C"
+      }
+    }
+  ],
+  "existing_orders": [
+    {
+      "type": "MO",
+      "id": "F05_EXISTING_A",
+      "external_ref": "F05_EXISTING_A",
+      "item_id": "F05_ITEM_A",
+      "location_id": "F05_ISOLATED_PLANT",
+      "recipe_id": "F05_MAKE_A",
+      "quantity": "20",
+      "completed_quantity": "0",
+      "uom": "piece",
+      "source_status": "confirmed",
+      "freeze_policy": "LOCKED",
+      "operations": [
+        {
+          "operation_id": "F05_MAKE_A",
+          "resource_id": "F05_SHARED_RESOURCE",
+          "resource_units": "1",
+          "start_at": "2026-11-04T17:00:00+00:00",
+          "end_at": "2026-11-04T18:00:00+00:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/anchors/F05_EXISTING_A",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/anchors/F05_EXISTING_A"
+      }
+    },
+    {
+      "type": "MO",
+      "id": "F05_EXISTING_B",
+      "external_ref": "F05_EXISTING_B",
+      "item_id": "F05_ITEM_B",
+      "location_id": "F05_ISOLATED_PLANT",
+      "recipe_id": "F05_MAKE_B",
+      "quantity": "20",
+      "completed_quantity": "0",
+      "uom": "piece",
+      "source_status": "approved",
+      "freeze_policy": "LOCKED",
+      "operations": [
+        {
+          "operation_id": "F05_MAKE_B",
+          "resource_id": "F05_SHARED_RESOURCE",
+          "resource_units": "1",
+          "start_at": "2026-11-06T17:00:00+00:00",
+          "end_at": "2026-11-06T18:00:00+00:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/scenario/anchors/F05_EXISTING_B",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/scenario/anchors/F05_EXISTING_B"
+      }
+    }
+  ],
+  "assumptions": [],
+  "previous_manufacturing_suggestions": [
+    {
+      "reference": "F05_PREVIOUS_C",
+      "recipe_id": "F05_MAKE_C",
+      "quantity": "20",
+      "status": "proposed",
+      "start_at": "2026-11-06T17:00:00+00:00",
+      "end_at": "2026-11-06T18:00:00+00:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "/rolling_seed/0",
+        "source_version": "F05-R4:c64cf3ee9651e489afbc76ca1c2d986d4289d51f51fceba433294f8ca7615b3a",
+        "observed_at": "2026-11-03T08:00:00+00:00",
+        "import_batch_id": "D05-02-F05-R4",
+        "source_locator": "research://F05/R4/effective_input.json#/rolling_seed/0"
+      }
+    }
+  ]
+}

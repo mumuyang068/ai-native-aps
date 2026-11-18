@@ -1,0 +1,59 @@
+.planner-home-overview{min-width:0;margin:8px 0 18px}
+.home-summary-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px 20px;flex-wrap:wrap}
+.home-summary-heading h2{font-size:16px;margin:0}
+.home-summary-heading>span,.home-observation-range{font-size:12px;color:var(--muted)}
+.home-observation-range{margin:6px 0 0;line-height:1.7}
+.home-kpi-strip{border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:16px}
+.home-unit-metrics{display:flex;gap:20px 48px;flex-wrap:wrap}
+.home-unit-metrics+.home-unit-metrics{margin-top:16px}
+.home-unit-metrics>div{min-width:120px}
+.home-unit-metrics span{display:block;color:var(--muted);font-size:12px}
+.home-unit-metrics strong{display:block;font-size:20px;margin-top:4px;font-variant-numeric:tabular-nums}
+.home-insight-row{display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:16px;align-items:start;margin-bottom:16px}
+.home-attention-stack{display:grid;gap:12px;min-width:0}
+.home-trend-controls{display:flex;gap:12px;align-items:center;padding:10px 16px 4px}
+.home-trend-controls>div{min-width:0;flex:1}
+.home-trend-controls>span{font-size:12px;white-space:nowrap}
+.home-trend-scope{font-size:12px;line-height:1.7;margin:4px 16px 10px;overflow-wrap:anywhere;color:var(--muted)}
+.home-trend-scope strong{font-weight:500;color:var(--text)}
+.home-trend-chart{height:225px;margin:0 8px}
+.home-trend-chart .planning-chart,.home-trend-chart .planning-chart-canvas{height:100%}
+.home-trend-table,.home-trend-definitions{padding:6px 16px 10px;overflow:auto;font-size:12px}
+.home-trend-definitions p{padding:8px 0 0;margin:0;line-height:1.7}
+.home-trend-table table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+.home-trend-table th,.home-trend-table td{border-bottom:1px solid var(--line);padding:8px;text-align:right;white-space:nowrap}
+.home-trend-table summary,.home-trend-definitions summary{cursor:pointer;min-height:24px}
+.home-action-stream{margin-top:16px}
+.home-action-stream ol{list-style:none;padding:0 16px;margin:0}
+.home-action-stream li{padding:10px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.home-action-stream li:last-child{border:0}
+.home-action-stream li>a{font-weight:600;display:block}
+.home-action-stream small,.home-action-stream time{display:block;font-size:12px;line-height:1.6;color:var(--muted)}
+.home-risk-link{color:var(--danger,#b82632);padding:12px 16px;line-height:1.7}
+.home-quick-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 20px;padding:0 16px;font-size:12px}
+.home-links-label{grid-column:1 / -1;font-size:13px;margin:4px 0}.home-quick-links a{min-height:36px;display:inline-flex;align-items:center}
+.home-action-stream .error-note{margin:8px}
+.home-activity-empty{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.business-home .home-calendar-row{grid-template-columns:minmax(0,1fr)}
+.business-home .business-facts-heading{padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.business-home .business-facts-heading>div:last-child{flex-wrap:wrap}
+.home-identity{font-size:12px;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.home-identity summary{cursor:pointer;min-height:32px;display:flex;align-items:center}
+.home-identity[open]{flex-basis:100%}
+.home-results-heading{display:flex;align-items:center;gap:16px;padding:12px 24px 0}
+.home-results-heading h2{font-size:16px;margin:0}
+.business-home .home-attention .fact-attention>button{display:block;min-height:60px;text-align:left}
+.business-home .home-attention .fact-attention>button:first-child strong{font-size:17px;color:var(--primary)}
+.business-home .home-attention .fact-attention>button:hover{background:var(--panel)}
+@media(max-width:1050px){.home-insight-row{grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr)}.home-unit-metrics{gap:16px 32px}}
+@media(max-width:760px){
+ .home-insight-row{grid-template-columns:minmax(0,1fr)}
+ .home-attention-stack{grid-row:1}
+ .home-unit-metrics{gap:16px 20px}
+ .home-unit-metrics>div{min-width:85px}
+ .home-unit-metrics strong{font-size:18px}
+ .home-trend-controls{flex-wrap:wrap}
+ .home-trend-chart{height:245px}
+ .home-results-heading{padding:12px}
+ .business-home .home-attention .fact-attention{display:block}
+}

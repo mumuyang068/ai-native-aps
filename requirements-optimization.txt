@@ -1,0 +1,3 @@
+# Optional isolated optimizer runtime. Product/Worker keep their existing env.
+ortools==9.15.6755
+pyjobshop==0.0.9

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI 供需计划</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header><div class="brand"><span class="logo">↗</span><div><strong>AI 供需计划</strong><small id="factory-label">演示服装厂 · 模拟工厂数据</small></div></div><a href="/imports">建立工厂数据</a><span id="connection" role="status">正在连接计算服务</span></header>
+<main>
+<section class="intro"><div><p class="eyebrow">用一句话，推演一次计划</p><h1>改变需求，看清影响。</h1><p>提出订单变更，核对条件，再运行独立情景。每次比较都以原始基线为参照。</p></div><div class="origin"><span>规划起点</span><strong id="planning-clock">2026 年 10 月 14 日 09:00</strong><small>Asia/Shanghai · 基线保持不变</small></div></section>
+<div class="workspace">
+<section class="conversation panel" aria-labelledby="chat-title"><div class="panel-heading"><h2 id="chat-title">计划助手</h2><span id="model">模型待连接</span></div>
+<div class="baseline-mini" id="baseline-summary">正在读取基线计划…</div>
+<div class="baseline-mini" id="active-constraints" aria-live="polite"></div>
+<div id="pending-request" class="conditions" hidden></div>
+<div id="messages" aria-live="polite"><article class="welcome"><p>你可以修改订单交期、提出急单，或查询计划影响。</p><p class="muted" id="welcome-orders">原订单 O-101：黑色 T 恤 1,000 件，10 月 23 日 18:00 交付。急单默认使用优先级 1，交期需要明确到时间。</p></article></div>
+<div class="suggestions"><button type="button" data-prompt="把订单 O-101 的交期提前两个自然日">订单提前两天</button><button type="button" data-prompt="新增急单 U-301，同款黑色 T 恤 300 件，2026 年 10 月 20 日 18:00 交付">新增 300 件急单</button><button type="button" id="compare-prompt">查询计划影响</button></div>
+<form id="chat-form"><label for="message">告诉助手你的需求</label><textarea id="message" rows="3" maxlength="4000" placeholder="例如：把订单 O-101 的交期提前两个自然日" required></textarea><div class="composer-footer"><small>先核对草案条件，再计算影响。</small><button id="send" class="primary" type="submit">发送需求 <span>↑</span></button></div></form>
+<p id="chat-status" class="status" role="status"></p></section>
+<section class="planning panel" aria-labelledby="result-title"><div class="panel-heading"><h2 id="result-title">情景与计划</h2><button type="button" id="refresh">刷新</button></div>
+<label class="select-label" for="draft-select">选择草案</label><select id="draft-select"><option value="">查看基线</option></select>
+<div id="draft-conditions"></div><div id="draft-actions" class="actions" hidden><button type="button" id="run" class="primary">运行情景</button><button type="button" id="retain">保留草案</button><button type="button" id="discard">放弃草案</button></div>
+<div id="plan-result"><div class="empty"><span>◎</span><h3>等待基线计算</h3><p>准备完成后，开始提出一个变更。</p></div></div>
+</section></div>
+</main><script src="/static/app.js"></script></body></html>

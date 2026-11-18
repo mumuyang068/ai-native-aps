@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+fixtures/baseline.json -text
+fixtures/regression/**/*.json -text

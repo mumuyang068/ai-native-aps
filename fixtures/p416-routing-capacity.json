@@ -1,0 +1,1037 @@
+{
+  "schema_version": "0.2.0",
+  "snapshot_id": "SNAP-SIM-P416-V1",
+  "scenario_id": "SIM-P416-BASE",
+  "scenario_revision": 0,
+  "planning_at": "2026-11-02T08:00:00+08:00",
+  "horizon": {
+    "start_at": "2026-11-02T08:00:00+08:00",
+    "end_at": "2026-11-07T18:00:00+08:00"
+  },
+  "site": {
+    "id": "FACTORY",
+    "name": "P4-16独立合成裁片与多工序替代机台制造切片",
+    "timezone": "Asia/Shanghai",
+    "provenance": {
+      "source_system": "SYNTHETIC_ASSUMPTION",
+      "source_record_id": "site",
+      "source_version": "SIM-P416-V1",
+      "observed_at": "2026-11-02T08:00:00+08:00",
+      "import_batch_id": "SIM-P416-V1",
+      "source_locator": "simulation://SIM-P416-V1/freeze"
+    }
+  },
+  "engine": {
+    "profile": "frepple-community-9.19-supply-v1",
+    "engine": "frepple",
+    "target_version": "9.19.0",
+    "problem_kind": "SUPPLY_PLANNING"
+  },
+  "rules": {
+    "profile_version": "v1",
+    "finite_material": true,
+    "finite_capacity": true,
+    "allow_overtime": false,
+    "freeze_existing": true,
+    "manufacturing_profile": "routing-alternate-capacity-v1",
+    "move_approved_early": 0,
+    "erase_previous_proposed": true,
+    "fix_broken_supply_path": false
+  },
+  "items": [
+    {
+      "id": "P416-FAB",
+      "kind": "RAW",
+      "base_uom": "m",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-FAB",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-FAB"
+      }
+    },
+    {
+      "id": "P416-CUT-WIP",
+      "kind": "SEMI",
+      "base_uom": "set",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-CUT-WIP",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-CUT-WIP"
+      }
+    },
+    {
+      "id": "P416-STAGE-OUT",
+      "kind": "FINISHED",
+      "base_uom": "piece",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-STAGE-OUT",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-STAGE-OUT"
+      }
+    }
+  ],
+  "calendars": [
+    {
+      "id": "P416-DAY",
+      "timezone": "Asia/Shanghai",
+      "available_intervals": [
+        {
+          "start_at": "2026-11-02T08:00:00+08:00",
+          "end_at": "2026-11-02T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-02T13:00:00+08:00",
+          "end_at": "2026-11-02T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-03T08:00:00+08:00",
+          "end_at": "2026-11-03T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-03T13:00:00+08:00",
+          "end_at": "2026-11-03T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-04T08:00:00+08:00",
+          "end_at": "2026-11-04T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-04T13:00:00+08:00",
+          "end_at": "2026-11-04T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-05T08:00:00+08:00",
+          "end_at": "2026-11-05T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-05T13:00:00+08:00",
+          "end_at": "2026-11-05T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T08:00:00+08:00",
+          "end_at": "2026-11-06T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T13:00:00+08:00",
+          "end_at": "2026-11-06T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-07T08:00:00+08:00",
+          "end_at": "2026-11-07T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-07T13:00:00+08:00",
+          "end_at": "2026-11-07T18:00:00+08:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "P416-BACKUP-DAY",
+      "timezone": "Asia/Shanghai",
+      "available_intervals": [
+        {
+          "start_at": "2026-11-02T08:00:00+08:00",
+          "end_at": "2026-11-02T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-02T13:00:00+08:00",
+          "end_at": "2026-11-02T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-03T08:00:00+08:00",
+          "end_at": "2026-11-03T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-03T13:00:00+08:00",
+          "end_at": "2026-11-03T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-04T08:00:00+08:00",
+          "end_at": "2026-11-04T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-04T13:00:00+08:00",
+          "end_at": "2026-11-04T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-05T13:00:00+08:00",
+          "end_at": "2026-11-05T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T08:00:00+08:00",
+          "end_at": "2026-11-06T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T13:00:00+08:00",
+          "end_at": "2026-11-06T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-07T08:00:00+08:00",
+          "end_at": "2026-11-07T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-07T13:00:00+08:00",
+          "end_at": "2026-11-07T18:00:00+08:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-BACKUP-DAY",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    }
+  ],
+  "resources": [
+    {
+      "id": "P416-CUT-LINE",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-DAY",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-CUT-LINE",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-CUT-LINE"
+      },
+      "role": "MACHINE",
+      "capacity_model": "CONTINUOUS"
+    },
+    {
+      "id": "P416-SEW-M1",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-DAY",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-SEW-M1",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-SEW-M1"
+      },
+      "role": "MACHINE",
+      "capacity_model": "CONTINUOUS",
+      "pool_id": "P416-SEW-POOL"
+    },
+    {
+      "id": "P416-POOL",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-DAY",
+      "parallel_units": "1",
+      "role": "OPERATOR_POOL",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "P416-P1",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-DAY",
+      "parallel_units": "1",
+      "role": "OPERATOR",
+      "pool_id": "P416-POOL",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "P416-SEW-M2",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-BACKUP-DAY",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-SEW-M2",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      },
+      "role": "MACHINE",
+      "capacity_model": "CONTINUOUS",
+      "pool_id": "P416-SEW-POOL"
+    },
+    {
+      "id": "P416-SEW-M3",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-DAY",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-SEW-M3",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      },
+      "role": "MACHINE",
+      "capacity_model": "CONTINUOUS",
+      "pool_id": "P416-SEW-POOL"
+    },
+    {
+      "id": "P416-SEW-POOL",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-DAY",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-SEW-POOL",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      },
+      "role": "MACHINE_POOL",
+      "capacity_model": "CONTINUOUS"
+    },
+    {
+      "id": "P416-INSPECT-LINE",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-DAY",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-INSPECT-LINE",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      },
+      "role": "MACHINE",
+      "capacity_model": "CONTINUOUS"
+    },
+    {
+      "id": "P416-PACK-LINE",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P416-DAY",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-PACK-LINE",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      },
+      "role": "MACHINE",
+      "capacity_model": "CONTINUOUS"
+    }
+  ],
+  "bom_revisions": [
+    {
+      "id": "P416-BOM-CUT",
+      "output_item_id": "P416-CUT-WIP",
+      "output_quantity": "1",
+      "output_uom": "set",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-16T00:00:00+08:00",
+      "lines": [
+        {
+          "item_id": "P416-FAB",
+          "quantity_per_output": "1",
+          "uom": "m",
+          "scrap_fraction": "0",
+          "consume_operation_id": "P416-CUT",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-BOM-CUT",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-BOM-CUT"
+      }
+    },
+    {
+      "id": "P416-BOM-SEW",
+      "output_item_id": "P416-STAGE-OUT",
+      "output_quantity": "1",
+      "output_uom": "piece",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-16T00:00:00+08:00",
+      "lines": [
+        {
+          "item_id": "P416-CUT-WIP",
+          "quantity_per_output": "1",
+          "uom": "set",
+          "scrap_fraction": "0",
+          "consume_operation_id": "P416-SEW",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-BOM-SEW",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-BOM-SEW"
+      }
+    }
+  ],
+  "routing_revisions": [
+    {
+      "id": "P416-ROUTE-CUT",
+      "output_item_id": "P416-CUT-WIP",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-16T00:00:00+08:00",
+      "operations": [
+        {
+          "id": "P416-CUT",
+          "sequence": 10,
+          "predecessors": [],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "300",
+          "resource_id": "P416-CUT-LINE",
+          "resource_units": "1",
+          "operator_requirement": {
+            "pool_id": "P416-POOL",
+            "skill_id": "P416-CUT-SKILL",
+            "quantity": "1",
+            "provenance": {
+              "source_system": "SYNTHETIC_ASSUMPTION",
+              "source_record_id": "site",
+              "source_version": "SIM-P416-V1",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "import_batch_id": "SIM-P416-V1",
+              "source_locator": "simulation://SIM-P416-V1/freeze"
+            }
+          }
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-ROUTE-CUT",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-ROUTE-CUT"
+      }
+    },
+    {
+      "id": "P416-ROUTE-SEW",
+      "output_item_id": "P416-STAGE-OUT",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-16T00:00:00+08:00",
+      "operations": [
+        {
+          "id": "P416-SEW",
+          "sequence": 10,
+          "predecessors": [],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "600",
+          "resource_id": "P416-SEW-POOL",
+          "resource_units": "1",
+          "operator_requirement": {
+            "pool_id": "P416-POOL",
+            "skill_id": "P416-SEW-SKILL",
+            "quantity": "1",
+            "provenance": {
+              "source_system": "SYNTHETIC_ASSUMPTION",
+              "source_record_id": "site",
+              "source_version": "SIM-P416-V1",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "import_batch_id": "SIM-P416-V1",
+              "source_locator": "simulation://SIM-P416-V1/freeze"
+            }
+          },
+          "machine_skill_id": "P416-SEW-MACHINE-SKILL"
+        },
+        {
+          "id": "P416-INSPECT",
+          "sequence": 20,
+          "predecessors": [
+            "P416-SEW"
+          ],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "180",
+          "resource_id": "P416-INSPECT-LINE",
+          "resource_units": "1",
+          "operator_requirement": {
+            "pool_id": "P416-POOL",
+            "skill_id": "P416-INSPECT-SKILL",
+            "quantity": "1",
+            "provenance": {
+              "source_system": "SYNTHETIC_ASSUMPTION",
+              "source_record_id": "site",
+              "source_version": "SIM-P416-V1",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "import_batch_id": "SIM-P416-V1",
+              "source_locator": "simulation://SIM-P416-V1/freeze"
+            }
+          }
+        },
+        {
+          "id": "P416-PACK",
+          "sequence": 30,
+          "predecessors": [
+            "P416-INSPECT"
+          ],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "120",
+          "resource_id": "P416-PACK-LINE",
+          "resource_units": "1",
+          "operator_requirement": {
+            "pool_id": "P416-POOL",
+            "skill_id": "P416-PACK-SKILL",
+            "quantity": "1",
+            "provenance": {
+              "source_system": "SYNTHETIC_ASSUMPTION",
+              "source_record_id": "site",
+              "source_version": "SIM-P416-V1",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "import_batch_id": "SIM-P416-V1",
+              "source_locator": "simulation://SIM-P416-V1/freeze"
+            }
+          }
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-ROUTE-SEW",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-ROUTE-SEW"
+      }
+    }
+  ],
+  "production_recipes": [
+    {
+      "id": "P416-MAKE-CUT",
+      "output_item_id": "P416-CUT-WIP",
+      "location_id": "FACTORY",
+      "bom_revision_id": "P416-BOM-CUT",
+      "routing_revision_id": "P416-ROUTE-CUT",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-16T00:00:00+08:00",
+      "manufacturing_minimum_quantity": "1",
+      "manufacturing_multiple": "1",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-MAKE-CUT",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-MAKE-CUT"
+      }
+    },
+    {
+      "id": "P416-MAKE-SEW",
+      "output_item_id": "P416-STAGE-OUT",
+      "location_id": "FACTORY",
+      "bom_revision_id": "P416-BOM-SEW",
+      "routing_revision_id": "P416-ROUTE-SEW",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-16T00:00:00+08:00",
+      "manufacturing_minimum_quantity": "1",
+      "manufacturing_multiple": "1",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P416-MAKE-SEW",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/P416-MAKE-SEW"
+      }
+    }
+  ],
+  "inventory_positions": [
+    {
+      "id": "INV-P416-FAB",
+      "item_id": "P416-FAB",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "m",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "INV-P416-CUT-WIP",
+      "item_id": "P416-CUT-WIP",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "20",
+      "quality_blocked": "8",
+      "other_nonnettable": "0",
+      "uom": "set",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "INV-P416-STAGE-OUT",
+      "item_id": "P416-STAGE-OUT",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "piece",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    }
+  ],
+  "reservations": [],
+  "suppliers": [
+    {
+      "id": "P416-SUP",
+      "name": "SIM-P416 independent synthetic supplier",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "supplier",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/supplier"
+      }
+    }
+  ],
+  "supply_sources": [
+    {
+      "id": "P416-RAW-SOURCE",
+      "supplier_id": "P416-SUP",
+      "item_id": "P416-FAB",
+      "location_id": "FACTORY",
+      "lead_time_seconds": 172800,
+      "lead_time_basis": "CALENDAR_TIME",
+      "minimum_order_quantity": "20",
+      "order_multiple": "20",
+      "batch_window_seconds": 0,
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-16T00:00:00+08:00",
+      "receiving_qc": {
+        "wait_seconds": 86400,
+        "provenance": {
+          "source_system": "SYNTHETIC_FACTORY",
+          "source_record_id": "qc-24h",
+          "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+          "observed_at": "2026-11-02T08:00:00+08:00",
+          "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+          "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/qc-24h"
+        }
+      },
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "RAW-source",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/RAW-source"
+      }
+    }
+  ],
+  "existing_orders": [
+    {
+      "type": "PO",
+      "id": "P416-PO-1",
+      "external_ref": "P416-PO-1",
+      "item_id": "P416-FAB",
+      "location_id": "FACTORY",
+      "supplier_id": "P416-SUP",
+      "supply_source_id": "P416-RAW-SOURCE",
+      "ordered_quantity": "20",
+      "received_quantity": "10",
+      "cancelled_quantity": "0",
+      "remaining_quantity": "10",
+      "uom": "m",
+      "ordered_at": "2026-10-31T09:00:00+08:00",
+      "expected_receipt_at": "2026-11-03T09:00:00+08:00",
+      "available_at": "2026-11-04T09:00:00+08:00",
+      "inventory_includes_receipt": false,
+      "source_status": "confirmed",
+      "freeze_policy": "LOCKED",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "type": "PO",
+      "id": "P416-PO-2",
+      "external_ref": "P416-PO-2",
+      "item_id": "P416-FAB",
+      "location_id": "FACTORY",
+      "supplier_id": "P416-SUP",
+      "supply_source_id": "P416-RAW-SOURCE",
+      "ordered_quantity": "20",
+      "received_quantity": "0",
+      "cancelled_quantity": "0",
+      "remaining_quantity": "20",
+      "uom": "m",
+      "ordered_at": "2026-10-31T09:00:00+08:00",
+      "expected_receipt_at": "2026-11-04T09:00:00+08:00",
+      "available_at": "2026-11-05T09:00:00+08:00",
+      "inventory_includes_receipt": false,
+      "source_status": "confirmed",
+      "freeze_policy": "LOCKED",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "type": "MO",
+      "id": "P416-MO-CUT-4",
+      "external_ref": "P416-MO-CUT-4",
+      "item_id": "P416-CUT-WIP",
+      "location_id": "FACTORY",
+      "recipe_id": "P416-MAKE-CUT",
+      "quantity": "4",
+      "completed_quantity": "0",
+      "uom": "set",
+      "source_status": "confirmed",
+      "freeze_policy": "LOCKED",
+      "operations": [
+        {
+          "operation_id": "P416-CUT",
+          "resource_id": "P416-CUT-LINE",
+          "operator_id": "P416-P1",
+          "resource_units": "1",
+          "start_at": "2026-11-03T10:00:00+08:00",
+          "end_at": "2026-11-03T10:20:00+08:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "P416-NEW-ROUTING-FACTS",
+      "field_ref": "/routing_revisions/1/operations",
+      "value": "SYNTHETIC_ASSUMPTION: 独立WIP之后为SEW600秒/件→INSPECT180秒/件→PACK120秒/件；三步骤之间不独立入库；机器M1优先级1、M2优先级2、M3无合格技能；M2在11月5日上午不可用；候选仅减少M1的11月5日08:00–18:00可用时间。检验工序是规划活动，不冒充真实质量放行或客户交付。",
+      "reason": "独立声明的P4-16研发合成工艺与机器资格，不修改P4-15企业版本",
+      "acknowledged_by": "P416_SYNTHETIC_SLICE_AUTHOR",
+      "acknowledged_at": "2026-10-22T14:00:00+08:00"
+    }
+  ],
+  "previous_manufacturing_suggestions": [],
+  "demand_lines": [
+    {
+      "id": "P416-ORDER-1-L1",
+      "order_ref": "P416-CUSTOMER-ORDER-1",
+      "line_ref": "L1",
+      "item_id": "P416-STAGE-OUT",
+      "location_id": "FACTORY",
+      "quantity": "20",
+      "uom": "piece",
+      "due_at": "2026-11-05T18:00:00+08:00",
+      "priority": 1,
+      "minimum_shipment": "1",
+      "maximum_lateness_seconds": 0,
+      "status": "OPEN",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "order-1",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/order-1"
+      },
+      "customer_id": "P416-SYNTHETIC-CUSTOMER"
+    },
+    {
+      "id": "P416-ORDER-2-L1",
+      "order_ref": "P416-CUSTOMER-ORDER-2",
+      "line_ref": "L1",
+      "item_id": "P416-STAGE-OUT",
+      "location_id": "FACTORY",
+      "quantity": "20",
+      "uom": "piece",
+      "due_at": "2026-11-05T18:00:00+08:00",
+      "priority": 2,
+      "minimum_shipment": "1",
+      "maximum_lateness_seconds": 0,
+      "status": "OPEN",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "order-2",
+        "source_version": "SIM-P416-SYNTHETIC-V1-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-SYNTHETIC-V1",
+        "source_locator": "simulation://SIM-P416-SYNTHETIC-V1/order-2"
+      },
+      "customer_id": "P416-SYNTHETIC-CUSTOMER"
+    }
+  ],
+  "skills": [
+    {
+      "id": "P416-CUT-SKILL",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "P416-SEW-SKILL",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "P416-SEW-MACHINE-SKILL",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-SEW-MACHINE-SKILL",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "P416-INSPECT-SKILL",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-INSPECT-SKILL",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "id": "P416-PACK-SKILL",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-PACK-SKILL",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    }
+  ],
+  "resource_skills": [
+    {
+      "resource_id": "P416-P1",
+      "skill_id": "P416-CUT-SKILL",
+      "priority": 1,
+      "effective_from": "2026-11-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "resource_id": "P416-P1",
+      "skill_id": "P416-SEW-SKILL",
+      "priority": 1,
+      "effective_from": "2026-11-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "resource_id": "P416-SEW-M1",
+      "skill_id": "P416-SEW-MACHINE-SKILL",
+      "priority": 1,
+      "effective_from": "2026-11-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-SEW-M1/P416-SEW-MACHINE-SKILL",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "resource_id": "P416-SEW-M2",
+      "skill_id": "P416-SEW-MACHINE-SKILL",
+      "priority": 2,
+      "effective_from": "2026-11-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-SEW-M2/P416-SEW-MACHINE-SKILL",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "resource_id": "P416-P1",
+      "skill_id": "P416-INSPECT-SKILL",
+      "priority": 1,
+      "effective_from": "2026-11-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-P1/P416-INSPECT-SKILL",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "resource_id": "P416-P1",
+      "skill_id": "P416-PACK-SKILL",
+      "priority": 1,
+      "effective_from": "2026-11-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "P416-P1/P416-PACK-SKILL",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    }
+  ],
+  "purchase_receipts": [
+    {
+      "po_id": "P416-PO-1",
+      "receipt_reference": "P416-RCV-1",
+      "quantity": "4",
+      "uom": "m",
+      "physical_receipt_at": "2026-11-01T06:00:00+08:00",
+      "quality_status": "RELEASED",
+      "release_at": "2026-11-02T06:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "po_id": "P416-PO-1",
+      "receipt_reference": "P416-RCV-2",
+      "quantity": "4",
+      "uom": "m",
+      "physical_receipt_at": "2026-11-02T07:00:00+08:00",
+      "quality_status": "PENDING_QC",
+      "release_at": "2026-11-03T07:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    },
+    {
+      "po_id": "P416-PO-1",
+      "receipt_reference": "P416-RCV-3",
+      "quantity": "2",
+      "uom": "m",
+      "physical_receipt_at": "2026-11-01T09:00:00+08:00",
+      "quality_status": "FROZEN",
+      "release_at": null,
+      "provenance": {
+        "source_system": "SYNTHETIC_ASSUMPTION",
+        "source_record_id": "site",
+        "source_version": "SIM-P416-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "SIM-P416-V1",
+        "source_locator": "simulation://SIM-P416-V1/freeze"
+      }
+    }
+  ]
+}

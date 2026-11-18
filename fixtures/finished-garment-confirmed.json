@@ -1,0 +1,1085 @@
+{
+  "schema_version": "0.2.0",
+  "snapshot_id": "P403-FINISHED-SLICE-V1",
+  "scenario_id": "P403-FINISHED-TB-M",
+  "scenario_revision": 1,
+  "planning_at": "2026-11-02T08:00:00+08:00",
+  "horizon": {
+    "start_at": "2026-11-02T08:00:00+08:00",
+    "end_at": "2026-11-09T18:00:00+08:00"
+  },
+  "site": {
+    "id": "FACTORY",
+    "name": "SIM-PRO-01 固定整批CUT与连续SEW采购依赖合成机制切片",
+    "timezone": "Asia/Shanghai",
+    "provenance": {
+      "source_system": "SYNTHETIC_FACTORY",
+      "source_record_id": "site",
+      "source_version": "SIM-PRO-01-V1",
+      "observed_at": "2026-11-02T08:00:00+08:00",
+      "import_batch_id": "SIM-PRO-01",
+      "source_locator": "simulation://SIM-PRO-01/site"
+    }
+  },
+  "engine": {
+    "profile": "frepple-community-9.19-supply-v1",
+    "engine": "frepple",
+    "target_version": "9.19.0",
+    "problem_kind": "SUPPLY_PLANNING"
+  },
+  "rules": {
+    "profile_version": "v1",
+    "finite_material": true,
+    "finite_capacity": true,
+    "allow_overtime": false,
+    "freeze_existing": true,
+    "manufacturing_profile": "finished-garment-confirmed-v1",
+    "move_approved_early": 0,
+    "erase_previous_proposed": true,
+    "fix_broken_supply_path": false
+  },
+  "items": [
+    {
+      "id": "FAB-BLK",
+      "kind": "RAW",
+      "base_uom": "米",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "FAB-BLK",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/FAB-BLK"
+      }
+    },
+    {
+      "id": "THREAD",
+      "kind": "RAW",
+      "base_uom": "米",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "THREAD",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/THREAD"
+      }
+    },
+    {
+      "id": "LABEL",
+      "kind": "RAW",
+      "base_uom": "个",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "LABEL",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/LABEL"
+      }
+    },
+    {
+      "id": "BAG",
+      "kind": "RAW",
+      "base_uom": "个",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "BAG",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/BAG"
+      }
+    },
+    {
+      "id": "CUT-TB-M",
+      "kind": "SEMI",
+      "base_uom": "套",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "CUT-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/CUT-TB-M"
+      }
+    },
+    {
+      "id": "SEWN-TB-M",
+      "kind": "SEMI",
+      "base_uom": "件",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "SEWN-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/SEWN-TB-M"
+      }
+    },
+    {
+      "id": "FG-TB-M",
+      "kind": "FINISHED",
+      "base_uom": "件",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "FG-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/FG-TB-M"
+      }
+    }
+  ],
+  "calendars": [
+    {
+      "id": "P403-WORK",
+      "timezone": "Asia/Shanghai",
+      "available_intervals": [
+        {
+          "start_at": "2026-11-02T09:00:00+08:00",
+          "end_at": "2026-11-02T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-02T13:00:00+08:00",
+          "end_at": "2026-11-02T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-03T09:00:00+08:00",
+          "end_at": "2026-11-03T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-03T13:00:00+08:00",
+          "end_at": "2026-11-03T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-04T09:00:00+08:00",
+          "end_at": "2026-11-04T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-04T13:00:00+08:00",
+          "end_at": "2026-11-04T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-05T09:00:00+08:00",
+          "end_at": "2026-11-05T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-05T13:00:00+08:00",
+          "end_at": "2026-11-05T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T09:00:00+08:00",
+          "end_at": "2026-11-06T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T13:00:00+08:00",
+          "end_at": "2026-11-06T18:00:00+08:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P403-WORK",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/P403-WORK"
+      }
+    },
+    {
+      "id": "P403-CUT-WINDOWS",
+      "timezone": "Asia/Shanghai",
+      "available_intervals": [
+        {
+          "start_at": "2026-11-04T09:00:00+08:00",
+          "end_at": "2026-11-04T10:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-05T09:00:00+08:00",
+          "end_at": "2026-11-05T10:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T09:00:00+08:00",
+          "end_at": "2026-11-06T10:00:00+08:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P403-CUT-WINDOWS",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/P403-CUT-WINDOWS"
+      }
+    }
+  ],
+  "resources": [
+    {
+      "id": "CUT-01",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-CUT-WINDOWS",
+      "role": "MACHINE",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "CUT-01",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/CUT-01"
+      },
+      "capacity_model": "WINDOW_QUANTITY",
+      "window_capacity_quantity": "20",
+      "capacity_uom": "套",
+      "maxearly_seconds": 2592000
+    },
+    {
+      "id": "SEW-01",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-WORK",
+      "role": "MACHINE",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "SEW-01",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/SEW-01"
+      },
+      "capacity_model": "CONTINUOUS",
+      "parallel_units": "1"
+    },
+    {
+      "id": "QC-01",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-WORK",
+      "role": "MACHINE",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "QC-01",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/QC-01"
+      },
+      "capacity_model": "CONTINUOUS",
+      "parallel_units": "1"
+    },
+    {
+      "id": "PACK-01",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-WORK",
+      "role": "MACHINE",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "PACK-01",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/PACK-01"
+      },
+      "capacity_model": "CONTINUOUS",
+      "parallel_units": "1"
+    },
+    {
+      "id": "P403-POOL",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-WORK",
+      "role": "OPERATOR_POOL",
+      "capacity_model": "CONTINUOUS",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P403-POOL",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/P403-POOL"
+      }
+    },
+    {
+      "id": "OP-06",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-WORK",
+      "role": "OPERATOR",
+      "capacity_model": "CONTINUOUS",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "OP-06",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/OP-06"
+      },
+      "pool_id": "P403-POOL"
+    },
+    {
+      "id": "OP-01",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-WORK",
+      "role": "OPERATOR",
+      "capacity_model": "CONTINUOUS",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "OP-01",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/OP-01"
+      },
+      "pool_id": "P403-POOL"
+    },
+    {
+      "id": "OP-04",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-WORK",
+      "role": "OPERATOR",
+      "capacity_model": "CONTINUOUS",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "OP-04",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/OP-04"
+      },
+      "pool_id": "P403-POOL"
+    },
+    {
+      "id": "OP-05",
+      "location_id": "FACTORY",
+      "availability_calendar_id": "P403-WORK",
+      "role": "OPERATOR",
+      "capacity_model": "CONTINUOUS",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "OP-05",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/OP-05"
+      },
+      "pool_id": "P403-POOL"
+    }
+  ],
+  "bom_revisions": [
+    {
+      "id": "BOM-CUT-TB-M",
+      "output_item_id": "CUT-TB-M",
+      "output_quantity": "1",
+      "output_uom": "套",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "lines": [
+        {
+          "item_id": "FAB-BLK",
+          "quantity_per_output": "1",
+          "uom": "米",
+          "scrap_fraction": "0",
+          "consume_operation_id": "CUT-TB-M",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "BOM-CUT-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/BOM-CUT-TB-M"
+      }
+    },
+    {
+      "id": "BOM-SEW-TB-M",
+      "output_item_id": "SEWN-TB-M",
+      "output_quantity": "1",
+      "output_uom": "件",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "lines": [
+        {
+          "item_id": "CUT-TB-M",
+          "quantity_per_output": "1",
+          "uom": "套",
+          "scrap_fraction": "0",
+          "consume_operation_id": "SEW-TB-M",
+          "consume_at": "START"
+        },
+        {
+          "item_id": "THREAD",
+          "quantity_per_output": "2",
+          "uom": "米",
+          "scrap_fraction": "0",
+          "consume_operation_id": "SEW-TB-M",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "BOM-SEW-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/BOM-SEW-TB-M"
+      }
+    },
+    {
+      "id": "BOM-FINISH-TB-M",
+      "output_item_id": "FG-TB-M",
+      "output_quantity": "1",
+      "output_uom": "件",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "lines": [
+        {
+          "item_id": "SEWN-TB-M",
+          "quantity_per_output": "1",
+          "uom": "件",
+          "scrap_fraction": "0",
+          "consume_operation_id": "QC-TB-M",
+          "consume_at": "START"
+        },
+        {
+          "item_id": "LABEL",
+          "quantity_per_output": "1",
+          "uom": "个",
+          "scrap_fraction": "0",
+          "consume_operation_id": "PACK-TB-M",
+          "consume_at": "START"
+        },
+        {
+          "item_id": "BAG",
+          "quantity_per_output": "1",
+          "uom": "个",
+          "scrap_fraction": "0",
+          "consume_operation_id": "PACK-TB-M",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "BOM-FINISH-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/BOM-FINISH-TB-M"
+      }
+    }
+  ],
+  "routing_revisions": [
+    {
+      "id": "ROUTE-CUT-TB-M",
+      "output_item_id": "CUT-TB-M",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "operations": [
+        {
+          "id": "CUT-TB-M",
+          "sequence": 1,
+          "predecessors": [],
+          "duration_model": "FIXED_BATCH",
+          "fixed_seconds": "3600",
+          "seconds_per_unit": "0",
+          "resource_id": "CUT-01",
+          "resource_units": "1",
+          "operator_requirement": {
+            "pool_id": "P403-POOL",
+            "skill_id": "CUT",
+            "quantity": "1",
+            "provenance": {
+              "source_system": "SYNTHETIC_FACTORY",
+              "source_record_id": "CUT-TB-M-staff",
+              "source_version": "P403-FINISHED-SLICE-V1",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "import_batch_id": "P403-FINISHED-SLICE-V1",
+              "source_locator": "simulation://P403-FINISHED-SLICE-V1/CUT-TB-M-staff"
+            }
+          }
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "ROUTE-CUT-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/ROUTE-CUT-TB-M"
+      }
+    },
+    {
+      "id": "ROUTE-SEW-TB-M",
+      "output_item_id": "SEWN-TB-M",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "operations": [
+        {
+          "id": "SEW-TB-M",
+          "sequence": 1,
+          "predecessors": [],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "480",
+          "resource_id": "SEW-01",
+          "resource_units": "1",
+          "operator_requirement": {
+            "pool_id": "P403-POOL",
+            "skill_id": "TEE",
+            "quantity": "1",
+            "provenance": {
+              "source_system": "SYNTHETIC_FACTORY",
+              "source_record_id": "SEW-TB-M-staff",
+              "source_version": "P403-FINISHED-SLICE-V1",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "import_batch_id": "P403-FINISHED-SLICE-V1",
+              "source_locator": "simulation://P403-FINISHED-SLICE-V1/SEW-TB-M-staff"
+            }
+          }
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "ROUTE-SEW-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/ROUTE-SEW-TB-M"
+      }
+    },
+    {
+      "id": "ROUTE-FINISH-TB-M",
+      "output_item_id": "FG-TB-M",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "operations": [
+        {
+          "id": "QC-TB-M",
+          "sequence": 1,
+          "predecessors": [],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "180",
+          "resource_id": "QC-01",
+          "resource_units": "1",
+          "operator_requirement": {
+            "pool_id": "P403-POOL",
+            "skill_id": "QC",
+            "quantity": "1",
+            "provenance": {
+              "source_system": "SYNTHETIC_FACTORY",
+              "source_record_id": "QC-TB-M-staff",
+              "source_version": "P403-FINISHED-SLICE-V1",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "import_batch_id": "P403-FINISHED-SLICE-V1",
+              "source_locator": "simulation://P403-FINISHED-SLICE-V1/QC-TB-M-staff"
+            }
+          }
+        },
+        {
+          "id": "PACK-TB-M",
+          "sequence": 2,
+          "predecessors": [
+            "QC-TB-M"
+          ],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "120",
+          "resource_id": "PACK-01",
+          "resource_units": "1",
+          "operator_requirement": {
+            "pool_id": "P403-POOL",
+            "skill_id": "PACK",
+            "quantity": "1",
+            "provenance": {
+              "source_system": "SYNTHETIC_FACTORY",
+              "source_record_id": "PACK-TB-M-staff",
+              "source_version": "P403-FINISHED-SLICE-V1",
+              "observed_at": "2026-11-02T08:00:00+08:00",
+              "import_batch_id": "P403-FINISHED-SLICE-V1",
+              "source_locator": "simulation://P403-FINISHED-SLICE-V1/PACK-TB-M-staff"
+            }
+          }
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "ROUTE-FINISH-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/ROUTE-FINISH-TB-M"
+      }
+    }
+  ],
+  "production_recipes": [
+    {
+      "id": "RECIPE-CUT-TB-M",
+      "output_item_id": "CUT-TB-M",
+      "location_id": "FACTORY",
+      "bom_revision_id": "BOM-CUT-TB-M",
+      "routing_revision_id": "ROUTE-CUT-TB-M",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "manufacturing_minimum_quantity": "20",
+      "manufacturing_multiple": "20",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "RECIPE-CUT-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/RECIPE-CUT-TB-M"
+      },
+      "manufacturing_maximum_quantity": "20"
+    },
+    {
+      "id": "RECIPE-SEW-TB-M",
+      "output_item_id": "SEWN-TB-M",
+      "location_id": "FACTORY",
+      "bom_revision_id": "BOM-SEW-TB-M",
+      "routing_revision_id": "ROUTE-SEW-TB-M",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "manufacturing_minimum_quantity": "1",
+      "manufacturing_multiple": "1",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "RECIPE-SEW-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/RECIPE-SEW-TB-M"
+      }
+    },
+    {
+      "id": "RECIPE-FINISH-TB-M",
+      "output_item_id": "FG-TB-M",
+      "location_id": "FACTORY",
+      "bom_revision_id": "BOM-FINISH-TB-M",
+      "routing_revision_id": "ROUTE-FINISH-TB-M",
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "manufacturing_minimum_quantity": "1",
+      "manufacturing_multiple": "1",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "RECIPE-FINISH-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/RECIPE-FINISH-TB-M"
+      }
+    }
+  ],
+  "inventory_positions": [
+    {
+      "id": "P403-OPEN-FAB-BLK",
+      "item_id": "FAB-BLK",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "20",
+      "quality_blocked": "20",
+      "other_nonnettable": "0",
+      "uom": "米",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "opening-FAB-BLK",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/opening-FAB-BLK"
+      }
+    },
+    {
+      "id": "P403-OPEN-THREAD",
+      "item_id": "THREAD",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "40",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "米",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "opening-THREAD",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/opening-THREAD"
+      }
+    },
+    {
+      "id": "P403-OPEN-LABEL",
+      "item_id": "LABEL",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "20",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "个",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "opening-LABEL",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/opening-LABEL"
+      }
+    },
+    {
+      "id": "P403-OPEN-BAG",
+      "item_id": "BAG",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "20",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "个",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "opening-BAG",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/opening-BAG"
+      }
+    },
+    {
+      "id": "P403-OPEN-CUT-TB-M",
+      "item_id": "CUT-TB-M",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "套",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "opening-CUT-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/opening-CUT-TB-M"
+      }
+    },
+    {
+      "id": "P403-OPEN-SEWN-TB-M",
+      "item_id": "SEWN-TB-M",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "件",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "opening-SEWN-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/opening-SEWN-TB-M"
+      }
+    },
+    {
+      "id": "P403-OPEN-FG-TB-M",
+      "item_id": "FG-TB-M",
+      "location_id": "FACTORY",
+      "physical_lot_ref": null,
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "件",
+      "as_of": "2026-11-02T08:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "opening-FG-TB-M",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/opening-FG-TB-M"
+      }
+    }
+  ],
+  "reservations": [],
+  "suppliers": [
+    {
+      "id": "P403-SUP-FAB",
+      "name": "P403 synthetic confirmed fabric supply",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P403-SUP-FAB",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/P403-SUP-FAB"
+      }
+    }
+  ],
+  "supply_sources": [
+    {
+      "id": "P403-FAB-SOURCE",
+      "supplier_id": "P403-SUP-FAB",
+      "item_id": "FAB-BLK",
+      "location_id": "FACTORY",
+      "lead_time_seconds": 172800,
+      "lead_time_basis": "CALENDAR_TIME",
+      "minimum_order_quantity": "20",
+      "order_multiple": "20",
+      "batch_window_seconds": 0,
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "receiving_qc": {
+        "wait_seconds": 86400,
+        "provenance": {
+          "source_system": "SYNTHETIC_FACTORY",
+          "source_record_id": "P403-RECEIVING-QC-24H",
+          "source_version": "P403-FINISHED-SLICE-V1",
+          "observed_at": "2026-11-02T08:00:00+08:00",
+          "import_batch_id": "P403-FINISHED-SLICE-V1",
+          "source_locator": "simulation://P403-FINISHED-SLICE-V1/P403-RECEIVING-QC-24H"
+        }
+      },
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P403-FAB-SOURCE",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/P403-FAB-SOURCE"
+      }
+    }
+  ],
+  "existing_orders": [
+    {
+      "type": "PO",
+      "id": "P403-CONFIRMED-FAB20",
+      "external_ref": "P403-CONFIRMED-FAB20",
+      "item_id": "FAB-BLK",
+      "location_id": "FACTORY",
+      "supplier_id": "P403-SUP-FAB",
+      "supply_source_id": "P403-FAB-SOURCE",
+      "ordered_quantity": "20",
+      "received_quantity": "0",
+      "cancelled_quantity": "0",
+      "remaining_quantity": "20",
+      "uom": "米",
+      "ordered_at": "2026-10-31T09:00:00+08:00",
+      "expected_receipt_at": "2026-11-03T09:00:00+08:00",
+      "available_at": "2026-11-04T09:00:00+08:00",
+      "inventory_includes_receipt": false,
+      "source_status": "confirmed",
+      "freeze_policy": "LOCKED",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P403-CONFIRMED-FAB20",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/P403-CONFIRMED-FAB20"
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "P403-SCOPE",
+      "field_ref": "finished_delivery/scope",
+      "value": "Single TB-M path and one new P403 customer demand; not a full SIM or enterprise import.",
+      "reason": "Explicit independent synthetic slice assumption",
+      "acknowledged_by": "P403_SYNTHETIC_MODEL_AUTHOR",
+      "acknowledged_at": "2026-10-20T09:00:00+08:00"
+    },
+    {
+      "id": "P403-PO",
+      "field_ref": "finished_delivery/po",
+      "value": "New P403 confirmed20m receipt Nov3 09:00, receiving QC24h; not a frozen SIM purchase.",
+      "reason": "Explicit independent synthetic slice assumption",
+      "acknowledged_by": "P403_SYNTHETIC_MODEL_AUTHOR",
+      "acknowledged_at": "2026-10-20T09:00:00+08:00"
+    },
+    {
+      "id": "P403-OPENING",
+      "field_ref": "finished_delivery/opening",
+      "value": "FAB20m physical all quality-blocked, THREAD40m LABEL20 BAG20; all WIP/FG zero. Frozen FAB80/blocked20, THREAD2000 LABEL500 BAG500 differ.",
+      "reason": "Explicit independent synthetic slice assumption",
+      "acknowledged_by": "P403_SYNTHETIC_MODEL_AUTHOR",
+      "acknowledged_at": "2026-10-20T09:00:00+08:00"
+    },
+    {
+      "id": "P403-CALENDAR",
+      "field_ref": "finished_delivery/calendar",
+      "value": "Independent Nov2-Nov6 09-12/13-18 work; CUT Nov4/5/6 09-10 windows; not frozen full calendar.",
+      "reason": "Explicit independent synthetic slice assumption",
+      "acknowledged_by": "P403_SYNTHETIC_MODEL_AUTHOR",
+      "acknowledged_at": "2026-10-20T09:00:00+08:00"
+    },
+    {
+      "id": "P403-STAFF",
+      "field_ref": "finished_delivery/staff",
+      "value": "Retain OP06 CUT OP01 TEE OP04 QC OP05 PACK qualifications; new one pool/P403 calendar projection, no efficiency/setup/absence claim.",
+      "reason": "Explicit independent synthetic slice assumption",
+      "acknowledged_by": "P403_SYNTHETIC_MODEL_AUTHOR",
+      "acknowledged_at": "2026-10-20T09:00:00+08:00"
+    },
+    {
+      "id": "P403-QUALITY",
+      "field_ref": "finished_delivery/quality",
+      "value": "QC is mandatory planned inspection operation before PACK; scheduled completion is not actual quality release. Zero modeled scrap, no rework or conditional inspection outcome.",
+      "reason": "Explicit independent synthetic slice assumption",
+      "acknowledged_by": "P403_SYNTHETIC_MODEL_AUTHOR",
+      "acknowledged_at": "2026-10-20T09:00:00+08:00"
+    },
+    {
+      "id": "P403-SOURCE",
+      "field_ref": "finished_delivery/source",
+      "value": "Frozen route durations, BOM quantities and item identities retained; source is synthetic SIM, not enterprise facts.",
+      "reason": "Explicit independent synthetic slice assumption",
+      "acknowledged_by": "P403_SYNTHETIC_MODEL_AUTHOR",
+      "acknowledged_at": "2026-10-20T09:00:00+08:00"
+    }
+  ],
+  "previous_manufacturing_suggestions": [],
+  "demand_lines": [
+    {
+      "id": "P403-SO-FG20-L1",
+      "order_ref": "P403-SO-FG20",
+      "line_ref": "L1",
+      "customer_id": "P403-CUST-01",
+      "item_id": "FG-TB-M",
+      "location_id": "FACTORY",
+      "quantity": "20",
+      "uom": "件",
+      "due_at": "2026-11-06T18:00:00+08:00",
+      "priority": 1,
+      "minimum_shipment": "20",
+      "maximum_lateness_seconds": 0,
+      "status": "OPEN",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "P403-SO-FG20-L1",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/P403-SO-FG20-L1"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "id": "CUT",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "CUT",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/CUT"
+      }
+    },
+    {
+      "id": "TEE",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "TEE",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/TEE"
+      }
+    },
+    {
+      "id": "QC",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "QC",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/QC"
+      }
+    },
+    {
+      "id": "PACK",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "PACK",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/PACK"
+      }
+    }
+  ],
+  "resource_skills": [
+    {
+      "resource_id": "OP-06",
+      "skill_id": "CUT",
+      "priority": 1,
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "OP-06-CUT",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/OP-06-CUT"
+      }
+    },
+    {
+      "resource_id": "OP-01",
+      "skill_id": "TEE",
+      "priority": 1,
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "OP-01-TEE",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/OP-01-TEE"
+      }
+    },
+    {
+      "resource_id": "OP-04",
+      "skill_id": "QC",
+      "priority": 1,
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "OP-04-QC",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/OP-04-QC"
+      }
+    },
+    {
+      "resource_id": "OP-05",
+      "skill_id": "PACK",
+      "priority": 1,
+      "effective_from": "2026-11-02T08:00:00+08:00",
+      "effective_to": "2026-11-09T18:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "OP-05-PACK",
+        "source_version": "P403-FINISHED-SLICE-V1",
+        "observed_at": "2026-11-02T08:00:00+08:00",
+        "import_batch_id": "P403-FINISHED-SLICE-V1",
+        "source_locator": "simulation://P403-FINISHED-SLICE-V1/OP-05-PACK"
+      }
+    }
+  ]
+}

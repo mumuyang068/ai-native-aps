@@ -1,0 +1,9 @@
+.source-workspace{display:grid;gap:var(--ix-space-4,16px);min-width:0;max-width:1200px;margin:0 auto;padding:var(--ix-space-4,16px)}
+.source-workspace h1,.source-workspace h2,.source-workspace p{margin:0}
+.source-options{display:flex;flex-wrap:wrap;gap:var(--ix-space-2,8px)}
+.source-workspace .connector-preview{min-width:0}
+.source-workspace .connector-table td,.source-workspace .connector-table th{white-space:normal;overflow-wrap:anywhere;max-width:48ch}
+.source-workspace details table{width:100%;table-layout:fixed}
+.source-workspace input[type=checkbox]{width:18px;height:18px;vertical-align:middle}
+.source-workspace summary{cursor:pointer;min-height:32px;overflow-wrap:anywhere}
+@media(max-width:620px){.source-workspace{padding:12px}.source-workspace .page-title{display:grid;gap:8px}.source-workspace .connector-delta{grid-template-columns:repeat(2,minmax(0,1fr))}}

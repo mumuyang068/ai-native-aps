@@ -1,0 +1,3 @@
+# External Agent/MCP entry point; keep algorithm runtimes independently pinned.
+-r requirements.txt
+mcp==1.25.0

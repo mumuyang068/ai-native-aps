@@ -1,0 +1,57 @@
+{
+  "schema": "aps-interop-targets/1",
+  "targets": {
+    "odoo": {
+      "kind": "ODOO",
+      "name": "Odoo 18 工序排程测试公司",
+      "scope": "ISOLATED_TEST_COMPANY_ONLY",
+      "enterprise_id": "SIM-GARMENT-CONT-01",
+      "branch_id": "INTEROP",
+      "company_id": 4,
+      "credentials_file": "PATH_TO_PRIVATE_ODOO_CREDENTIALS.json",
+      "actions": [
+        "CREATE_MO",
+        "SCHEDULE_MO"
+      ],
+      "source_bridge": {
+        "base_url": "http://127.0.0.1:20313",
+        "operator_token": "REPLACE_WITH_SCOPED_TEST_SOURCE_OPERATOR_TOKEN"
+      },
+      "product_mapping": {
+        "FG-TB-M": {
+          "product_id": 20,
+          "bom_id": 10,
+          "uom_id": 1,
+          "uom": "件",
+          "operations": {
+            "CUT-TB-M": {
+              "operation_id": 1,
+              "resources": {
+                "CUT-01": 1
+              }
+            },
+            "SEW-TB-M": {
+              "operation_id": 2,
+              "resources": {
+                "SEW-01": 2,
+                "SEW-02": 5
+              }
+            },
+            "QC-TB-M": {
+              "operation_id": 3,
+              "resources": {
+                "QC-01": 3
+              }
+            },
+            "PACK-TB-M": {
+              "operation_id": 4,
+              "resources": {
+                "PACK-01": 4
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

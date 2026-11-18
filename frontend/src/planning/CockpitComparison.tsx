@@ -1,0 +1,27 @@
+import {useState} from 'react';
+import type {Dict} from '../api/contracts';
+import {Button,Definition,Dialog,Select} from '../components/Controls';
+import {PlanningChart} from '../components/PlanningChart';
+import {homeComparison,type HomeDelta} from './cockpitHomeModel';
+import {homeChart,homeColors,homeTip,useHomeMotion} from './cockpitChartOptions';
+import {fulfillmentAmount} from './demandFulfillmentModel';
+import {formatSiteTime} from './timeRange';
+import type {CockpitScope} from './cockpitModel';
+type Props={demandKind:string;data:Dict;base:Dict|null;native:Dict|null;baseNative:Dict|null;context:Dict;baseContext:Dict;scope:CockpitScope;error:string;pending:boolean;enabled:boolean;onEnable:()=>void;open:(id:string,params:Record<string,string>)=>void;compareUrl:string};
+export function CockpitComparison(p:Props){
+ const model=homeComparison(p.data,p.base,p.native,p.baseNative,p.context,p.baseContext,p.scope),[chosen,setChosen]=useState('需求'),[unit,setUnit]=useState(''),[picked,setPicked]=useState(''),[help,setHelp]=useState(false),reduced=useHomeMotion();
+ const category=['FIRM_ORDER','NET_FORECAST'].includes(p.demandKind)?p.demandKind:'UNKNOWN';
+ const domains=['需求','采购','库存','资源'].filter(d=>model.rows.some(r=>r.domain===d)),domain=domains.includes(chosen)?chosen:domains[0]??'',units=[...new Set(model.rows.filter(r=>r.domain===domain&&(domain!=='需求'||r.category===category)).map(r=>r.uom))],uom=units.includes(unit)?unit:units[0]??'',all=model.rows.filter(r=>r.domain===domain&&r.uom===uom&&(domain!=='需求'||r.category===category)),changed=all.filter(r=>r.delta!==0).sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta)),rows=changed.slice(0,5),current=model.rows.find(r=>r.id===picked),common=homeChart(reduced,!picked),c=homeColors();
+ const beforeAfter=(r:HomeDelta,n:number)=>r.domain==='采购'&&r.id.endsWith(':qc')?formatSiteTime(new Date(n*3600000).toISOString(),p.data.timezone):fulfillmentAmount(n,r.uom);
+ const max=Math.max(1,...rows.map(r=>Math.abs(r.delta))),option:Dict={...common,tooltip:{...common.tooltip,trigger:'item',formatter:(v:any)=>{const r=rows[v.dataIndex];return homeTip([r.label,'基线 '+beforeAfter(r,r.before),'当前 '+beforeAfter(r,r.after),'变化 '+(r.delta>0?'+':'')+fulfillmentAmount(r.delta,r.uom)])}},grid:{top:8,left:8,right:8,bottom:16},xAxis:{type:'value',min:-max,max,show:false},yAxis:{type:'category',inverse:true,data:rows.map(r=>r.id),show:false},series:[{type:'bar',barWidth:12,itemStyle:{color:c.primary},label:{show:true,position:'inside',formatter:(v:any)=>v.value===0?'':(v.value>0?'+':'')+Number(v.value.toFixed(2))},data:rows.map(r=>({value:r.delta,eventId:r.id})),markLine:{silent:true,symbol:'none',label:{show:false},lineStyle:{color:c.muted,width:1,type:'solid'},data:[{xAxis:0}]}}]};
+ return <section id="home-comparison" className="cockpit-business-panel home-comparison" aria-label="相较基线变化"><div className="cockpit-section-title"><h2>相较基线变化</h2><div className="home-comparison-tools">{p.scope.target!=='baseline'&&p.enabled&&model.valid&&domains.length>0&&<Select label="比较业务领域" value={domain} options={domains.map(value=>({value,label:value}))} onChange={setChosen}/>} {p.scope.target!=='baseline'&&<a className="button-link" href={p.compareUrl}>完整比较</a>}</div></div>
+  {p.scope.target==='baseline'?<p className="cockpit-empty">当前为原始基线。切换已有计算方案后可查看变化。</p>:!p.enabled?<Button onClick={p.onEnable}>读取同计划基线</Button>:p.error?<p role="alert">{p.error}</p>:p.pending?<p role="status">正在读取同计划基线…</p>:!model.valid?<p role="status">{model.notes[0]}</p>:<>
+   <div className="home-comparison-context"><p className="home-inline-key">{domain==='需求'?({FIRM_ORDER:'确认需求',NET_FORECAST:'净预测',UNKNOWN:'未分类'} as Dict)[category]+' · ':''}当前 − 原始基线{units.length===1?' · '+uom:''}</p>{units.length>1&&<Select label="差异数量单位" value={uom} options={units.map(value=>({value,label:value}))} onChange={setUnit}/>}<Button className="quiet" icon="info" aria-label="比较口径与证据" onClick={()=>setHelp(true)}/></div>
+   {rows.length?<div className="home-delta-layout"><ul>{rows.map(r=><li key={r.id}><button onClick={()=>setPicked(r.id)}><strong>{r.label}</strong><small>{beforeAfter(r,r.before)} → {beforeAfter(r,r.after)}</small></button></li>)}</ul><div className="home-small-chart" style={{height:rows.length*48+24}}><PlanningChart compact identityKey={JSON.stringify([p.scope,domain,uom,'delta'])} label="同一业务单位下相对原始基线的数量变化" option={option} onPick={setPicked}/></div></div>:<p className="cockpit-empty">{all.length?`${all.length} 项可比指标均无数值变化。`:'当前没有证据完整、可逐项对齐的差异指标。'}</p>}{changed.length>5&&<p>另有 {changed.length-5} 项变化，可进入完整比较。</p>}{rows.length>0&&all.length>changed.length&&<p className="cockpit-empty">其余 {all.length-changed.length} 项数值未变；完整比较保留全部对象。</p>}
+   {model.notes.length>0&&<Button className="quiet" icon="info" onClick={()=>setHelp(true)}>部分领域或对象尚不可比</Button>}
+  </>}
+  {help&&<Dialog title="比较范围与证据" centered size="600" onClose={()=>setHelp(false)}><p>正负仅表示当前方案相对原始基线的数值变化，不自动代表改善。</p><ul>{model.notes.map(n=><li key={n}>{n}</li>)}</ul><p>缺失值没有补为零，新增或移除的摘要对象不作为数量差异。</p></Dialog>}
+  {current&&<Dialog title={current.label} centered size="600" animate={!reduced} onClose={()=>setPicked('')}><Definition rows={[["原始基线",beforeAfter(current,current.before)],["当前方案",beforeAfter(current,current.after)],["变化",(current.delta>0?'+':'')+fulfillmentAmount(current.delta,current.uom)]]}/><p>数值增加或减少不自动代表业务改善。</p><Button className="primary" onClick={()=>p.open('delta:'+current.id,current.params)}>调查当前业务对象</Button><a className="button-link" href={p.compareUrl}>查看两侧完整比较与来源</a></Dialog>}
+ </section>;
+}
+

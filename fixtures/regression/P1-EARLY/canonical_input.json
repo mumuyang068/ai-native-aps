@@ -1,0 +1,524 @@
+{
+  "schema_version": "0.2.0",
+  "snapshot_id": "SNAP-DEMO-001",
+  "scenario_id": "SC-DEMO-EARLY",
+  "scenario_revision": 1,
+  "planning_at": "2026-10-14T09:00:00+08:00",
+  "horizon": {
+    "start_at": "2026-10-14T09:00:00+08:00",
+    "end_at": "2026-11-13T00:00:00+08:00"
+  },
+  "site": {
+    "id": "SITE-01",
+    "name": "演示服装厂",
+    "timezone": "Asia/Shanghai",
+    "provenance": {
+      "source_system": "SYNTHETIC_FACTORY",
+      "source_record_id": "SITE-01",
+      "source_version": "fixture-v0.2",
+      "observed_at": "2026-10-14T09:00:00+08:00",
+      "import_batch_id": "IMP-DEMO-001",
+      "source_locator": "sites!2"
+    }
+  },
+  "engine": {
+    "profile": "frepple-community-9.19-supply-v1",
+    "engine": "frepple",
+    "target_version": "9.19.0",
+    "problem_kind": "SUPPLY_PLANNING"
+  },
+  "rules": {
+    "profile_version": "v1",
+    "finite_material": true,
+    "finite_capacity": true,
+    "allow_overtime": false,
+    "freeze_existing": true
+  },
+  "items": [
+    {
+      "id": "TEE-BLK",
+      "kind": "FINISHED",
+      "base_uom": "piece",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "TEE-BLK",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "items!2"
+      }
+    },
+    {
+      "id": "FAB-BLK",
+      "kind": "RAW",
+      "base_uom": "m",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "FAB-BLK",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "items!3"
+      }
+    }
+  ],
+  "calendars": [
+    {
+      "id": "DAY-SHIFT",
+      "timezone": "Asia/Shanghai",
+      "available_intervals": [
+        {
+          "start_at": "2026-10-14T09:00:00+08:00",
+          "end_at": "2026-10-14T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-14T13:00:00+08:00",
+          "end_at": "2026-10-14T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-15T09:00:00+08:00",
+          "end_at": "2026-10-15T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-15T13:00:00+08:00",
+          "end_at": "2026-10-15T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-16T09:00:00+08:00",
+          "end_at": "2026-10-16T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-16T13:00:00+08:00",
+          "end_at": "2026-10-16T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-19T09:00:00+08:00",
+          "end_at": "2026-10-19T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-19T13:00:00+08:00",
+          "end_at": "2026-10-19T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-20T09:00:00+08:00",
+          "end_at": "2026-10-20T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-20T13:00:00+08:00",
+          "end_at": "2026-10-20T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-21T09:00:00+08:00",
+          "end_at": "2026-10-21T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-21T13:00:00+08:00",
+          "end_at": "2026-10-21T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-22T09:00:00+08:00",
+          "end_at": "2026-10-22T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-22T13:00:00+08:00",
+          "end_at": "2026-10-22T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-23T09:00:00+08:00",
+          "end_at": "2026-10-23T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-23T13:00:00+08:00",
+          "end_at": "2026-10-23T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-26T09:00:00+08:00",
+          "end_at": "2026-10-26T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-26T13:00:00+08:00",
+          "end_at": "2026-10-26T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-27T09:00:00+08:00",
+          "end_at": "2026-10-27T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-27T13:00:00+08:00",
+          "end_at": "2026-10-27T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-28T09:00:00+08:00",
+          "end_at": "2026-10-28T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-28T13:00:00+08:00",
+          "end_at": "2026-10-28T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-29T09:00:00+08:00",
+          "end_at": "2026-10-29T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-29T13:00:00+08:00",
+          "end_at": "2026-10-29T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-30T09:00:00+08:00",
+          "end_at": "2026-10-30T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-10-30T13:00:00+08:00",
+          "end_at": "2026-10-30T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-02T09:00:00+08:00",
+          "end_at": "2026-11-02T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-02T13:00:00+08:00",
+          "end_at": "2026-11-02T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-03T09:00:00+08:00",
+          "end_at": "2026-11-03T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-03T13:00:00+08:00",
+          "end_at": "2026-11-03T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-04T09:00:00+08:00",
+          "end_at": "2026-11-04T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-04T13:00:00+08:00",
+          "end_at": "2026-11-04T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-05T09:00:00+08:00",
+          "end_at": "2026-11-05T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-05T13:00:00+08:00",
+          "end_at": "2026-11-05T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T09:00:00+08:00",
+          "end_at": "2026-11-06T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-06T13:00:00+08:00",
+          "end_at": "2026-11-06T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-09T09:00:00+08:00",
+          "end_at": "2026-11-09T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-09T13:00:00+08:00",
+          "end_at": "2026-11-09T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-10T09:00:00+08:00",
+          "end_at": "2026-11-10T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-10T13:00:00+08:00",
+          "end_at": "2026-11-10T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-11T09:00:00+08:00",
+          "end_at": "2026-11-11T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-11T13:00:00+08:00",
+          "end_at": "2026-11-11T18:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-12T09:00:00+08:00",
+          "end_at": "2026-11-12T12:00:00+08:00"
+        },
+        {
+          "start_at": "2026-11-12T13:00:00+08:00",
+          "end_at": "2026-11-12T18:00:00+08:00"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "DAY-SHIFT",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "calendars!2"
+      }
+    }
+  ],
+  "resources": [
+    {
+      "id": "CUT-LINE",
+      "location_id": "SITE-01",
+      "availability_calendar_id": "DAY-SHIFT",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "CUT-LINE",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "resources!2"
+      }
+    },
+    {
+      "id": "SEW-LINE",
+      "location_id": "SITE-01",
+      "availability_calendar_id": "DAY-SHIFT",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "SEW-LINE",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "resources!3"
+      }
+    },
+    {
+      "id": "PACK-LINE",
+      "location_id": "SITE-01",
+      "availability_calendar_id": "DAY-SHIFT",
+      "parallel_units": "1",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "PACK-LINE",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "resources!4"
+      }
+    }
+  ],
+  "bom_revisions": [
+    {
+      "id": "BOM-TEE-R1",
+      "output_item_id": "TEE-BLK",
+      "output_quantity": "1",
+      "output_uom": "piece",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "lines": [
+        {
+          "item_id": "FAB-BLK",
+          "quantity_per_output": "2",
+          "uom": "m",
+          "scrap_fraction": "0",
+          "consume_operation_id": "CUT",
+          "consume_at": "START"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "BOM-TEE-R1",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "bom!2"
+      }
+    }
+  ],
+  "routing_revisions": [
+    {
+      "id": "ROUTE-TEE-R1",
+      "output_item_id": "TEE-BLK",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "operations": [
+        {
+          "id": "CUT",
+          "sequence": 10,
+          "predecessors": [],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "24",
+          "resource_id": "CUT-LINE",
+          "resource_units": "1"
+        },
+        {
+          "id": "SEW",
+          "sequence": 20,
+          "predecessors": [
+            "CUT"
+          ],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "36",
+          "resource_id": "SEW-LINE",
+          "resource_units": "1"
+        },
+        {
+          "id": "PACK",
+          "sequence": 30,
+          "predecessors": [
+            "SEW"
+          ],
+          "duration_model": "FIXED_PLUS_PER_UNIT",
+          "fixed_seconds": "0",
+          "seconds_per_unit": "28.8",
+          "resource_id": "PACK-LINE",
+          "resource_units": "1"
+        }
+      ],
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "ROUTE-TEE-R1",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "routing!2:4"
+      }
+    }
+  ],
+  "production_recipes": [
+    {
+      "id": "MAKE-TEE-R1",
+      "output_item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "bom_revision_id": "BOM-TEE-R1",
+      "routing_revision_id": "ROUTE-TEE-R1",
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "manufacturing_minimum_quantity": "1",
+      "manufacturing_multiple": "1",
+      "transfer_policy": "WHOLE_MANUFACTURING_BATCH",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "MAKE-TEE-R1",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "recipes!2"
+      }
+    }
+  ],
+  "inventory_positions": [
+    {
+      "id": "INV-FAB-BLK",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "physical_lot_ref": null,
+      "on_hand": "800",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "m",
+      "as_of": "2026-10-14T09:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "INV-FAB-BLK",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "inventory!2"
+      }
+    },
+    {
+      "id": "INV-TEE-BLK",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "physical_lot_ref": null,
+      "on_hand": "0",
+      "quality_blocked": "0",
+      "other_nonnettable": "0",
+      "uom": "piece",
+      "as_of": "2026-10-14T09:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "INV-TEE-BLK",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "inventory!3"
+      }
+    }
+  ],
+  "reservations": [],
+  "suppliers": [
+    {
+      "id": "SUP-A",
+      "name": "演示供应商 A",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "SUP-A",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "suppliers!2"
+      }
+    }
+  ],
+  "supply_sources": [
+    {
+      "id": "SUP-A-FAB-BLK",
+      "supplier_id": "SUP-A",
+      "item_id": "FAB-BLK",
+      "location_id": "SITE-01",
+      "lead_time_seconds": 259200,
+      "lead_time_basis": "CALENDAR_TIME",
+      "minimum_order_quantity": "100",
+      "order_multiple": "100",
+      "batch_window_seconds": 0,
+      "effective_from": "2026-10-01T00:00:00+08:00",
+      "effective_to": "2026-12-01T00:00:00+08:00",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "SUP-A-FAB-BLK",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "supplier_items!2"
+      }
+    }
+  ],
+  "demand_lines": [
+    {
+      "id": "SO-101-L1",
+      "order_ref": "O-101",
+      "line_ref": "L1",
+      "item_id": "TEE-BLK",
+      "location_id": "SITE-01",
+      "quantity": "1000",
+      "uom": "piece",
+      "due_at": "2026-10-21T18:00:00+08:00",
+      "priority": 1,
+      "minimum_shipment": "1000",
+      "maximum_lateness_seconds": 2592000,
+      "status": "OPEN",
+      "provenance": {
+        "source_system": "SYNTHETIC_FACTORY",
+        "source_record_id": "SO-101-L1",
+        "source_version": "fixture-v0.2",
+        "observed_at": "2026-10-14T09:00:00+08:00",
+        "import_batch_id": "IMP-DEMO-001",
+        "source_locator": "demand_lines!2"
+      }
+    }
+  ],
+  "existing_orders": [],
+  "assumptions": [
+    {
+      "id": "ASM-DEMO-001",
+      "field_ref": "routing_revisions/0/operations",
+      "value": "24/36/28.8 seconds per piece",
+      "reason": "虚拟案例参数；由V0.1的1200/800/1000件每日与8小时有效工作时间换算。",
+      "acknowledged_by": "FIXTURE_AUTHOR",
+      "acknowledged_at": "2026-10-14T09:00:00+08:00"
+    },
+    {
+      "id": "ASM-P0-CUSTOMER",
+      "field_ref": "native_mapping/customer",
+      "value": "CUSTOMER-DEMO",
+      "reason": "9.19原生Demand要求customer；仅虚拟PoC使用显式演示客户，不代表真实企业客户身份。",
+      "acknowledged_by": "P0_FIXTURE_AUTHOR",
+      "acknowledged_at": "2026-10-14T09:00:00+08:00"
+    }
+  ]
+}

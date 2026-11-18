@@ -1,0 +1,62 @@
+[
+  {
+    "name": "SO-101-L1",
+    "description": null,
+    "category": null,
+    "subcategory": null,
+    "item": "TEE-BLK",
+    "customer": "CUSTOMER-DEMO",
+    "location": "SITE-01",
+    "due": "2026-10-23T18:00:00",
+    "status": "open",
+    "operation": null,
+    "quantity": "1000.00000000",
+    "priority": 1,
+    "batch": null,
+    "delay": "00:00:00",
+    "plannedquantity": "1000.00000000",
+    "deliverydate": "2026-10-23T18:00:00",
+    "plan": {
+      "pegging": [
+        {
+          "opplan": "13",
+          "quantity": 1000.0
+        }
+      ]
+    },
+    "minshipment": "1000.00000000",
+    "maxlateness": "30 00:00:00",
+    "owner": null,
+    "policy": "independent"
+  },
+  {
+    "name": "SO-102-L1",
+    "description": null,
+    "category": null,
+    "subcategory": null,
+    "item": "TEE-BLK",
+    "customer": "CUSTOMER-DEMO",
+    "location": "SITE-01",
+    "due": "2026-10-20T18:00:00",
+    "status": "open",
+    "operation": null,
+    "quantity": "300.00000000",
+    "priority": 0,
+    "batch": null,
+    "delay": "00:00:00",
+    "plannedquantity": "300.00000000",
+    "deliverydate": "2026-10-20T18:00:00",
+    "plan": {
+      "pegging": [
+        {
+          "opplan": "12",
+          "quantity": 300.0
+        }
+      ]
+    },
+    "minshipment": "300.00000000",
+    "maxlateness": "30 00:00:00",
+    "owner": null,
+    "policy": "independent"
+  }
+]

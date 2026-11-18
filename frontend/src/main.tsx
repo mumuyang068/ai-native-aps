@@ -1,0 +1,15 @@
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import {HashRouter} from 'react-router';
+import {App} from './app/App';
+import {WorkspaceUi} from './components/WorkspaceUi';
+import {ResearchAccess} from './assistant/OperatorSession';
+import './assistant/assistant.css';
+import '@siemens/ix/dist/siemens-ix/siemens-ix.css';
+import './design/tokens.css';
+import './design/layout.css';
+import './components/workspace-ui.css';
+import './design/ix-product.css';
+document.documentElement.setAttribute('data-ix-theme','classic');
+document.documentElement.setAttribute('data-ix-color-schema','light');
+createRoot(document.getElementById('root')!).render(<React.StrictMode><WorkspaceUi><ResearchAccess><HashRouter><App/></HashRouter></ResearchAccess></WorkspaceUi></React.StrictMode>);

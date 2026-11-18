@@ -1,0 +1,33 @@
+[
+  {
+    "reference": "7",
+    "status": "proposed",
+    "demand": "SO-101-L1",
+    "item": "TEE-BLK",
+    "location": "SITE-01",
+    "quantity": "1000.00000000",
+    "startdate": "2026-10-22T18:00:00",
+    "enddate": "2026-10-22T18:00:00",
+    "due": "2026-10-21T18:00:00",
+    "batch": null,
+    "delay": "1 00:00:00",
+    "plan": {
+      "pegging": {
+        "SO-101-L1": 1000.0
+      },
+      "unavailable": 0,
+      "interruptions": [],
+      "upstream_opplans": [
+        [
+          "3",
+          1000.0,
+          0.0
+        ]
+      ],
+      "downstream_opplans": []
+    },
+    "source": null,
+    "lastmodified": "2026-10-14T13:06:55",
+    "forecast": null
+  }
+]

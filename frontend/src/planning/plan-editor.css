@@ -1,0 +1,18 @@
+.plan-object-trigger{margin-block:8px}
+.plan-object-editor{min-width:0;line-height:1.5}
+.plan-object-editor h3{font-size:15px;margin:0 0 10px}
+.plan-object-editor section{padding-block:14px;border-top:1px solid var(--theme-color-soft-bdr,#cbd1d7)}
+.plan-object-editor .definition{margin-block:0 10px}
+.plan-object-editor .definition dd,.plan-object-editor strong,.plan-object-editor span{overflow-wrap:anywhere}
+.plan-editor-records{display:grid;gap:8px}
+.plan-editor-record{display:flex;flex-direction:column;gap:5px;padding:10px 12px;border:1px solid var(--theme-color-soft-bdr,#cbd1d7);border-radius:3px;min-width:0}
+.plan-editor-resource-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.plan-editor-resource-heading ix-button{flex:none;min-height:36px}
+.plan-editor-record details{margin-top:3px}
+.plan-editor-action{padding-block:10px}
+.plan-editor-action+.plan-editor-action{border-top:1px solid var(--theme-color-soft-bdr,#cbd1d7)}
+.plan-editor-action p{margin-block:5px 10px}
+.plan-editor-reason{padding:10px 12px;border-inline-start:3px solid var(--theme-color-warning,#9a6700);background:var(--theme-color-component-1,#f2f3f5)}
+.plan-object-editor .raw-json{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere}
+.plan-object-editor summary{cursor:pointer;min-height:32px;padding-block:4px}
+@media(max-width:600px){.plan-object-editor .definition>div{grid-template-columns:1fr}.plan-editor-resource-heading{align-items:flex-start;flex-direction:column;gap:6px}.plan-editor-resource-heading ix-button{width:100%;min-height:44px}.plan-editor-record{padding:10px}.plan-object-editor summary{min-height:44px}}

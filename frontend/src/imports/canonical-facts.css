@@ -1,0 +1,13 @@
+.canonical-facts{min-width:0;max-width:100%;display:grid;gap:12px}
+.canonical-facts-toolbar{display:flex;flex-wrap:wrap;align-items:end;gap:12px}
+.canonical-facts-toolbar .workspace-select{flex:0 1 300px;min-width:0;max-width:100%}
+.canonical-facts-toolbar label{display:grid;gap:4px;max-width:100%}
+.canonical-facts-toolbar input{min-height:36px;width:240px;max-width:100%}
+.canonical-facts .source-table-wrap{min-width:0;max-width:100%;overflow:auto}
+.canonical-facts .source-table{width:100%;min-width:520px}
+.canonical-facts .import-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.canonical-facts .source-table-wrap:focus-visible{outline:2px solid var(--theme-color-focus-bdr,#007993);outline-offset:2px}
+@media(max-width:600px){
+ .canonical-facts-toolbar .workspace-select,.canonical-facts-toolbar label{flex-basis:100%;width:100%}
+ .canonical-facts-toolbar input{width:100%}
+}

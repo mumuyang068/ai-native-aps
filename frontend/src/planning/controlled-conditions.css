@@ -1,0 +1,33 @@
+.controlled-conditions{min-width:0;color:var(--text);font-size:13px;line-height:1.65;overflow-wrap:anywhere}
+.controlled-intro{margin:0 0 12px;color:var(--muted)}
+.controlled-scope{margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.controlled-scope summary{cursor:pointer;font-weight:600}
+.controlled-scope .definition{margin:10px 0 0}
+.controlled-conditions .definition dd{overflow-wrap:anywhere}
+.controlled-condition{min-width:0;margin:12px 0;padding:10px 12px 12px;border:1px solid var(--line);border-radius:2px}
+.controlled-condition legend{font-size:13px;font-weight:600;padding:0 5px}
+.controlled-conditions .controlled-choice{display:flex;align-items:flex-start;gap:9px;min-height:36px;max-width:none;cursor:pointer;font-weight:500}
+.controlled-choice input[type=checkbox]{width:17px;height:17px;min-height:17px;flex:0 0 17px;padding:0;margin:3px 0 0;accent-color:var(--primary)}
+.controlled-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 14px;margin-top:8px}
+.controlled-fields>label,.controlled-reason{display:flex;min-width:0;flex-direction:column;gap:5px;font-weight:600}
+.controlled-fields .controlled-wide{grid-column:1/-1}
+.controlled-conditions input:not([type=checkbox]),.controlled-conditions select,.controlled-conditions textarea{box-sizing:border-box;min-width:0;max-width:100%;width:100%;min-height:36px;border:1px solid var(--control-border);border-radius:2px;padding:6px 8px;color:var(--text);background:var(--surface);font:inherit}
+.controlled-conditions textarea{resize:vertical;min-height:64px}
+.controlled-conditions :is(input,select,textarea,summary):focus-visible,.controlled-diff-scroll:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.controlled-original{margin:0;align-self:end;font-weight:400}.controlled-original span{display:block;color:var(--muted);font-size:12px}
+.controlled-note{color:var(--muted);font-size:12px;margin:8px 0;line-height:1.7}
+.controlled-preview{margin:16px 0 12px;border-top:2px solid var(--primary);padding-top:12px}
+.controlled-preview-heading{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.controlled-preview-heading h3{font-size:14px;margin:0}
+.controlled-diff-scroll{min-width:0;max-width:100%;overflow:auto;border:1px solid var(--line)}
+.controlled-diff-scroll table{min-width:620px;width:100%;border-collapse:collapse;font-size:12px}
+.controlled-diff-scroll th,.controlled-diff-scroll td{padding:8px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-soft);white-space:normal;overflow-wrap:anywhere}
+.controlled-diff-scroll thead th{background:var(--panel);font-weight:600}
+.controlled-diff-scroll tbody th{width:32%;font-weight:500}
+.controlled-diff-scroll small{display:block;font-weight:400;color:var(--muted);line-height:1.7}
+.controlled-diff-scroll .controlled-changed{background:var(--selection);color:var(--text)}
+.controlled-ack{margin-top:12px;padding:10px;border:1px solid var(--line);background:var(--panel)}
+.controlled-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.controlled-conditions .ant-btn{height:auto;min-height:36px;max-width:100%;white-space:normal}
+.controlled-conditions .button-content{white-space:normal}
+@media(max-width:600px){.controlled-condition{padding:8px}.controlled-fields{grid-template-columns:minmax(0,1fr);gap:10px}.controlled-fields .controlled-wide{grid-column:auto}.controlled-actions .ant-btn{flex:1 1 150px;min-height:40px}.controlled-conditions input:not([type=checkbox]),.controlled-conditions select{min-height:40px}.controlled-conditions .controlled-choice{min-height:40px}.controlled-scope .definition>div{min-width:0}}

@@ -1,0 +1,21 @@
+.order-investigation{min-width:0;font-variant-numeric:tabular-nums}
+.order-investigation header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.order-investigation label{display:block;margin:10px 0;color:var(--ink,#26313a)}
+.order-investigation select{display:block;width:100%;min-height:34px;margin-top:4px;max-width:100%}
+.order-investigation h3{margin:20px 0 8px;font-size:14px}
+.order-investigation h4{margin:12px 0 5px;font-size:13px}
+.order-investigation p{line-height:1.6;overflow-wrap:anywhere}
+.investigation-identity{margin:12px 0;overflow-wrap:anywhere;font-size:12px}
+.investigation-record{display:flex;flex-direction:column;gap:6px;border-bottom:1px solid #d5d9de;padding:10px 0;overflow-wrap:anywhere}
+.investigation-record small{color:#515e6b}
+.order-investigation .ant-btn{max-width:100%;height:auto;min-height:32px;white-space:normal;margin:3px 0}
+.order-investigation .button-content{white-space:normal;overflow-wrap:anywhere}
+.order-investigation .records-tabs{overflow-x:auto}
+.order-investigation .records-tabs button{min-width:54px}
+.order-investigation .raw-json{max-height:330px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.order-filter{display:flex;gap:12px;align-items:center;padding:8px 12px;border-bottom:1px solid #d5d9de;flex-wrap:wrap}
+.order-filter label{display:flex;align-items:center;gap:6px}
+.order-filter input{width:210px;min-height:32px}.order-filter select{min-height:32px}
+.records-panel:has(>.order-filter){grid-template-rows:auto auto minmax(0,1fr) auto}
+.inspector:has(.order-investigation)>.records-tabs button{padding-inline:9px;font-size:12px}
+@media(max-width:600px){.order-filter label{width:100%}.order-filter input,.order-filter select{flex:1;min-width:0}.order-investigation .ant-btn{min-height:40px}.order-investigation .records-tabs button{min-height:40px}}

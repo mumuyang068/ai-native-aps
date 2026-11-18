@@ -1,0 +1,88 @@
+{
+  "source_sha256": "bed143fe7cd13bdcdd3b524030ea0bbfb37e97f5fc0ba5f786d7c35fdc3fb646",
+  "cases": [
+    {
+      "file": "01_规范样本.xlsx",
+      "description": "基础字段完整；模拟人工确认后可静态转换。",
+      "changes": []
+    },
+    {
+      "file": "02_缺失字段.xlsx",
+      "description": "缺少工时、并行数、采购提前期；联系人空白仅提示。",
+      "changes": [
+        {
+          "sheet": "工艺路线",
+          "header": "每件工时秒",
+          "row": 7,
+          "reason": "关键参数缺失，禁止填默认值"
+        },
+        {
+          "sheet": "生产资源",
+          "header": "有效并行数",
+          "row": 7,
+          "reason": "关键参数缺失，禁止填默认值"
+        },
+        {
+          "sheet": "供应来源",
+          "header": "采购提前期秒",
+          "row": 6,
+          "reason": "关键参数缺失，禁止填默认值"
+        },
+        {
+          "sheet": "订单",
+          "header": "联系人",
+          "row": 6,
+          "reason": "可选联系字段缺失，不影响计算"
+        }
+      ]
+    },
+    {
+      "file": "03_字段歧义.xlsx",
+      "description": "不明编码、用量单位和日产量口径；须人工确认。",
+      "changes": [
+        {
+          "sheet": "BOM",
+          "header": "材料单位",
+          "row": 6,
+          "reason": "“用量”未给出单位，不能猜 cm 或 m"
+        }
+      ]
+    },
+    {
+      "file": "04_数据冲突.xlsx",
+      "description": "重复主键、配方版本、库存时点和重叠日历冲突。",
+      "changes": [
+        {
+          "sheet": "生产配方",
+          "header": "工艺版本",
+          "row": 6,
+          "reason": "配方引用不存在的版本"
+        },
+        {
+          "sheet": "库存",
+          "header": "库存时点",
+          "row": 6,
+          "reason": "不是规划起点库存快照"
+        },
+        {
+          "sheet": "工作日历",
+          "header": "工作开始",
+          "row": 7,
+          "reason": "工作区间重叠"
+        }
+      ]
+    },
+    {
+      "file": "05_在途与预留边界.xlsx",
+      "description": "有效在途采购和硬预留是真实业务形态，但当前适配器不支持。",
+      "changes": [
+        {
+          "sheet": "库存",
+          "header": "预留数量",
+          "row": 6,
+          "reason": "1 卷硬预留，不能简单从实存中扣除后丢弃需求关系"
+        }
+      ]
+    }
+  ]
+}
